@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'events#show_latest'
 
   get 'coc' => 'coc#view'
+  get 'sponsor' => 'sponsor#view'
 
   resources :speakers
   resources :sessions
