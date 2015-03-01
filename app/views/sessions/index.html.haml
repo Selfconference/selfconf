@@ -1,21 +1,55 @@
 .mid_block
   .container
     .row
-      .col-md-12
+      .col-md-3.visible-desktop
+        #top.speaker-nav{data: {spy: "affix", offset_top: "310"}}
+          %ul.nav.nav-tabs
+            %li.active
+              %a{href: "#names", data: {toggle: "tab"}} Names
+            %li
+              %a{href: "#talks", data: {toggle: "tab"}} Talks
+
+          .tab-content
+            .tab-pane.active{id: "names"}
+              .nav-wrapper
+                %ul.nav.nav-list
+                  -@speakers.order('name').each do |speaker|
+                    %li
+                      %a{href: "sessions#speaker_#{speaker.id}"}
+                        %i.glyphicon.glyphicon-chevron-right
+                        = speaker.name
+            .tab-pane{id: "talks"}
+              .nav-wrapper
+                %ul.nav.nav-list
+                  -@sessions.order('name').each do |session|
+                    %li
+                      %a{href: "sessions#session_#{session.id}"}
+                        %i.glyphicon.glyphicon-chevron-right
+                        = session.name
+
+      .col-md-9
         %ul.speaker-list
-          - @sessions.each do |session|
+          - @sessions.each do | session |
             %li.speaker-session-row
               .row
-                .col-md-8.session
-                  %h4{:id => "session_#{session.id}"}= session.name
-                  %p= raw session.abstract
-                .col-md-4
+                .session{:id => "session_#{session.id}"}
                   -session.speakers.each do |speaker|
-                    .speaker{:id => "speaker_#{speaker.id}"}
-                      %img.img-polaroid.img-rounded.speaker-img.pull-left{:src => speaker.photo}/
-                      %h4
-                        = speaker.name
-                        - if speaker.twitter.present?
-                          %h5.italic
-                            %a{:href => "http://twitter.com/#{speaker["twitter"]}"}= "@#{speaker["twitter"]}"
-                      %p= raw speaker.bio
+                    %img.img-polaroid.img-rounded.speaker-img.pull-left{:src => speaker.photo, :id => "speaker_#{speaker.id}"}/
+                  %h4
+                    = "#{session.speakers.map(&:name).join(", ")}: #{session.name}#{if session.keynote then " (keynote)" end}"
+                  %h5.italic
+                    = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
+                  %p= raw session.abstract
+                -session.speakers.each do |speaker|
+                  .speaker
+                    %h5.italic
+                      ="About #{speaker.name}"
+                    %p= raw speaker.bio
+
+:javascript
+  $(function() {
+    $('.nav-tabs li>a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    })
+  });

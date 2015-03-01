@@ -39,16 +39,23 @@ searls = event.speakers.create!(
 )
 talk = searls.sessions.create!(
   name: "The Social Coding Contract",
-  abstract: "Social coding revolutionized how we share useful code with others. Bundler, npm, and Github made publishing and consuming code so convenient that our dependencies have become smaller and more numerous. Nowadays, most projects quickly resemble a Jenga tower, with layer upon layer of poorly understood single points of failure.<br /><br />Despite our progress, we'd benefit from pausing to reflect on our relationship with open source. Convenience and ego drive most open source adoption, but these shortsighted motivations raise long-term problems we need to clearly identify if we can ever hope to solve them."
+  abstract: "Social coding revolutionized how we share useful code with others. Bundler, npm, and Github made publishing and consuming code so convenient that our dependencies have become smaller and more numerous. Nowadays, most projects quickly resemble a Jenga tower, with layer upon layer of poorly understood single points of failure.<br /><br />Despite our progress, we'd benefit from pausing to reflect on our relationship with open source. Convenience and ego drive most open source adoption, but these shortsighted motivations raise long-term problems we need to clearly identify if we can ever hope to solve them.",
+  keynote: true
 )
 talk.update_attributes!(event_id: event.id)
 
-event.speakers.create!(
+brianna = event.speakers.create!(
   name: "Brianna Wu",
   twitter: "spacekatgal",
   photo: "http://s3.amazonaws.com/selfconf/speakers/brianna-wu.jpg",
   bio: "Brianna Wu is the head of development at Giant Spacekat, a company specializing in cinematic experiences using the Unreal engine. She’s also a frequent speaker on women-in-tech issues. In the past, she’s worked as a journalist and a politico. When she’s not developing software, she enjoys racing motorcycles and running marathons."
 )
+talk = brianna.sessions.create!(
+  name: "To Be Announced",
+  abstract: "Details will be available soon!",
+  keynote: true
+)
+talk.update_attributes!(event_id: event.id)
 
 coraline = event.speakers.create!(
   name: "Coraline Ehmke",

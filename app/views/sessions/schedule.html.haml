@@ -1,0 +1,87 @@
+.mid_block
+  .container
+    .row
+      .col-md-offset-1.col-md-10
+        .visible-desktop
+          %h4 Friday, May 30th
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+              -@rooms.each do |room|
+                %td
+                  %h5= room.name
+            -@friday.keys.each do | time |
+              %tr
+                %td
+                  %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
+                -sessions = @friday["time"]
+                -@rooms.each do |room|
+                  -session = sessions.find { |value| value["room"] == room }
+                  -if session
+                    %td
+                      -has_link = session["anchor"] != "none"
+                      -if hasLink
+                        %a{href: "/2014/speakers##{session['anchor']}"}>
+                      = session['name']
+                      -if hasLink
+                        =" – #{session['title']}"
+                  -else
+                    %td
+
+          %h4 Saturday, May 31st
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+              -@rooms.each do |room|
+                %td
+                  %h5= room.name
+            -@saturday.keys.each do | time |
+              %tr
+                %td
+                  %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
+                -sessions = @saturday["time"]
+                -@rooms.each do |room|
+                  -session = sessions.find { |value| value["room"] == room }
+                  -if session
+                    %td
+                      -has_link = session["anchor"] != "none"
+                      -if hasLink
+                        %a{href: "/2014/speakers##{session['anchor']}"}>
+                      = session['name']
+                      -if hasLink
+                        =" – #{session['title']}"
+                  -else
+                    %td
+
+        .hidden-desktop
+          %h4 Friday, May 30th
+          -@friday.keys.each do | time |
+            %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
+            %ul
+              -rooms = @friday["slot"]
+              -rooms.each do |row|
+                %li
+                  -hasLink = row['anchor'] != 'none'
+                  = "#{row['room']}: "
+                  -if hasLink
+                    %a{href: "/2014/speakers##{row['anchor']}"}
+                  -if row['name'] != 'blank'
+                    = row['name']
+                    -if hasLink
+                      =" – #{row['title']}"
+
+          %h4 Saturday, May 31st
+          -@saturday.keys.each do | time |
+            %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
+            %ul
+              -rooms = @saturday["slot"]
+              -rooms.each do |row|
+                %li
+                  -hasLink = row['anchor'] != 'none'
+                  = "#{row['room']}: "
+                  -if hasLink
+                    %a{href: "/2014/speakers##{row['anchor']}"}
+                  -if row['name'] != 'blank'
+                    = row['name']
+                    -if hasLink
+                      =" – #{row['title']}"

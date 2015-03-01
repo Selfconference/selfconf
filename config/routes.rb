@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'coc' => 'coc#view'
   get 'sponsor' => 'sponsor#view'
 
-  resources :speakers
   resources :sessions
 
   # Example of regular route:
