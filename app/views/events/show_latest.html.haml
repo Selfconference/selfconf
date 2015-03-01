@@ -55,10 +55,10 @@
         -@event.speakers.sample(4).each do |speaker|
           .col-md-3.main-page-speaker
             %a{:href => "sessions#speaker_#{speaker.id}"}
-              %img.img-thumbnail.img-rounded.img-responsive.speaker-img{:src => speaker.photo}/
+              .center
+                .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
               %h4= speaker.name
-              -speaker.sessions.each do |session|
-                %p= session.name
+              %p= speaker.sessions.sample.name
 
 %section#location
   .color-line

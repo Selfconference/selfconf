@@ -1,0 +1,652 @@
+{"submissions":[
+  {
+    "id":102731,
+    "data":{
+      "talkname":"Megateam vs Code-nado: Lessons Learned While Working on a Large Team",
+      "abstract":"Working on a large team can be crazy. \"Why are we wasting all of our time in meetings?\" \"Who wants to respond to this email from the client?\" \"Will bringing this new person onboard slow us down so we miss our deadline?\" \"Whose turn is it to make sure the build goes out to the client this week?\" \"Why are we doing the same things over and over and not getting any better?\"<br /><br />At Detroit Labs, one of our largest project teams consists of 20 people - a designer, QA, Android and iOS developers, and a delivery lead - yet we all manage to work as a cohesive group and have fun doing it. We’ll talk about how we manage to keep small team performance and agility while gaining advantages of scale. From hiring to onboarding, keeping work flowing, QAed, and delivered, even how we choose our music, we’ll share our experiences about what keeps the Megateam going strong.",
+      "speakers": [
+        {
+          "name":"Anne Cahalan",
+          "bio":"Damaged by an ironic explosion at a fire extinguisher factory, Anne, Will, Kyle and Chris were inducted into a secret government program to build a bionic super team. As is custom, the government spared no expense to upgrade these once-normal citizens with enhanced sarcasm, dungeon mastery, and sense of smell. Using their newly-gifted abilities, the Megateam have been fighting crime, singing karaoke, and writing kick-ass apps at Detroit Labs to make the world a better place.",
+          "email":"anne.cahalan@detroitlabs.com",
+          "twitter":"@northofnormal",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/53ceb717e4b0efb67d70e9e5/1406056243298/Anne.jpg?format=300w"
+        },
+        {
+          "name":"Will Hinchman",
+          "bio":"Damaged by an ironic explosion at a fire extinguisher factory, Anne, Will, Kyle and Chris were inducted into a secret government program to build a bionic super team. As is custom, the government spared no expense to upgrade these once-normal citizens with enhanced sarcasm, dungeon mastery, and sense of smell. Using their newly-gifted abilities, the Megateam have been fighting crime, singing karaoke, and writing kick-ass apps at Detroit Labs to make the world a better place.",
+          "email":"will.hinchman@detroitlabs.com",
+          "twitter":"@hinchable",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/52d59540e4b01276a21dbd2f/1389729265646/Hinchman.jpg?format=300w"
+        },
+        {
+          "name":"Kyle Ofori",
+          "bio":"Damaged by an ironic explosion at a fire extinguisher factory, Anne, Will, Kyle and Chris were inducted into a secret government program to build a bionic super team. As is custom, the government spared no expense to upgrade these once-normal citizens with enhanced sarcasm, dungeon mastery, and sense of smell. Using their newly-gifted abilities, the Megateam have been fighting crime, singing karaoke, and writing kick-ass apps at Detroit Labs to make the world a better place.",
+          "email":"kyle.ofori@detroitlabs.com",
+          "twitter":"@kyleofori",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/54919109e4b0549c00f34438/1419014182074/Kyle.jpg?format=300w"
+        },
+        {
+          "name":"Chris Trevarthen",
+          "bio":"Damaged by an ironic explosion at a fire extinguisher factory, Anne, Will, Kyle and Chris were inducted into a secret government program to build a bionic super team. As is custom, the government spared no expense to upgrade these once-normal citizens with enhanced sarcasm, dungeon mastery, and sense of smell. Using their newly-gifted abilities, the Megateam have been fighting crime, singing karaoke, and writing kick-ass apps at Detroit Labs to make the world a better place.",
+          "email":"ct@detroitlabs.com",
+          "twitter":"@malusman",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/5266c0c2e4b0547c6f288493/1382553548618/ChrisT.jpg?format=300w"
+        }
+      ]
+    }
+  },
+  {
+    "id":77905,
+    "data":{
+      "talkname":"Finding Joy at Work",
+      "abstract":"Many developers are underwhelmed by their current employers. They are well paid and working on interesting problems but something is still missing that keeps them from truly finding joy in their professional lives. I was in this very position for the first decade of my career until I finally stopped waiting for others to make me happy. In 2011 I cofounded a small software studio focused on creating happiness for our employees. This talk will focus on my journey to identify the values that I believe are necessary for creating a culture of joy.",
+      "speakers": [{
+        "name":"Todd Kaufman",
+        "bio":"Todd is agent 001 at Test Double, a small but happy software studio based out of Columbus, Ohio. Todd splits his time between finding awesome people to work with and delivering high quality solutions to clients. Some of the languages and tools he’s used to deliver nice code to his clients include Java, .NET, Ruby, Ruby on Rails, JavaScript, Node.js and 18 year Macallan. Todd’s just one of the many friendly agents at Test Double, feel free to ask him for a bright green tshirt if you see him!",
+        "email":"todd@testdouble.com",
+        "twitter":"toddkaufman",
+        "headshot":"http://cdn2.testdouble.com/img/team@2x-e97ecd50193bd64fe0163f3c18d2d5e9.jpg"
+      }]
+    }
+  },
+  {
+    "id":77494,
+    "data":{
+      "talkname":"Introduction to WatchKit",
+      "abstract":"2015 is the year of the Apple Watch, and to get your app running on it, you’ll want to use WatchKit. Let’s look at the anatomy of a WatchKit app, how to integrate your existing iPhone app with it, and the capabilities (and limitations) of the device. We’ll use a mixture of Objective-C and Swift to show off the cool things you can do on your users’ wrists.",
+      "speakers": [
+        {
+          "name":"Jeff Kelley",
+          "bio":"Jeff Kelley is an iOS developer at Detroit Labs and author of Learn Cocoa Touch for iOS, published by Apress. He got his start with programming at the age of five, modifying programs his mom dutifully typed from a magazine into Qbasic (thanks, Mom!). He’s been working with iOS since its infancy in 2008, and before that managed the OS X environment at the University of Michigan, where he obtained a very-related degree in Philosophy. Apps he’s worked on that you’ve likely seen are the Domino’s Pizza iOS ordering app and 3D Pizza Builder, the award-winning Chevy Game Time second-screen Super Bowl experience, and the DTE Energy outage center app. When not working on iOS apps, Jeff listens to an inordinate amount of podcasts and organizes the Motor City CocoaHeads group.",
+          "email":"SlaunchaMan@gmail.com",
+          "twitter":"SlaunchaMan",
+          "headshot":"http://i.imgur.com/NJCt8DH.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id":87808,
+    "data":{
+      "talkname":"Stepping Outside Your Comfort Zone: Learning to Teach",
+      "abstract":"As a developer you spend your entire life learning.  But what happens when the tables are turned and you become the teacher?  Do you want to become a conference speaker, talk at your local user group, give presentations at work, or become a technical trainer?  As a previous classroom teacher with a Master's Degree in Curriculum Development, I will take you on a journey to understand the various learning styles and how to effectively reach everyone.  We will look at how to present your information, best ways to structure it, and learn ways to reach all students no matter their level.  We will also cover a number of best practices for crafting your presentation decks themselves.  Join me for this exploration into the inner workings of the human mind.",
+      "speakers": [{
+        "name":"Heather White",
+        "bio":"Heather has held various jobs in the past, ranging from teaching elementary school to being a project manager and trainer for the Army’s medical research program.  She holds a Bachelors of Biology and a Masters in Curriculum Development.  Currently she uses her background in curriculum and teaching to head up the Training Program at php[architect], as well as being their customer service lead.  Heather is also a self proclaimed geek and enjoys Sci-Fi, Medieval reenactment, and board games.",
+        "email":"me@heatherlwhite.com",
+        "twitter":"@cattycreations",
+        "headshot":"http://www.gravatar.com/avatar/5f6a2d50ea70892ecdd6d6b65e3833b0.png?s=500"
+        }]
+    }
+  },
+  {
+    "id":102711,
+    "data":{
+      "talkname":"Climbing the Testing Pyramid in iOS",
+      "abstract":"Jake and Chris will walk through building an iOS app that has well-tested business logic, service integration, and UI. To get maximum test coverage, we’ll demonstrate the tests that are most appropriate for each level of your app. We’ll review the testing frameworks available for Objective-C and Swift and show you how to get them up and running so you can quickly add tests to your app.",
+      "speakers": [
+        {
+          "name":"Jake Payton",
+          "bio":"Jake and Chris first met in the 23rd century while interning at the Black Mesa Chronotransport Research Facility. Being the newest team members, they were first given menial tasks like making coffee, filing papers, and killing Hitler. Unfortunately during a routine experiment, a nasty off-by-one error sent them back to 2012 Detroit. Stranded and vowing to never let such a simple error crash their software again, Jake and Chris decided to share the importance of test-driven development with the past. Today, they spend their time developing iOS apps at Detroit Labs and hoping that each green test will be their ticket home.",
+          "email":"jake@detroitlabs.com",
+          "twitter":"@JakePayton",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/5266c0c6e4b06dd5866c9548/1382466265176/Jake.jpg?format=500w"
+        },
+        {
+          "name":"Chris Trevarthen",
+          "bio":"Jake and Chris first met in the 23rd century while interning at the Black Mesa Chronotransport Research Facility. Being the newest team members, they were first given menial tasks like making coffee, filing papers, and killing Hitler. Unfortunately during a routine experiment, a nasty off-by-one error sent them back to 2012 Detroit. Stranded and vowing to never let such a simple error crash their software again, Jake and Chris decided to share the importance of test-driven development with the past. Today, they spend their time developing iOS apps at Detroit Labs and hoping that each green test will be their ticket home.",
+          "email":"ct@detroitlabs.com",
+          "twitter":"@malusman",
+          "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/5266c0c2e4b0547c6f288493/1382553548618/ChrisT.jpg?format=300w"
+        }
+      ]
+    }
+  },
+  {
+    "id":102758,
+    "data":{
+      "talkname":"Build real-time web applications using WebSockets and Node.js",
+      "abstract":"WebSockets is a recent technology that allows computers and servers to perform two-way communications in real-time. By eliminating frequent AJAX polling to the server, WebSockets improve performance and enhance responsiveness. This talk is an introduction to WebSockets, how they work and how to get started using them in Node.js. To demonstrate the power of WebSockets, I will also show three examples of real-time web apps: (1) a chat room; (2) a shared to-do list; and (3) a dashboard that displays stock market prices in real-time.",
+      "speakers": [{
+        "name":"Robert Aboukhalil",
+        "bio":"Robert Aboukhalil is currently pursuing a PhD in computational biology at Cold Spring Harbor Laboratory, where he uses data science every day to process and analyse large biological datasets. In his work, he also develops interactive web applications that enable researchers to perform real-time analyses on their data to obtain a better understanding of their results.",
+        "email":"robert.aboukhalil@gmail.com",
+        "twitter":"@RobAboukhalil",
+        "headshot":"http://www.gravatar.com/avatar/7cb09f235b3d4eb3cec88841e4a56066.png?s=100"
+      }]
+    }
+  },
+  {
+    "id":85472,
+    "data":{
+      "talkname":"Running a self-organizing/self-managing team (or company)",
+      "abstract":"There’s been a lot of publicity about organizations that are working without managers (for example, Valve, Github, Medium, and most recently Zappos). However, is the absence of managers in their organizations their Achilles heel?<br /><br />Anyone who’s worked “under” a command-and-control manager will find the idea of getting rid managers at least mildly appealing. Moreover, if these organizations are really working in self-managing or self-directed ways—if individuals truly get to pick their work and how they get it done—it seems that the traditional role of manager as someone who tells you what to do is redundant and unnecessary. However, are there aspects of “traditional” management that remain relevant in such organizations? Are there new approaches that managers must adopt in such organizations?<br /><br />This talk is based on my experience as a “manager” in a largely self-managing/self-organizing company (Next Big Sound), as well as several self-managing teams at previous companies. I will discuss the stages of a gradual transition from a more traditional to a self-managing organization, including challenges along the way. I will also cover the critical role of managing individual engagement in such organizations, as well as practical ways of maximizing it. Finally, I’ll focus on the importance of transparency and accountability, and how managers can foster it.",
+      "speakers": [{
+        "name":"Dave Zwieback",
+        "bio":"Dave Zwieback is VP, Engineering at Next Big Sound and Next Big Book. He has previously worked with the adaptive learning startup Knewton, the quantitative investment management firm D.E. Shaw & Co., and Morgan Stanley. He also ran a consultancy for 7 years. Dave is the author of \"Being Blameless: The Best Way To Learn From Failure (and Success)\", coming in 2015 from O'Reilly Media.",
+        "email":"dz@mindweather.com",
+        "twitter":"@mindweather",
+        "headshot":"http://d13pix9kaak6wt.cloudfront.net/avatar/users/z/w/i/zwieback_1371915408_71.jpg"
+      }]
+    }
+  },
+  {
+    "id":103148,
+    "data":{
+      "talkname":"Coming Clean About Mental Health at Work",
+      "abstract":"Statistically, 1 in 5 of us suffers from mental illness. Unfortunately, the stigma that follows sickness of the mind keeps discussions surrounding mental wellness to a minimum in the workplace. <br /><br />I’d like to tell you about my experience as a female engineer who openly shared details of my personal struggle with depression and anxiety with a founder of the company I work for. This spurred a company-wide presentation on ways that emotional and mental hurdles can affect work, different treatment options, and best practices for supporting coworkers. <br /><br />I want to talk about what Olark did to make me feel comfortable taking the leap of faith, what you can look for (and push for) at your workplace, and offer an example of success for those who struggle with mental obstacles.",
+      "speakers": [{
+        "name":"Madalyn Rose Parker",
+        "bio":"Madalyn is a web developer fueled by live music (and coffee) and at the constant beck and call of her pet rabbits and cat. She’s spent the past year working for Olark in Ann Arbor.",
+        "email":"madalyn@olark.com",
+        "twitter":"@madalynrose",
+        "headshot":"http://imgur.com/MilFxKc"
+      }]
+    }
+  },
+  {
+    "id":95991,
+    "data":{
+      "talkname":"There Is No Work/Life Balance",
+      "abstract":"Culture is deliberate. You build it just like you build your business. The way people feel at work has a direct impact on the bottom line. What’s more - your brand and your culture are inextricably intertwined. And yet most organizations spend more time on their story than they spend thinking about how to align that story with their culture in a way that best supports their people. And the people are everything. So how do you build a values-driven culture that promotes whole life balance while also emphasizing the work ethic you need to fuel a successful business? We’re going to answer that question and others you didn’t even know you had. Because there is no work/life balance. It’s way better than that.",
+      "speakers": [{
+        "name":"Nancy Lyons",
+        "bio":"http://www.nancylyons.com",
+        "email":"nancy@clockwork.net",
+        "twitter":"@nylons",
+        "headshot":"http://www.nancylyons.com"
+      }]
+    }
+  },
+  {
+    "id":77762,
+    "data":{
+      "talkname":"Sometimes Optimism is Good Business: Why we train, and why we will keep training",
+      "abstract":"Detroit Labs is a mobile development agency. But we've hired very few mobile developers. Why is that, and how does that even make sense? In 2014 we ran two apprentice program classes and plan to do more in 2015. They have created business and personal successes, learning opportunities, and experiences that have been wildly important to our culture, community, and soul. In this talk I'll discuss the motivation behind running our apprentice program, the things that didn't work, the things that did, what we learned, and why your team should be doing this.",
+      "speakers": [{
+        "name":"Nathan Hughes",
+        "bio":"Nathan Hughes is co-founder of Detroit Labs, and cares more about people than programming.",
+        "email":"n@thanhughes.com",
+        "twitter":"ndh313",
+        "headshot":"http://i.imgur.com/TTCA7ix.jpg"
+      }]
+    }
+  },
+  {
+    "id":103787,
+    "data":{
+      "talkname":"Code along: Building your first iOS game in 45 minutes",
+      "abstract":"Even if your a professional programmer, game development is probably nothing like your day job.  It doesn't need to be intimidating or scary.  Bring your laptop and have Xcode open and ready.  In just 45 minutes we'll use sprite kit, game kit, and a few other iOS frameworks to build a working game.  If you've never built a game before, this will hopefully be the first of many to come.",
+      "speakers": [{
+        "name":"Jake Payton",
+        "bio":"Kurt Russell plays truck driver Jake Payton, who helps his friend Wang Chi  rescue Wang's green-eyed fiancee from bandits in San Francisco's Chinatown. They go into the mysterious underworld beneath Chinatown, where they face an ancient sorcerer named David Lo Pan.",
+        "email":"jake@detroitlabs.com",
+        "twitter":"Jakepayton",
+        "headshot":"https://lh3.googleusercontent.com/-MK8Y0oxZQ9E/AAAAAAAAAAI/AAAAAAAAAAA/HRPfXPCQ7xc/photo.jpg"
+      }]
+    }
+  },
+  {
+    "id":96403,
+    "data":{
+      "talkname":"Turn your Raspberry Pi into a retro-gaming console",
+      "abstract":"If you have a Raspberry Pi just sitting around collecting dust, or it's getting too hard to keep your (really) old consoles organized and hooked up to your fancy new TV (or both), you might find this talk useful. Playing retro games on the Raspberry Pi is where the party's at. Thanks to the hard work of others, this is now a very simple transformation for the rest of us. I'll talk about what it took for me to get this working on a cold, wintry Saturday afternoon, and any additional tweaking I may have done since then. You'll leave knowing exactly how crazy simple it is.",
+      "speakers": [{
+        "name":"Kristen Smith",
+        "bio":"Kristen is a software developer in Columbus, OH. She has owned a Raspberry Pi for a handful of years, but hasn't done anything with it until now. She's very excited about the certainty of wasting many hours of her future playing NES games now that her Raspberry Pi supports this activity.",
+        "email":"udoetr@gmail.com",
+        "twitter":"",
+        "headshot":"https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/v/t1.0-9/942398_10102624298182338_839386082_n.jpg?oh=660edd1aba4448fffe9d301961e534ca&oe=5552685D&__gda__=1433033207_39744fa493a7e03def39ad583aba3069"
+      }]
+    }
+  },
+  {
+    "id":87914,
+    "data":{
+      "talkname":"A Question of Time: 3000 Years of Why 'What Time Is It?' Is Hard",
+      "abstract":"Ever wonder why the ninth month is named SEPTember and the tenth is OCTober? Why do we have leap year? And what the heck is up with Easter? Since the earliest days of civilization, cultures have had to fit complicated and irregular natural cycles into easier-to-manage abstractions like dates and times. These abstractions never quite fit the reality, and sometimes they have to be replaced or changed. How do different cultures build these abstractions? How do they get them wrong? How do they manage changes to what most people take as unchangeable foundations of their lives?  It turns out that how they did can teach us a lot about how technology and culture interact in our own lives and businesses. This talk will cover thousands of years of history, from the ancient origins of the 60-minute hour to the centuries that it took to fix a known bug in how leap years work, and the surprising reason that you're allowed to be five minutes late to class at Oxford. It will pull out lessons learned by kings, popes, and emperors that directly apply to the modern world of software, culture, and technology",
+      "speakers": [{
+        "name":"Andrew Burke",
+        "bio":"Andrew Burke is an independent software developer based in Halifax, Nova Scotia, with over two decades of experience building software for people - most recently with Ruby on Rails and iOS. He built the iOS \"connected\" diary app Remembary.",
+        "email":"andrew@shindigital.com",
+        "twitter":"ajlburke",
+        "headshot":"http://shindigital-blog-images.s3.amazonaws.com/HeadShot.jpg"
+      }]
+    }
+  },
+  {
+    "id":96094,
+    "data":{
+      "talkname":"Excellent Technical Interviews",
+      "abstract":"== Brief ==<br /><br />How do you recognize technical talent? I've watched hundreds of developers go through technical interview processes at dozens of companies. From 45-minute puzzles to week-long pairing visits, there are many models for evaluating technical skills. But are they effective?<br /><br />Let's talk about what aptitudes you should be looking for and concrete techniques to separate the good from the good-enough.<br /><br />== More Details ==<br /><br />Over the past three years I've helped a hundred new developers find great jobs. Some are at tiny startups and some at huge enterprises. But most technical interview processes are a mess. They have unclear goals, a poorly thought-through process, and yield unclear results.<br /><br />Featuring observations from some of my favorite processes (ThoughtWorks, Pivotal Labs, and Mode Set) we'll explore a rational, organized process for (A) defining the ideal characteristics you're looking for and (B) discovering how well an applicant aligns with those traits.<br /><br />The session will follow this general outline:<br /><br />1. What should you be looking for in a technical interview?<br />2. How technical interviews go wrong<br />3. Exemplar processes from three excellent interview processes<br />4. Why do those processes work?<br />5. A strategy for designing or re-designing your own interview process<br /><br />Attendees will walk away with a better understanding of what their peers are doing for technical interviews, strategies for designing an interview process, and motivation to improve what they're doing.<br /><br />I've been on the \"inside\" interviewing several developers per day for an enterprise team, interviewed candidates for my own small team, and most importantly coached over a hundred developers through the application/interview/contract as they enter new jobs. I've been amazed to see the variety, for better or worse, across processes. It's become clear to me that we can do better.<br /><br />Through this session I hope to start a dialogue of transparency around interviews. There's no reason a process needs to be shrouded in secrecy. There are hundreds or thousands of developers who've taken Pivotal's RPI, but that doesn't make it any easier to get a job there. Effective evaluation processes don't rely on surprise.",
+      "speakers": [{
+        "name":"Jeff Casimir",
+        "bio":"I'm the Executive Director at the Turing School of Software & Design in Denver, Colorado. I've been teaching and running schools for 12 years, and helped start the short-term developer training movement with Hungry Academy in 2012, gSchool in 2013, and Turing in 2014.",
+        "email":"jeff@turing.io",
+        "twitter":"j3",
+        "headshot":"http://cl.ly/image/3G3B2n0G161L"
+      }]
+    }
+  },
+  {
+    "id":101105,
+    "data":{
+      "talkname":"Ask vs. Guess Culture Communication",
+      "abstract":"Have you ever been told you’re “too direct,” or feel like you don’t understand what others want? Or on the other side, do you think others are often too confrontational? These are Ask vs Guess Culture differences. Ask folks believe it’s ok to ask anything, because it’s ok to say no, while Guess folks prioritize not imposing on others. It’s a culture clash that isn’t often recognized, yet causes quite a bit of tension and frustration. This talk will cover the nuances of these different communication styles, as well as strategies for bridging the gap. Gaining an understanding of these differences and learning specific tactics for a professional context will make you a drastically more effective communicator.",
+      "speakers": [{
+        "name":"Katherine Wu",
+        "bio":"KWu is a software engineer at New Relic. Prior to New Relic, she attended Hackbright Academy and had worked at Google for 5 years in various technical support and product operations roles. A proud New Jersey native, she nevertheless fits in well in Portlandia, what with biking to work and spending weekends canning and preserving the fruits and veggies from a local farm share.",
+        "email":"kwugirl@gmail.com",
+        "twitter":"kwugirl",
+        "headshot":"https://en.gravatar.com/kwugirl"
+      }]
+    }
+  },
+  {
+    "id":85435,
+    "data":{
+      "talkname":"5 Things I Wish Someone Told Me Before I Started Programming",
+      "abstract":"There's more to being a successful developer than simply being great at programming. The gotchas that slow us down or trip us up are often outside of the code we write, manifesting instead in our process or how we work with our peers. Whether you're new to programming or a veteran of many projects, these 5 things can improve your code, your career, and your team. If you're just starting out, you'll be glad to hear that you frustrations are not unique -- there are strategies for overcoming them. For experienced developers, this talk is a refresher course on what goes into the day-to-day, reminding us to have some empathy for individuals new to our community. Come (re)discover these 5 (sometimes surprising, always honest) truths, tips, and tactics for success.",
+      "speakers": [{
+        "name":"Kerri Miller",
+        "bio":"Kerri Miller is a Sr Software Developer and Team Lead based in the Pacific Northwest. She has worked at enterprise companies, international ad agencies, boutique consultancies, start-ups, mentors and teaches students, and finds time to work on Open Source projects. Having an insatiable curiosity, she has worked as a lighting designer, marionette puppeteer, sous chef, and professional poker player, and enjoys hiking, collecting Vespas, and working with glass.",
+        "email":"kerrizor@kerrizor.com",
+        "twitter":"@kerrizor",
+        "headshot":"https://dl.dropboxusercontent.com/u/7560883/headshot.png"
+      }]
+    }
+  },
+  {
+    "id":103576,
+    "data":{
+      "talkname":"How I Learned to Stop Caring and Made Better Software",
+      "abstract":"Best practices are important, but are they always the best for your situation?  I spent years working on large software projects where best practices were crucial. Milestone planning, multiple code branching, 99.9% uptime requirements, heavy testing, deployment processes, etc. But I then blindly applied those to every project afterwards. In retrospect, that hurt many projects, especially in smaller companies or startups where speed of innovation was more important and downtime acceptable. In this session, learn from my experience and discover where cutting corners is not only acceptable, but better for the project. At the same time, learn which practices are crucial and should be used no matter what!",
+      "speakers": [{
+        "name":"Eli White",
+        "bio":"Eli has been building Web Applications for 20 years and fell in love with PHP the day that PHP 4 was released. Since then he's been a strong advocate for PHP and used it in every project he's worked on.  He is currently the Managing Editor and Conference Chair for php[architect] and Founding Partner & CTO of musketeers.me. He is also an avid writer (blogs, articles and books), and has spoken at numerous conferences.",
+        "email":"eli@eliw.com",
+        "twitter":"EliW",
+        "headshot":"http://0.gravatar.com/avatar/4b4b7814866dd2d494156a6aadf2fae8?s=500&d=identicon&r=G"
+      }]
+    }
+  },
+  {
+    "id":83608,
+    "data":{
+      "talkname":"Practical RESTful Webservices API Design",
+      "abstract":"Over the years, REST has grown in popularity as the preferred way of publishing and consuming web services. Clients access such services through an implementation-agnostic interface that allow for the standard CRUD operations. Designing an API that conforms to the REST architectural principles is a non-trivial task that can get quite challenging especially  for complex web applications.<br />More often than not, we end up with APIs that are “somewhat” RESTful that can be quite a pain for the consumers of the API to adopt.<br />This talk will provide an overview of the guiding principles behind RESTful APIs. We will discuss the common pitfalls and anti-patterns to avoid and will discuss a practical approach to designing a simple and intuitive RESTful interface.",
+      "speakers": [{
+        "name":"Priya Rajagopal",
+        "bio":"Priya Rajagopal has been professionally developing and architecting software solutions for over 15 years. She is currently leading the mobile development efforts at a startup in Ann Arbor, Michigan and in her spare time, does freelance mobile app development, consulting and mentoring. She is an active member of the local mobile development community where she frequently talks on mobile development related topics and co-organizes the Mobile Monday, Ann Arbor meetup group. Prior to mobile development, she worked on a range of technologies including IPTV, Social TV, targeted advertising, network management and platform security and is a co-inventor of several US patents.  More on her work at www.priyaontech.com",
+        "email":"r7.priya@gmail.com",
+        "twitter":"rajagp",
+        "headshot":"http://www.gravatar.com/avatar/01c9d267e78a30758e8ce4a8735833e5.png"
+      }]
+    }
+  },
+  {
+    "id":91418,
+    "data":{
+      "talkname":"How to Fix Android Bugs: Stronger, Faster, Better",
+      "abstract":"As software developers, over 50% of our time is spent fixing bugs in the application code we wrote or maintain. There has been a lot said and discussed about unit testing, regression testing, etc., and in spite of following the best TDD practices, fixing bugs still seems like a inevitable chore.<br /><br />Debugging is a learned craft, and it's the most efficient use of time if you learn the best practices from others vs. going through the learning cycle on your own.<br /><br />In this class you will learn:<br /><br />Five key principles and strategies that will help you easily triage and fix various types of software bugs (UI/UX, Framework, Application Logic, Performance & Security bugs), and most effective debugging practices for your applications. <br /><br />These principles will help you get into the correct frame of mind while approaching bug fixing, and it will not feel like shooting arrows in the dark.<br /><br />The use cases will be presented in the form of case studies of the most common and dreadful bugs and subtle errors. Familiarity with Java, JavaScript will be helpful as code snippets will be in those two languages.",
+      "speakers": [{
+        "name":"Suyash Joshi",
+        "bio":"Suyash works as senior software engineer at Oracle. He is working on  Oracle's enterprise Mobile Framework based on for Android & iOS development. He is particularly passionate about developer productivity and UX. <br /><br />He also enjoys teaching, speaking and running developer meetups in the bay area, such as the Bay Area Android Developer meetup, local Java User Group, SV Mobile Dev + Design group.",
+        "email":"suyashcjoshi@gmail.com",
+        "twitter":"@suyashcjoshi",
+        "headshot":"http://www.dexigner.com/news/image/21140/Suyash_Joshi"
+      }]
+    }
+  },
+  {
+    "id":99081,
+    "data":{
+      "talkname":"Creating a Safe Space: Embracing Diversity In The Workplace",
+      "abstract":"Working in tech can be an exciting, fast-paced adventure in which everyone is focused on solving a complex problem as efficiently as possible. When we put too much focus on the end goal, though, and not enough on how we function as a team, this sort of environment can be hard on those who don't fit the developer stereotype. Does your casual workplace culture encourage off-color jokes? Is there someone who has great ideas when speaking one-on-one, but doesn't contribute as much to group conversations? In this session, we'll talk about some of the unique challenges being a member of one or more minority groups poses to tech professionals. You'll walk away with strategies to help you actively work on recognizing those challenges and minimizing your contribution to them.",
+      "speakers": [{
+        "name":"Aisha Blake",
+        "bio":"Aisha Blake arrived in Detroit in 2013 to serve as a Jesuit Volunteer at Detroit Cristo Rey High School and somehow ended up on the leadership team for Girl Develop It Detroit. This inevitably led to a deep love of the tech community in Detroit and a desire to put down roots. She now coordinates a web development course for high school students and does curriculum development for boot camps at Grand Circus, a Detroit-based tech training institute.",
+        "email":"aisha.g.blake@gmail.com",
+        "twitter":"@AishaBlake",
+        "headshot":"http://i57.tinypic.com/xf1bue.jpg"
+      }]
+    }
+  },
+  {
+    "id":103070,
+    "data":{
+      "talkname":"Bring Your Whole Self To Work (In 15 Years Or Less)!",
+      "abstract":"A few weeks into my latest gig, it became clear that what folks needed most from me was to come in every day and be myself. Cool, I was gonna do that anyway -- except at every other job I've had, that's never totally worked out. What makes me so sure it's different this time? What's changed in this new role? What's changed about me, and why, and how?<br /><br />Come hear a tale full of embarrassments, disappointments, and learnings, of mild reductions of obliviousness, of gradual improvements in efficiency, of partially mitigated personal weaknesses, and of matching who I am to where I belong.",
+      "speakers": [{
+        "name":"Amitai Schlair",
+        "bio":"Amitai Schlair helps software teams deliver more effectively by learning to grow together. On the side, he contributes code and direction to notable open-source projects such as NetBSD, pkgsrc, and ikiwiki. Amitai’s ideas, prose, music, and puns have manifested at CodeMash, pkgsrcCon, Pittsburgh Perl Workshop, Philolexian Society, Piano Society, the International Rachmaninoff Conference, and the Alfred Joyce Kilmer Memorial Bad Poetry Contest.",
+        "email":"schmonz-web-selfconference@schmonz.com",
+        "twitter":"schmonz",
+        "headshot":"http://www.schmonz.com/images/30.jpg"
+      }]
+    }
+  },
+  {
+    "id":102338,
+    "data":{
+      "talkname":"Cutting the Cord: How to Make the Jump to Freelance!",
+      "abstract":"So you’re ready to cut the cord. To be your own boss. To experience true freedom! Sure this all sounds great in theory, but do you know what it takes to make it work? In this talk you’ll learn the tips and tricks that will prepare you to not only make the jump, but to land on your feet, and build a successful Freelancing business.",
+      "speakers": [{
+        "name":"Kyle Tyacke",
+        "bio":"I’m Kyle Tyacke: A recovering Flash Developer, current front-end developer, and huge beer geek. I've spent the past 10 years working as a freelance developer, and founding a couple of startups along the way. I recently joined Respoke as a Developer Advocate, and now have the opportunity to travel the country introducing the Dev community to WebRTC and all the bad-assery (TM?) it provides!",
+        "email":"ktyacke@gmail.com",
+        "twitter":"geekgonenomad",
+        "headshot":"http://www.gravatar.com/avatar/c932a08a8f396153f3aecac8c48c4537.png?s=250"
+      }]
+    }
+  },
+  {
+    "id":90367,
+    "data":{
+      "talkname":"iOS real time content modifications using websockets",
+      "abstract":"When developing web apps, one can open FireBug and make changes to texts and images on the spot, immediately seeing the effect. When developing mobile applications, each change requires code modification, recompile and a reinstall. This makes the development cycle of mobile application longer and more tedious.<br /><br />In this talk I present [BetterContent](https://github.com/gardenofwine/better-content-server), a tool that allows editing of an iOS mobile app in runtime, in a fun and easy way. I'll talk about:<br />- Motivation and need for a proper DevTools for iOS and Android application<br />- Current solutions that exist out there (such as Flipboard FLEX)<br />- Coding techniques I use on the native side (iOS, cocoapods)<br />- Websokets and how I implemented them using open source tools and free hosting on Heroku using node.js.",
+      "speakers": [{
+        "name":"Benny Weingarten-Gabbay",
+        "bio":"Benny Weingarten-Gabbay is a senior software engineer at ebay, with 15 years of experience from building games at EA, to creating open government mobile apps. Benny is a creative thinker and builder, an improvisation actor, and an activist.",
+        "email":"gardenofwine@gmail.com",
+        "twitter":"gardenofwine",
+        "headshot":"https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/005/0a6/3b7/32b8569.jpg"
+      }]
+    }
+  },
+  {
+    "id":81044,
+    "data":{
+      "talkname":"BYOD : Build your own drone... multi-rotor quadcopter that is.",
+      "abstract":"In this world of ever increasing opportunities to purchase ‘toys’ classified as ‘drones’… have you ever wanted to fly a drone? Have you ever asked yourself the question… should I buy a drone or build? This presentation will discuss why the term ‘drone’ should be most generally referred to as… ‘multi-rotor copter’ and not UAV (unmanned autonomous vehicle) or drone. This presentation will discuss the basics of how a multi-rotor works… the steps to build a multi-rotor… including details on flight controllers, frame selection, motors and props (including determining what type of multi-rotor will suite your purpose), speed controllers and batteries. There are a lot of variables… all of these details will be broken down, making the process of building your first copter a ‘flight in the park’. At the end… a flying multi-rotor copter will be air-worthy and demonstrated.",
+      "speakers": [{
+        "name":"DJ Daugherty",
+        "bio":"DJ has been using state models and asynchronous processing for many years to solve business problems for companies of all sizes. As small as a logistics software company responsible for the routing of trucks, a web hosting company responsible for the handling of website malware detection, to large-scale financial electronic processing and natural gas logistics management. I currently freelance within the technology and agile world along side Pillar Technology Consultants. I like to create business solutions for business problems... this might include the use of technology. I am all about people. I love to take seemingly complex problems and find simple solutions, providing business value and hopefully a great return on investment.",
+        "email":"ddaugherty@pillartechnology.com",
+        "twitter":"ddaugher",
+        "headshot":"http://www.gravatar.com/avatar/a2c74ea2f22838640d40c64daa3fa524.png"
+      }]
+    }
+  },
+  {
+    "id":96659,
+    "data":{
+      "talkname":"How Long Will It Take? - A Guide to Software Estimation",
+      "abstract":"\"How long will it take?\" is something no developer ever likes to hear. Developers don't work in a vacuum though and someone in the business will probably want to do some planning. This talk will start with why you need to be good at estimating and cover some fallacies surrounding estimation in Agile shops. Then we'll discuss multiple ways to perform estimates and the pros and cons of each. You'll leave this talk having a better sense for why estimation is important, tools to make it easier, and hopefully less fear of the word.",
+      "speakers": [{
+        "name":"Jared Faris",
+        "bio":"Jared is a Microsoft MVP and the Director of Technology Services at HMB (http://www.hmbnet.com), an IT services company based out of Columbus, OH. His focus is on building great development teams through training, mentoring, and prodigious amounts of caffeine. He’s spent years building web applications with cloud and mobile experience. Jared helps organize the Stir Trek and Dog Food conferences as well as a variety of other events in and around Columbus, OH and is a frequent speaker at regional events; if he doesn't have some conference deadline he doesn't know what to do with himself. You can find out more about him at http://jaredthenerd.com or follow him @jaredthenerd",
+        "email":"jfaris@gmail.com",
+        "twitter":"@jaredthenerd",
+        "headshot":"https://www.dropbox.com/s/3g8ai7amv6s0m7f/codemash.jpg?dl=0"
+      }]
+    }
+  },
+  {
+    "id":78139,
+    "data":{
+      "talkname":"Decoupling the Front-end through Modular CSS",
+      "abstract":"CSS is hard. It’s a simple language, but getting it right and avoiding specificity hell can be a challenge if you don’t have the right framework to back you up.  Especially in large scaling projects, you might start adding ID selectors here and !important properties there and the next thing you know you’ve backed yourself into a corner where even the smallest of UI changes will take hours to work out. Ew.<br /><br />Or how about this? Ever jump into a project and find that even the slightest markup change results in broken JavaScript AND sometimes even broken backend feature tests?! WTF. Ew.<br /><br />This talk will look at how taking a modular, object-oriented approach to CSS can turn frontend woes into frontend wins. We’ll examine modern CSS approaches like OOCSS, SMACSS, and BEM and demonstrate how they will help to not only decouple your CSS styles and reduce specificity conflicts, but how they will also help to decouple your CSS and HTML from your JavaScript and feature specs.",
+      "speakers": [{
+        "name":"Julie Cameron",
+        "bio":"Julie Cameron is a frontend developer for Articulate working in remotely from Ypsilanti.  She is co-founder of the Ann Arbor chapter of Girl Develop It and instructor at Girl Develop It Detroit.  Julie is a fan of Sassy CSS and modular architecture, responsive web design, and is a student of JavaScript and self-improvement.",
+        "email":"jewlofthelotus@gmail.com",
+        "twitter":"@jewlofthelotus",
+        "headshot":"https://copy.com/W9pKeWUA0kzcCmUG"
+      }]
+    }
+  },
+  {
+    "id":88764,
+    "data":{
+      "talkname":"Better testing with Spies",
+      "abstract":"Spies are a relatively uncommon feature of testing suites. In this tutorial-style talk: we'll look at what spies are, how spies work in RSpec and how one can write better tests with spies. We'll work through some of examples of writing new tests with spies, improving old tests with spies and the reasons why spying is a useful tool for your testing practice.<br /><br />This talk will use Ruby and RSpec as it's example language, but the concepts apply across languages and paradigms. If you're looking for ways to improve your testing practice, understand isolated testing better or just ask some questions, this session will be great for you.",
+      "speakers": [{
+        "name":"Sam Phippen",
+        "bio":"Sam Phippen is a swashbuckling hacker from London, UK. He fixes every size of data problem at Fun and Plausible Solutions. He helps fight for the forces of justice as a member of the RSpec core team. He's sad that he can't hug every cat.",
+        "email":"samphippen@googlemail.com",
+        "twitter":"@samphippen",
+        "headshot":"http://funandplausible.solutions/img/sam.jpg"
+      }]
+    }
+  },
+  {
+    "id":103379,
+    "data":{
+      "talkname":"Refactoring Real Legacy Code",
+      "abstract":"The many trivial testing and refactoring examples available on the web are difficult for developers to apply to real-world code bases. As a result, many \"new to agile\" developers don't attempt to apply tests or refactorings to legacy code, reserving these techniques for the ever elusive greenfield project.<br />To help developers with this dilemma, this session will walk through a real legacy Java code base, and go through the steps required to bring the code under test & begin to perform useful refactorings.",
+      "speakers": [{
+        "name":"Nayan Hajratwala",
+        "bio":"Nayan Hajratwala is the owner of Chikli Consulting. A Lean/Agile Coach with over 15 years of hands-on experience delivering software, he has significant programming experience and is a deep technologist always exploring new languages and ideas. His specialties include training software teams to increase their productivity and decrease their time-to-market while improving the quality of their product.<br /><br />Nayan has been involved in the organizing committees at the main Agile 20xx conferences and is a speaker at many user groups and conferences in the Midwest. He is also on the Board of Directors for Southeast Michigan's Agile & Beyond conference.<br /><br />He is one of the founders of CodeRetreat, designed to increase the skill level of developers through techniques such as Test Driven Development, Pair Programming, and Simple Design.",
+        "email":"nayan@chikli.com",
+        "twitter":"nhajratw",
+        "headshot":"http://en.gravatar.com/userimage/8248/0d7d13298f53f38cedcd93472503c78a.jpg?size=200"
+      }]
+    }
+  },
+  {
+    "id":93990,
+    "data":{
+      "talkname":"Empathy & Gender Diversity: AMA",
+      "abstract":"Empathy & Gender Diversity: AMA<br />===<br /><br />AMA means Ask Me Anything. <br /><br />Gender is confusing. You grew up being told you can tell someone's gender by their body parts. Now colleagues are telling you everything you know is wrong. Your teammate wants to you to use new pronouns. They tell you their body parts are none of your business. They want to use the \"wrong\" bathroom. They say there are way more than two genders! And you dare not ask your questions, because you want to be a nice, caring ally. How are you supposed to wrap your head around this stuff?<br /><br />In this session, you'll get an intro to gender diversity, and learn where folks are coming from. You'll also get to ask your questions without getting in trouble.<br /><br />Session ground rules<br />---<br />1. Any question is ok, if it comes from a desire to understand.<br />2. It's ok to briefly expose your biases and your ideas, as long as it's to clarify your question.<br />3. No playing Devil's Advocate, and no debating.<br /><br />You might laugh &/or cry. You'll definitely learn something, and come away better connected, and, if you choose to be, a better ally.",
+      "speakers": [{
+        "name":"Alex Harms",
+        "bio":"",
+        "email":"onealexharms@gmail.com",
+        "twitter":"onealexharms",
+        "headshot":""
+      }]
+    }
+  },
+  {
+    "id":91971,
+    "data":{
+      "talkname":"Give Up",
+      "abstract":"(This is approximately a 30 minute talk)<br /><br />Topic: The importance of letting go of control – creative, development, project, etc. – is critical in being a great leader, a good team member and more at peace with your collaborative work<br /><br />Presenter: Dawn E. Kuczwara<br /><br />Title:  Give Up<br /><br />Summary: Regardless of your technical field, most of us “grew up” as hands on resources. Because of that background, it’s sometimes difficult to turn control of a project over to someone we perceive to be less experienced than ourselves. And yet the inability to allow others to manage their own work, make their own mistakes and find their own path hinders their development and turns senior staff and leaders into the dreaded Micro-manager. Only by letting go can those around us grow. But more importantly, giving up control helps technical leaders expand their skills in leadership and in their area of expertise.<br /><br />This talk will cover:<br /><br />•\tWhat does it mean to hold on, professionally (with examples)<br />•\tWhat are the negative aspects of holding on? (there are many)<br />•\tWho benefits when you give up control? (you, and your team)<br />•\tHow do I get from control freak to Zen master?<br />o\tHow to recognize when it’s time to give up (and when it’s not)<br />o\tIt ain’t easy – the pitfalls of giving up control (and how to avoid them)",
+      "speakers": [{
+        "name":"Dawn Kuczwara",
+        "bio":"Dawn Kuczwara has been working in tech for over 17 years and in a number of industries, including video games, defense, medical and interactive television (where, incidentally, she was part of a team that won a technical Emmy). Beginning as a developer she migrated, over time to leading diverse teams spanning the full SDLC, security and support. But her true passion lies in mentoring and leading technical teams and in creating highly intuitive and usable applications.",
+        "email":"digitaldawn@kuczwara.com",
+        "twitter":"digitaldawn",
+        "headshot":"https://flic.kr/p/qH9e2h"
+      }]
+    }
+  },
+  {
+    "id":78834,
+    "data":{
+      "talkname":"Opening up Conversations about Mental Health in Computer Science Education",
+      "abstract":"Based on my journey and others, this talk is on mental illness, self-esteem, and female identity as a computer science undergraduate student. It advocates for more supportive environments for students to show vulnerability and empathy in the education system.",
+      "speakers": [{
+        "name":"Julia Nguyen",
+        "bio":"Julia Nguyen is a developer from Toronto studying computer science at the University of Waterloo. In her spare time, she writes and speaks about empathy, diversity, and mental health in STEM education and in the tech pipeline. She is also working on if me, an open-source community for mental health experiences.",
+        "email":"tojulianguyen@gmail.com",
+        "twitter":"fleurchild",
+        "headshot":"http://julianguyen.org/photos/julianguyen.png"
+      }]
+    }
+  },
+  {
+    "id":102340,
+    "data":{
+      "talkname":"From Sand To Tech: How To Overcome Cultural Expectations",
+      "abstract":"My speech will focus on the cultural gender roles that aim to guide you in the \"gender appropriate\"  profession of your \"choice\". As well as the importance of listening to your own voice when the noise of cultural expectations ring loud.  In my case, it was changing careers and following my voice to programming. <br /><br />I grew up in a Latin household in Saudi Arabia. Needless to say, there was a dominant expectation of how men and women were to behave and goals they must accomplish. I will be talking about the different expectations between men and women. More specifically about how every decision a woman makes needs to be revolved around their roles as a wife/mother and how these expectations  impact their career paths, if that's even a choice they are allowed to make. <br /><br />I will then be take my own experience of going against these expectations and finally following my desire to become a programmer. As well as express how this is a daunting decision. Especially when going against what you've been expected to do and go into a male dominated tech culture. <br /><br />Ultimately this talk is to encourage women to follow their dreams and professional aspersions. To give them a push and support they need to drown out the noise of cultural expectations and following their real voice. Not the one molded by the world around them.",
+      "speakers": [{
+        "name":"Maddy Andrade",
+        "bio":"I'm originally from Ecuador, grew in in Saudi Arabia, and moved to the U. S.  in  2006.I graduated from the University of Michigan, with a B.S. in Neuroscience.  Currently I'm working in Nutshell as a marketing intern and teaching myself how to program through attending various Girl Develop It events in Ann Arbor, online material, and a lot of determination.",
+        "email":"maddy531@gmail.com",
+        "twitter":"@maddy_531",
+        "headshot":"http://photos4.meetupstatic.com/photos/member/3/2/7/f/highres_242952927.jpeg"
+      }]
+    }
+  },
+  {
+    "id":78725,
+    "data":{
+      "talkname":"Working Remote: What Works, What Doesn't, and Where We Go From Here.",
+      "abstract":"It sounds awesome. Work from home. Work for a completely open and flat company. No managers and no one pestering you about being late to work. But there's a catch, and it's all about trade-offs. For each awesome perk in your new totally awesome work environment, there is an equal trade off that has to be considered.<br /><br />Having worked for a few totally remote companies, and spending the last 6 months working on a totally distributed team with no managers and no schedule, I've learned a lot, made a lot of mistakes, and stumbled onto a couple of wins. In this talk about working remotely, I'll share my experience adapting to what sounds like an awesome idea, but has some drawbacks.<br /><br />After attending this session, you will learn how to avoid depression, improve your team's communication, and avoid working on an island. You can take these skills back to your team and implement them right away.",
+      "speakers": [{
+        "name":"Scott Radcliff",
+        "bio":"Scott has been making stuff on the web in some capacity for 10 years. When he's not programming or teaching something about programming, he's likely playing guitar. He's also been known to consume Reuben Sandwiches and Drink Guinness more than an average human should.",
+        "email":"scott@scottradcliff.com",
+        "twitter":"@scottradcliff",
+        "headshot":"https://twitter.com/scottradcliff"
+      }]
+    }
+  },
+  {
+    "id":87909,
+    "data":{
+      "talkname":"Secure the App, Save the World",
+      "abstract":"Recent highly publicized attacks, such as the one against Sony Pictures, shows how disruptive black hat hackers can be to our organizations.  But too often, development teams are sprinting with a misguided understanding of how to protect customer and corporate sensitive data.  Reliance on firewalls, encryption, and DLP tools without knowledge of the actual targets of the black hats leads to a false sense of security that a skilled attacker will quickly expose.  This talk will walk developers through eight language neutral coding techniques that will harden their applications and mitigate the risk of their sensitive data being sold on the black market.",
+      "speakers": [{
+        "name":"Kevin Poniatowski",
+        "bio":"Kevin travels the world in his role as a Senior Security Instructor for Security Innovation, teaching employees at an array of organizations about information and application security topics.<br />Kevin entered the application security field in 2007 with Security Innovation, where he split time between application security course development and delivering instructor-led courses. He began his software career in 1996 working for more than a decade as an application developer in the defense industry, where he focused on flight safety for pilots and navigators within the armed forces.<br />Kevin has spoken at many security conferences on topics ranging from Secure Software Development Life Cycle best practices to BYOD and mobile device security.  He also has been entertaining audiences with his quirky sense of humor in comedy clubs around the United States since 2012.",
+        "email":"kponiatowski@securityinnovation.com",
+        "twitter":"@SecInnovKevin",
+        "headshot":"https://pbs.twimg.com/profile_images/560851079009558528/0igLbEeP.jpeg"
+      }]
+    }
+  },
+  {
+    "id":97287,
+    "data":{
+      "talkname":"Scala: the pointy bits",
+      "abstract":"Ever wondered exactly what the multi-paradigm, multi-platform powerhouse language Scala contains that your current language doesn't?  Scala is by no means a small language or ecosystem, and the variety of styles it allows you to mix and match can be overwhelming, especially for new adopters.<br /><br />The goal of this whirlwind tour is to get you, the experienced object-oriented developer, through your first day using the patterns and best practices that unleash the power and flexibility that only Scala can provide. You'll get to see a cookbook full of code samples demonstrating the intermediate and advanced principles that make Scala a unique and rewarding everyday language. After a few customary slides and a brief summary of syntax, we'll dive right in to an all-code adventure to tackle topics like:<br /><br />- Preference for immutability<br />- Types: inference, annotations, parameters, and safety<br />- Collections: batteries included<br />- Next-level OO: case classes, companion objects, and traits<br />- Pattern matching<br />- Recursion without blowing the stack<br />- Functions as objects and vice versa<br />- Supercharged types: algebraic data types, type bounds, and implicit conversions<br />- Practical Composition, partial application, and currying<br /><br />Come learn how Scala is more than just a nice collections library, but rather a diverse language that allows you to combine principles from a variety of language families all in the same project and environment.",
+      "speakers": [{
+        "name":"Nathan Dotz",
+        "bio":"Nathan is a software engineer at Detroit Labs, where miracles are performed on mobile devices. He’s an open-source contributor, an open-education advocate, and a functional programming fanboy.",
+        "email":"nathan.dotz@gmail.com",
+        "twitter":"nathandotz",
+        "headshot":"http://selfconference.org/2014/img/speakers/nathan-dotz.jpg"
+      }]
+    }
+  },
+  {
+    "id":82116,
+    "data":{
+      "talkname":"How Would Plato Program? : The Ethics of Software Engineering",
+      "abstract":"We all want to write good software... but what does it mean for software to be \"good\"?  If you ask a CEO, an open-source developer, and a computer science professor, you'll get very different answers.  We'll take a guided tour of the history of ethical thought and apply it to software development in order to understand how others have defined it,  and  perhaps help to develop your own ethical framework.  Along the way, we'll answer questions such as: What would Nietzsche say about malware developers?  How are contracting companies like Moses?  Would Kant write closed-source software?",
+      "speakers": [{
+        "name":"Bill Laboon",
+        "bio":"A software engineer of one kind or another for over fifteen years,  Bill also spends his evenings teaching courses in Software Testing and Software Engineering at the University of Pittsburgh.",
+        "email":"laboon@gmail.com",
+        "twitter":"@BillLaboon",
+        "headshot":"https://github.com/laboon"
+      }]
+    }
+  },
+  {
+    "id":100654,
+    "data":{
+      "talkname":"Strong Teams as Healthy Communities",
+      "abstract":"It is easy to know when you're on an unhealthy team, and only slightly less difficult to know when you're on a healthy one--but what makes your team a healthy one? The same things that make for a healthy community. Topics covered will include:<br />* Healthy communication<br />* Team dynamics<br />* Avoiding the 'aces in their places' trap<br />* Team longevity<br />* Hiring for a healthy community",
+      "speakers": [{
+        "name":"Jer Lance",
+        "bio":"Jer started writing rudimentary software at 8 years old on a TRS-80 and still considers that to be very near the apex of his learning and coding skill. A veteran problem solver, he is equally excited about problems both highly technical and soft-and-social, and spends his time writing code, leading development teams, speaking about technology and tech culture, and teaching software development. When he's not nose deep in code or books, he can be found kayaking, cycling, and napping (in the exact opposite order).",
+        "email":"me@jerlance.com",
+        "twitter":"@jer_",
+        "headshot":"http://lh3.googleusercontent.com/-mZMjW6NJIl4/TqwkYDLs43I/AAAAAAAAAAA/qNyAARiTIW8/s512/Jer-by-john.jpg"
+      }]
+    }
+  },
+  {
+    "id":80897,
+    "data":{
+      "talkname":"Basic Git & Github for Designers, Visual Learners, and Everyone Else",
+      "abstract":"This talk will give you a picture, a mental model, to hang your workflow on so that you can contribute effectively to a codebase with other developers, and a step-by-step cheat sheet to follow until Git has become second nature.<br /><br />The Git version control system is a powerful and flexible way to handle contributing to a team-based project. When I first encountered Git, it seemed abstract and nebulous. I would type commands in to the terminal that I read in some tutorial, and fire them out in to the void without really understanding what I was doing. Finally someone sat down with me and drew me a picture and “bam!” I got it! <br /><br />If you are a designer, or just someone that learns better by seeing and doing, then this talk will help you master the skills necessary to contribute to a project on GitHub, but moreover you will really understand the workflow itself.",
+      "speakers": [{
+        "name":"Marc Nischan",
+        "bio":"Designer & Front-End Dev @ Detroit Labs.",
+        "email":"marcnischan@gmail.com",
+        "twitter":"@marcnischan",
+        "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/53d16a55e4b09954570627c0/1406233245458/Marc-New.jpg"
+      }]
+    }
+  },
+  {
+    "id":103383,
+    "data":{
+      "talkname":"Once You See It You Can't Unsee It: Designing Information Ecologies",
+      "abstract":"As architects, designers, and developers, it is not our job to dilute complexity and build simple experiences which obscure rich, layered human experiences. Instead, I believe, it is our job to make solutions that honor the complexities of our audiences' worlds. In order to help our audiences navigate this intertwingled world, we need to be attentive to systems of meaning, how to identify them in the wild, and how to put them to work for us in the applications we develop.<br /><br />Ted Nelson (1974) declared and Peter Morville (2014) recently echoed, \"Everything is deeply intertwingled.\" A portmanteau of entwined and intermingled, intertwingled refers to the extreme embedded and woven nature of information. In other words, information, knowledge, and meaning are all knotted up to form a complex system, or ecology. Information ecologies are a departure from the hierarchical relationships that we have long worked with and prescribed in application development. <br /><br />This is a non-technical talk, but we will be exploring abstract ideas about design, language, and culture. You’ll get a crash course in information ecologies, see some examples, and learn how to wield words in your application to build a lucid, enriching experience for your audience. Come with an open mind and leave with a new perspective on how to approach naming, navigation, and initial user experience.",
+      "speakers": [{
+        "name":"Rachael Hodder",
+        "bio":"Rachael is a cloud services test specialist at TechSmith in Okemos, Michigan. She makes it her mission to practice customer advocacy through collaboration, inquiry, and compassion daily. As a tester, she focuses on ensuring the excellence in initial user experience, accessibility, information architecture, responsive design, and information security. After hours, Rachael loves tinkering with her website, crocheting, and walking her two adorable dogs, Lucy and Otto.",
+        "email":"howdyrachael@gmail.com",
+        "twitter":"zenparty",
+        "headshot":"https://dl.dropboxusercontent.com/u/14273031/2014-05-24_15-21-38.png"
+      }]
+    }
+  },
+  {
+    "id":87062,
+    "data":{
+      "talkname":"How To Be A Real Developer In Two Easy Steps!",
+      "abstract":"Fighting imposter syndrome? Feel like you aren't *really* a Real Developer? Allow me to share the fast, easy, two-step process to conquering all that and becoming a REAL Developer! What are these two magical steps, you ask? <br /><br />Um. Well. That's where it gets complicated...",
+      "speakers": [{
+        "name":"Anne Cahalan",
+        "bio":"Anne spent ten years working in public relations before before running away to join the programming circus. A graduate of Detroit Labs first apprenticeship, she is currently an iOS developer.",
+        "email":"anne.cahalan@detroitlabs.com",
+        "twitter":"@northofnormal",
+        "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/53ceb717e4b0efb67d70e9e5/1406056243298/Anne.jpg?format=300w"
+      }]
+    }
+  },
+  {
+    "id":86333,
+    "data":{
+      "talkname":"JavaScript Robotics?  Not a bad idea.",
+      "abstract":"JavaScript is seeing its renaissance right now.  All the cool kids are coding JavaScript everywhere they can.  But robotics?  Really?  Doesn’t that sound like a bad idea?  I’d like to show you the opposite: why JavaScript robotics is NOT a bad idea!  It turns out that the same things that make JavaScript great for the web also make JavaScript great for robotics.  Enter Johnny-Five: a JavaScript robotics platform with beautiful abstractions.  We’ll discover the power of Johnny-Five and explore the possibilities of controlling low-cost electronics to manipulate the real world with a much more accessible language than C/C++.",
+      "speakers": [{
+        "name":"Brian Genisio",
+        "bio":"Brian Genisio is a passionate software developer in Ann Arbor, MI and an active member of the Michigan software community including co-organizing the SouthEast Michigan JavaScript Users’ Group. For almost 15 years, Brian has worked with countless languages and technologies. Currently, he is focusing on front-end development stacks, mostly JavaScript-based. He also loves to talk about software. He can talk your ear off. Just humor him. In his spare time, he enjoys cooking, cycling, building JavaScript-powered robots, and playing with his kids.",
+        "email":"BrianGenisio@Gmail.com",
+        "twitter":"BrianGenisio",
+        "headshot":"https://s.gravatar.com/avatar/170325813beddd7418a3b55ffbf378f9?s=512"
+      }]
+    }
+  },
+  {
+    "id":83417,
+    "data":{
+      "talkname":"The Cloud is Your Free Hobby Computer",
+      "abstract":"Thanks to Moore's Law and weird business models on the Internet, a lot of computing power can be had free-of-charge. GitHub will keep & share your code; Cloud9 will let you edit it; Travis CI will test it; Heroku & Amazon will run it. This talk aims to describe ways to take advantage of services like these for fun & learning, as well as answering the question \"What's the catch?\"",
+      "speakers": [{
+        "name":"Les Orchard",
+        "bio":"serially enthusiastic, caffeine-dependent; {web,mad,computer} scientist; {tech,scifi} writer; home{brew,roast}er; mozillian",
+        "email":"me@lmorchard.com",
+        "twitter":"@lmorchard",
+        "headshot":"https://scontent-a-iad.xx.fbcdn.net/hphotos-xfa1/t31.0-8/1961762_10152038886188202_8741299494194027942_o.jpg"
+      }]
+    }
+  },
+  {
+    "id":91976,
+    "data":{
+      "talkname":"Fun with Mind Reading",
+      "abstract":"As a technology geek, I was very excited to receive a headset from Emotiv that reads brain waves.  (Watch the fabulous TED talk at http://www.ted.com/talks/tan_le_a_headset_that_reads_your_brainwaves!)  I immediately conducted a variety of crazy experiments on myself, my husband, and my kids: a \"lie detector\" test comparing brain waves when telling the truth and lying, how men and women’s brains respond to the same stimuli, and analyzing a baby’s brain waves to determine if he is hungry, tired, overstimulated, bored, etc.  In this session, I will share some interesting analytics on the raw EEG data I’ve collected and the data processing and machine learning used in these experiments.  You will have fun, read minds, and see some neat data analytics too!",
+      "speakers": [{
+        "name":"Jennifer Marsman",
+        "bio":"Jennifer Marsman is a Principal Developer Evangelist in Microsoft’s Developer and Platform Evangelism group, where she educates developers on Microsoft’s new technologies.  In this role, Jennifer is a frequent speaker at software development conferences across the United States.  In 2009, Jennifer was chosen as \"Techie whose innovation will have the biggest impact\" by X-OLOGY for her work with GiveCamps, a weekend-long event where developers code for charity.  She has also received many honors from Microsoft, including the Central Region Top Contributor Award, Heartland District Top Contributor Award, DPE Community Evangelist Award, CPE Champion Award, MSUS Diversity & Inclusion Award, and Gold Club.  Prior to becoming a Developer Evangelist, Jennifer was a software developer in Microsoft’s Natural Interactive Services division.  In this role, she earned two patents for her work in search and data mining algorithms.  Jennifer has also held positions with Ford Motor Company, National Instruments, and Soar Technology.  Jennifer holds a Bachelor’s Degree in Computer Engineering and Master’s Degree in Computer Science and Engineering from the University of Michigan in Ann Arbor.  Her graduate work specialized in artificial intelligence and computational theory.  Jennifer blogs at http://blogs.msdn.com/jennifer and tweets at http://twitter.com/jennifermarsman.",
+        "email":"jennmar@microsoft.com",
+        "twitter":"@JenniferMarsman",
+        "headshot":"http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-91-03/0020.Jennifer-Marsman.jpg"
+      }]
+    }
+  },
+  {
+    "id":91919,
+    "data":{
+      "talkname":"What do I do with my hands?!?!?",
+      "abstract":"A practical guide to networking events for people who feel awkward at networking events. <br /><br />What's a good opening line with people? What if you don't know anyone there? How do you stand? What if you have twitchy nervous habits? How can you keep conversation interesting? Most importantly -- how can this translate into you getting a job? <br /><br />This will be a very interactive session and a welcome opening space for all, no judgement included.",
+      "speakers": [{
+        "name":"Kate Catlin",
+        "bio":"Kate Catlin was formerly the Community Manager at a Google Tech Hub, where she ran a plethora of networking events. Along the way she had to self-teach how to interact at such venues by watching many others succeed and fail. She's now an Android App Developer at Detroit Labs and remains passionate about helping others (especially women) find rewarding careers in tech.",
+        "email":"kate.catlin@detroitlabs.com",
+        "twitter":"@Kate_Catlin",
+        "headshot":"https://pbs.twimg.com/profile_images/518744139421057026/_RzJbKQJ_400x400.jpeg"
+      }]
+    }
+  }
+]}

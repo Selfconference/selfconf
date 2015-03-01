@@ -163,3 +163,21 @@ chelsey = event.organizers.create!(
   twitter: "_chelseybaker",
   photo: "http://s3.amazonaws.com/selfconf/organizers/chelsey.jpg"
 )
+
+selected_sessions = JSON.parse(File.read("selected.json"))["submissions"]
+selected_sessions.each do |selected|
+  talk = event.sessions.create!(
+    name: selected["data"]["talkname"],
+    abstract: selected["data"]["abstract"]
+  )
+
+  selected["data"]["speakers"].each do |s|
+    speaker = talk.speakers.create!(
+      name: s["name"],
+      twitter: s["twitter"].tr("@",""),
+      photo: s["headshot"],
+      bio: s["bio"]
+    )
+    speaker.update_attributes!(event_id: event.id)
+  end
+end
