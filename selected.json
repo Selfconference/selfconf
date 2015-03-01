@@ -152,7 +152,7 @@
       "abstract":"Culture is deliberate. You build it just like you build your business. The way people feel at work has a direct impact on the bottom line. What’s more - your brand and your culture are inextricably intertwined. And yet most organizations spend more time on their story than they spend thinking about how to align that story with their culture in a way that best supports their people. And the people are everything. So how do you build a values-driven culture that promotes whole life balance while also emphasizing the work ethic you need to fuel a successful business? We’re going to answer that question and others you didn’t even know you had. Because there is no work/life balance. It’s way better than that.",
       "speakers": [{
         "name":"Nancy Lyons",
-        "bio":"http://www.nancylyons.com",
+        "bio":"Nancy works at the intersection of technology, community, and people. As a leader and technologist, she creates solutions that further community and business goals by meeting the needs of individuals. Her guiding philosophy is that a human-centered approach to technology is the only way to get results that make a difference. Problem solving is about empowerment: motivated people create good products. Nancy supports clients and teams by fostering a collaborative, idea-driven culture that nurtures creativity and brainpower. More about Nancy at <a href=\"http://www.nancylyons.com\">http://www.nancylyons.com</a>",
         "email":"nancy@clockwork.net",
         "twitter":"@nylons",
         "headshot":"http://www.nancylyons.com"
@@ -177,7 +177,7 @@
     "id":103787,
     "data":{
       "talkname":"Code along: Building your first iOS game in 45 minutes",
-      "abstract":"Even if your a professional programmer, game development is probably nothing like your day job.  It doesn't need to be intimidating or scary.  Bring your laptop and have Xcode open and ready.  In just 45 minutes we'll use sprite kit, game kit, and a few other iOS frameworks to build a working game.  If you've never built a game before, this will hopefully be the first of many to come.",
+      "abstract":"Even if you're a professional programmer, game development is probably nothing like your day job.  It doesn't need to be intimidating or scary.  Bring your laptop and have Xcode open and ready.  In just 45 minutes we'll use sprite kit, game kit, and a few other iOS frameworks to build a working game.  If you've never built a game before, this will hopefully be the first of many to come.",
       "speakers": [{
         "name":"Jake Payton",
         "bio":"Kurt Russell plays truck driver Jake Payton, who helps his friend Wang Chi  rescue Wang's green-eyed fiancee from bandits in San Francisco's Chinatown. They go into the mysterious underworld beneath Chinatown, where they face an ancient sorcerer named David Lo Pan.",
@@ -278,7 +278,7 @@
       "abstract":"Over the years, REST has grown in popularity as the preferred way of publishing and consuming web services. Clients access such services through an implementation-agnostic interface that allow for the standard CRUD operations. Designing an API that conforms to the REST architectural principles is a non-trivial task that can get quite challenging especially  for complex web applications.<br />More often than not, we end up with APIs that are “somewhat” RESTful that can be quite a pain for the consumers of the API to adopt.<br />This talk will provide an overview of the guiding principles behind RESTful APIs. We will discuss the common pitfalls and anti-patterns to avoid and will discuss a practical approach to designing a simple and intuitive RESTful interface.",
       "speakers": [{
         "name":"Priya Rajagopal",
-        "bio":"Priya Rajagopal has been professionally developing and architecting software solutions for over 15 years. She is currently leading the mobile development efforts at a startup in Ann Arbor, Michigan and in her spare time, does freelance mobile app development, consulting and mentoring. She is an active member of the local mobile development community where she frequently talks on mobile development related topics and co-organizes the Mobile Monday, Ann Arbor meetup group. Prior to mobile development, she worked on a range of technologies including IPTV, Social TV, targeted advertising, network management and platform security and is a co-inventor of several US patents.  More on her work at www.priyaontech.com",
+        "bio":"Priya Rajagopal has been professionally developing and architecting software solutions for over 15 years. She is currently leading the mobile development efforts at a startup in Ann Arbor, Michigan and in her spare time, does freelance mobile app development, consulting and mentoring. She is an active member of the local mobile development community where she frequently talks on mobile development related topics and co-organizes the Mobile Monday, Ann Arbor meetup group. Prior to mobile development, she worked on a range of technologies including IPTV, Social TV, targeted advertising, network management and platform security and is a co-inventor of several US patents.  More on her work at <a href=\"http://www.priyaontech.com\">www.priyaontech.com</a>",
         "email":"r7.priya@gmail.com",
         "twitter":"rajagp",
         "headshot":"http://www.gravatar.com/avatar/01c9d267e78a30758e8ce4a8735833e5.png"
@@ -345,7 +345,7 @@
     "id":90367,
     "data":{
       "talkname":"iOS real time content modifications using websockets",
-      "abstract":"When developing web apps, one can open FireBug and make changes to texts and images on the spot, immediately seeing the effect. When developing mobile applications, each change requires code modification, recompile and a reinstall. This makes the development cycle of mobile application longer and more tedious.<br /><br />In this talk I present [BetterContent](https://github.com/gardenofwine/better-content-server), a tool that allows editing of an iOS mobile app in runtime, in a fun and easy way. I'll talk about:<br />- Motivation and need for a proper DevTools for iOS and Android application<br />- Current solutions that exist out there (such as Flipboard FLEX)<br />- Coding techniques I use on the native side (iOS, cocoapods)<br />- Websokets and how I implemented them using open source tools and free hosting on Heroku using node.js.",
+      "abstract":"When developing web apps, one can open FireBug and make changes to texts and images on the spot, immediately seeing the effect. When developing mobile applications, each change requires code modification, recompile and a reinstall. This makes the development cycle of mobile application longer and more tedious.<br /><br />In this talk I present <a href=\"https://github.com/gardenofwine/better-content-server\">BetterContent</a>, a tool that allows editing of an iOS mobile app in runtime, in a fun and easy way. I'll talk about:<br />- Motivation and need for a proper DevTools for iOS and Android application<br />- Current solutions that exist out there (such as Flipboard FLEX)<br />- Coding techniques I use on the native side (iOS, cocoapods)<br />- Websokets and how I implemented them using open source tools and free hosting on Heroku using node.js.",
       "speakers": [{
         "name":"Benny Weingarten-Gabbay",
         "bio":"Benny Weingarten-Gabbay is a senior software engineer at ebay, with 15 years of experience from building games at EA, to creating open government mobile apps. Benny is a creative thinker and builder, an improvisation actor, and an activist.",
@@ -586,7 +586,7 @@
       "abstract":"Fighting imposter syndrome? Feel like you aren't *really* a Real Developer? Allow me to share the fast, easy, two-step process to conquering all that and becoming a REAL Developer! What are these two magical steps, you ask? <br /><br />Um. Well. That's where it gets complicated...",
       "speakers": [{
         "name":"Anne Cahalan",
-        "bio":"Anne spent ten years working in public relations before before running away to join the programming circus. A graduate of Detroit Labs first apprenticeship, she is currently an iOS developer.",
+        "bio":"Anne spent ten years working in public relations before before running away to join the programming circus. A graduate of Detroit Labs' first apprenticeship, she is currently an iOS developer.",
         "email":"anne.cahalan@detroitlabs.com",
         "twitter":"@northofnormal",
         "headshot":"http://static1.squarespace.com/static/512050cfe4b068400108abd5/5254540ee4b05048ea3b7f4b/53ceb717e4b0efb67d70e9e5/1406056243298/Anne.jpg?format=300w"
