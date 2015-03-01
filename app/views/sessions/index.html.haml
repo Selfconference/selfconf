@@ -28,24 +28,23 @@
                         = session.name
 
       .col-md-9.col-xs-12
-        %ul.speaker-list
+        .speaker-list
           - @sessions.each do | session |
-            %li.speaker-session-row
-              .row
-                .session{:id => "session_#{session.id}"}
-                  -session.speakers.each do |speaker|
-                    .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
-                    .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
-                  %h4
-                    = "#{session.speaker_names}: #{session.name}"
-                  %h5.italic
-                    = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
-                  %p= raw session.abstract
+            .row.speaker-session-row
+              .session{:id => "session_#{session.id}"}
                 -session.speakers.each do |speaker|
-                  .speaker
-                    %h5.italic
-                      ="About #{speaker.name}"
-                    %p= raw speaker.bio
+                  .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
+                  .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
+                %h4
+                  = "#{session.speaker_names}: #{session.name}"
+                %h5.italic
+                  = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
+                %p= raw session.abstract
+              -session.speakers.each do |speaker|
+                .speaker
+                  %h5.italic
+                    ="About #{speaker.name}"
+                  %p= raw speaker.bio
 
 :javascript
   $(function() {
