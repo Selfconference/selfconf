@@ -52,13 +52,19 @@
   .blue_block.keynote
     .container
       .row
-        -@event.speakers.sample(4).each do |speaker|
+        -@event.speakers.sample(8).each do |speaker|
           .col-md-3.main-page-speaker
             %a{:href => "sessions#speaker_#{speaker.id}"}
               .center
                 .img-rounded.img-responsive.speaker-img{style: "background-image:url(https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg);"}
               %h4= speaker.name
               %p= speaker.sessions.sample.name
+
+        .row
+          .col-md-12
+            Check out
+            %a{:href => "sessions"} all our speakers
+            %span>="!"
 
 %section#location
   .color-line
