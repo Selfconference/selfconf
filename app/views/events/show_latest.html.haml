@@ -54,7 +54,7 @@
       .row
         -@event.speakers.sample(4).each do |speaker|
           .col-md-3.main-page-speaker
-            %a{:href => "speakers##{speaker.id}"}
+            %a{:href => "speakers#speaker_#{speaker.id}"}
               %img.img-thumbnail.img-rounded.img-responsive.speaker-img{:src => speaker.photo}/
               %h4= speaker.name
               -speaker.sessions.each do |session|

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'coc' => 'coc#view'
 
   resources :speakers
+  resources :sessions
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
