@@ -34,9 +34,7 @@
               .row
                 .session{:id => "session_#{session.id}"}
                   -session.speakers.each do |speaker|
-                    .img-rounded.pull-right.speaker-img{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
-
-                    -# %img.img-polaroid.img-rounded.speaker-img.pull-right{:src => speaker.photo, }/
+                    .img-rounded.pull-right.speaker-img.img-responsive{style: "background-image:url(https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg);", :id => "speaker_#{speaker.id}"}
                   %h4
                     = "#{session.speakers.map(&:name).join(", ")}: #{session.name}#{if session.keynote then " (keynote)" end}"
                   %h5.italic
