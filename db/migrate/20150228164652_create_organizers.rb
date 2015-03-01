@@ -5,6 +5,7 @@ class CreateOrganizers < ActiveRecord::Migration
       t.text :bio
       t.string :email
       t.string :twitter
+      t.string :photo
 
       t.timestamps
     end

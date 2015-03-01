@@ -1,0 +1,240 @@
+$font-family: "Lato", sans-serif
+$white: #F7F7F7
+$purple: #A70267
+$red: #F10D49
+$orange: #FB6B40
+$yellow: #F6D86B
+$green: #339194
+
+=color-line($color)
+  width: 20%
+  height: 8px
+  display: inline-block
+  background-color: $color
+
+body
+  background-color: $green
+  text-align: left
+  font-family: $font-family
+  font-size: 24px
+  font-weight: 300
+  text-align: left
+  color: $green
+  line-height: 150%
+
+h1
+  font-family: $font-family
+  font-weight: 100
+  color: $white
+  text-align: center
+  letter-spacing: 2px
+  line-height: 96%
+
+h4
+  font-family: $font-family
+  font-size: 30px
+  font-weight: 900
+  color: $purple
+  text-align: left
+  line-height: 150%
+
+h5
+  font-family: $font-family
+  font-size: 20px
+  font-weight: 300
+  color: $red
+  text-align: left
+  letter-spacing: 2px
+
+p
+  margin: 0 0 15px 0
+
+a
+  color: $purple
+
+a:hover, a:active, a:focus
+  color: $orange
+
+table
+  font-size: 15px
+
+table h5
+  font-size: 15px
+
+.italic
+  font-style: oblique
+
+@media (max-width: 480px)
+  h1
+    font-size: 44px
+    padding: 30px 0px 14px 0px
+
+  ul.tag-line
+    font-size: 19px
+    line-height: 22px
+
+  body
+    font-size: 20px
+    text-align: center
+
+  h4
+    font-size: 30px
+    text-align: center
+
+  .span2, .span5, .span10
+    padding: 0 20px
+
+  .btn-medium
+    margin-bottom: 50px
+
+@media (min-width: 481px) and (max-width: 767px)
+  h1
+    font-size: 56px
+
+  ul.tag-line
+    font-size: 24px
+
+  body
+    font-size: 20px
+    text-align: center
+
+  h4
+    font-size: 30px
+    text-align: center
+
+  .span2, .span5, .span10
+    padding: 0 20px
+
+  .btn-medium
+    margin-bottom: 50px
+
+@media (min-width: 768px) and (max-width: 979px)
+  h1
+    font-size: 103px
+
+  ul.tag-line
+    font-size: 21px
+
+@media (min-width: 980px) and (max-width: 1199px)
+  .speaker-nav
+    width: 190px
+
+  h1
+    font-size: 106px
+
+  ul.tag-line
+    font-size: 22px
+
+@media (min-width: 1200px)
+  .speaker-nav
+    width: 240px
+
+  ul.tag-line
+    font-size: 36px
+
+  h1
+    font-size: 172px
+
+.img-polaroid
+  background-color: $white
+
+.top_block
+  width: auto
+  background-color: $green
+  color: $white
+
+.text_block_wide
+  margin-left: auto
+  margin-right: auto
+  width: 460px
+  margin-top: 55px
+  margin-bottom: 55px
+  background-color: $green
+
+.color-line
+  line-height: 0
+  border: none
+
+.colored_line_a
+  +color-line($purple)
+
+.colored_line_b
+  +color-line($red)
+
+.colored_line_c
+  +color-line($orange)
+
+.colored_line_d
+  +color-line($yellow)
+
+.colored_line_e
+  +color-line($green)
+
+.mid_block
+  padding-bottom: 50px
+  padding-top: 40px
+  background-color: $white
+
+.shadow
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, .5)
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, .5)
+
+.blue_header
+  background-color: $orange
+
+.blue_header h1
+  font-size: 50px
+  padding: 10px 0
+  text-transform: lowercase
+
+.blue_block
+  padding: 25px
+  color: $white
+  background-color: $green
+  line-height: 150%
+
+.blue_block label
+  font-size: 18px
+  line-height: 100%
+
+.blue_block h4
+  color: $white
+
+.blue_block a, .footer a
+  color: $white
+  text-decoration: underline
+
+.blue_block p
+  margin-top: 10px
+  letter-spacing: .3px
+  line-height: 125%
+
+.keynote, .keynote h4
+  text-align: center
+
+.keynote img
+  margin-bottom: 15px
+
+.sponsor-nav-btn
+  font-family: $font-family
+  background-color: $red
+  border: 1px $white solid
+  border-radius: 5px
+  font-size: 18px
+  font-weight: 400
+  margin: 9px 5px !important
+
+.orange-btn
+  font-family: $font-family
+  background-color: $orange
+  color: $white
+  border: none
+  border-radius: 2px
+  padding: 12px 19px
+  font-size: 30px
+  font-weight: 400
+  margin: 15px auto
+
+.center-wrapper
+  text-align: center
+  padding-top: 20px

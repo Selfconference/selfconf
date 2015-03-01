@@ -5,7 +5,7 @@ class CreateSpeakers < ActiveRecord::Migration
       t.string :twitter
       t.text :bio
       t.string :photo
-      t.belongs_to :event_id
+      t.belongs_to :event
 
       t.timestamps
     end

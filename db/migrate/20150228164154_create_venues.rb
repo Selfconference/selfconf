@@ -4,6 +4,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :name
       t.text :about
       t.string :maps_link
+      t.string :address
       t.belongs_to :events
 
       t.timestamps

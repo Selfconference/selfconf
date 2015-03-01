@@ -4,8 +4,8 @@ class CreateSessions < ActiveRecord::Migration
       t.string :name
       t.text :abstract
       t.boolean :keynote
-      t.belongs_to :event_id
-      t.belongs_to :room_id
+      t.belongs_to :event
+      t.belongs_to :room
 
       t.timestamps
     end

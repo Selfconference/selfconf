@@ -1,0 +1,58 @@
+.speaker-img
+  margin: 0 15px 0 0
+  width: 200px
+
+.main-page-speaker
+  padding-top: 60px
+  padding-bottom: 30px
+  border-radius: 10px
+
+  .speaker-img
+    margin: 0
+    width: 200px
+
+  &:hover
+    background-color: $orange
+
+  a
+    text-decoration: none
+
+.speaker
+  padding-top: 60px
+  padding-bottom: 30px
+  border-bottom: 1px solid $red
+
+  &:first-child
+    padding-top: 0
+
+  &:last-child
+    border: none
+
+  .about-speaker
+    color: $purple
+    padding-top: 20px
+
+.nav-wrapper
+  height: 342px
+  overflow-y: scroll
+
+.speaker-nav
+  padding: 15px
+  background-color: $white
+  border-radius: 6px
+  box-shadow: 0 1px 4px rgba(0,0,0,.65)
+  height: 381px
+  overflow: hidden
+
+.speaker-nav.affix
+  position: fixed
+  top: 60px
+
+.speaker-nav li
+  padding: 0
+
+.nav-list li>a
+  font-family: $font-family
+  font-weight: 300
+  font-size: 14px
+  padding: 0

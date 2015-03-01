@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228175927) do
+ActiveRecord::Schema.define(version: 20150301001441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
+    t.integer  "venue_id"
     t.string   "name"
+    t.text     "about"
     t.string   "twitter"
     t.string   "lanyard"
+    t.string   "tickets_link"
+    t.string   "tickets_iframe_link"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at"
@@ -27,26 +31,27 @@ ActiveRecord::Schema.define(version: 20150228175927) do
   end
 
   create_table "events_organizers", id: false, force: :cascade do |t|
-    t.integer "events_id"
-    t.integer "organizers_id"
+    t.integer "event_id"
+    t.integer "organizer_id"
   end
 
-  add_index "events_organizers", ["events_id"], name: "index_events_organizers_on_events_id", using: :btree
-  add_index "events_organizers", ["organizers_id"], name: "index_events_organizers_on_organizers_id", using: :btree
+  add_index "events_organizers", ["event_id"], name: "index_events_organizers_on_event_id", using: :btree
+  add_index "events_organizers", ["organizer_id"], name: "index_events_organizers_on_organizer_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
     t.string   "name"
     t.text     "bio"
     t.string   "email"
     t.string   "twitter"
+    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
-    t.integer  "event_id_id"
-    t.integer  "venue_id_id"
+    t.integer  "event_id"
+    t.integer  "venue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,58 +60,60 @@ ActiveRecord::Schema.define(version: 20150228175927) do
     t.string   "name"
     t.text     "abstract"
     t.boolean  "keynote"
-    t.integer  "event_id_id"
-    t.integer  "room_id_id"
+    t.integer  "event_id"
+    t.integer  "room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sessions_speakers", id: false, force: :cascade do |t|
-    t.integer "sessions_id"
-    t.integer "speakers_id"
+    t.integer "session_id"
+    t.integer "speaker_id"
   end
 
-  add_index "sessions_speakers", ["sessions_id"], name: "index_sessions_speakers_on_sessions_id", using: :btree
-  add_index "sessions_speakers", ["speakers_id"], name: "index_sessions_speakers_on_speakers_id", using: :btree
+  add_index "sessions_speakers", ["session_id"], name: "index_sessions_speakers_on_session_id", using: :btree
+  add_index "sessions_speakers", ["speaker_id"], name: "index_sessions_speakers_on_speaker_id", using: :btree
 
   create_table "speakers", force: :cascade do |t|
     t.string   "name"
     t.string   "twitter"
     t.text     "bio"
     t.string   "photo"
-    t.integer  "event_id_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sponsor_levels", force: :cascade do |t|
     t.string   "name"
-    t.integer  "event_id_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
+
+  create_table "sponsor_levels_sponsors", id: false, force: :cascade do |t|
+    t.integer "sponsor_id"
+    t.integer "sponsor_level_id"
+  end
+
+  add_index "sponsor_levels_sponsors", ["sponsor_id"], name: "index_sponsor_levels_sponsors_on_sponsor_id", using: :btree
+  add_index "sponsor_levels_sponsors", ["sponsor_level_id"], name: "index_sponsor_levels_sponsors_on_sponsor_level_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name"
     t.string   "link"
     t.string   "photo"
-    t.integer  "event_id_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "sponsors_sponsor_levels", id: false, force: :cascade do |t|
-    t.integer "sponsors_id"
-    t.integer "sponsor_levels_id"
-  end
-
-  add_index "sponsors_sponsor_levels", ["sponsor_levels_id"], name: "index_sponsors_sponsor_levels_on_sponsor_levels_id", using: :btree
-  add_index "sponsors_sponsor_levels", ["sponsors_id"], name: "index_sponsors_sponsor_levels_on_sponsors_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"
     t.text     "about"
     t.string   "maps_link"
+    t.string   "address"
     t.integer  "events_id"
     t.datetime "created_at"
     t.datetime "updated_at"

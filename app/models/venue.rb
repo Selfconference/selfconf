@@ -1,3 +1,4 @@
 class Venue < ActiveRecord::Base
-  belongs_to :events
+  has_many :events
+  has_many :rooms
 end
