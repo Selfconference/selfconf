@@ -1,7 +1,7 @@
 .mid_block
   .container
     .row
-      .col-md-3.visible-desktop
+      .col-md-3.visible-md-block.visible-lg-block
         #top.speaker-nav{data: {spy: "affix", offset_top: "310"}}
           %ul.nav.nav-tabs
             %li.active
@@ -34,7 +34,9 @@
               .row
                 .session{:id => "session_#{session.id}"}
                   -session.speakers.each do |speaker|
-                    .img-rounded.pull-right.speaker-img.img-responsive{style: "background-image:url(https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg);", :id => "speaker_#{speaker.id}"}
+                    -photo = "https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg"
+                    .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{photo});", :id => "speaker_#{speaker.id}"}
+                    .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{photo});", :id => "speaker_#{speaker.id}"}
                   %h4
                     = "#{session.speakers.map(&:name).join(", ")}: #{if session.keynote then "Keynote - " end}#{session.name}"
                   %h5.italic
