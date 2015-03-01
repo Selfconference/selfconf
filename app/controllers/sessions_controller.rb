@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
 
   def index
     @event = Event.latest
-    @sessions = Session.where("event_id = #{@event.id}")
-    @speakers = Speaker.where("event_id = #{@event.id}")
+    @sessions = Session.where("event_id = #{@event.id}").map(&:decorate)
   end
 
 end

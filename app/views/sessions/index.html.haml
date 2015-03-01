@@ -13,32 +13,31 @@
             .tab-pane.active{id: "names"}
               .nav-wrapper
                 %ul.nav.nav-list
-                  -@speakers.order('name').each do |speaker|
+                  -@sessions.map(&:nav_speaker_display).sort { |a,b| a[:name] <=> b[:name] }.each do |speaker|
                     %li
-                      %a{href: "sessions#speaker_#{speaker.id}"}
+                      %a{href: "sessions#speaker_#{speaker[:id]}"}
                         %i.glyphicon.glyphicon-chevron-right
-                        = speaker.name
+                        = speaker[:name]
             .tab-pane{id: "talks"}
               .nav-wrapper
                 %ul.nav.nav-list
-                  -@sessions.order('name').each do |session|
+                  -@sessions.each do |session|
                     %li
                       %a{href: "sessions#session_#{session.id}"}
                         %i.glyphicon.glyphicon-chevron-right
                         = session.name
 
-      .col-md-9
+      .col-md-9.col-xs-12
         %ul.speaker-list
           - @sessions.each do | session |
             %li.speaker-session-row
               .row
                 .session{:id => "session_#{session.id}"}
                   -session.speakers.each do |speaker|
-                    -photo = "https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg"
-                    .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{photo});", :id => "speaker_#{speaker.id}"}
-                    .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{photo});", :id => "speaker_#{speaker.id}"}
+                    .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
+                    .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
                   %h4
-                    = "#{session.speakers.map(&:name).join(", ")}: #{if session.keynote then "Keynote - " end}#{session.name}"
+                    = "#{session.speaker_names}: #{session.name}"
                   %h5.italic
                     = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
                   %p= raw session.abstract
