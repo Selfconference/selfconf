@@ -36,7 +36,7 @@
                   -session.speakers.each do |speaker|
                     .img-rounded.pull-right.speaker-img.img-responsive{style: "background-image:url(https://s3.amazonaws.com/selfconf/speakers/#{speaker.name.downcase.parameterize}.jpg);", :id => "speaker_#{speaker.id}"}
                   %h4
-                    = "#{session.speakers.map(&:name).join(", ")}: #{session.name}#{if session.keynote then " (keynote)" end}"
+                    = "#{session.speakers.map(&:name).join(", ")}: #{if session.keynote then "Keynote - " end}#{session.name}"
                   %h5.italic
                     = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
                   %p= raw session.abstract

@@ -3,5 +3,5 @@ class Session < ActiveRecord::Base
   belongs_to :room
   has_and_belongs_to_many :speakers
 
-  default_scope -> { order("#{table_name}.name ASC") }
+  default_scope -> { order("#{table_name}.keynote ASC, #{table_name}.name ASC") }
 end
