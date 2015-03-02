@@ -40,11 +40,10 @@
                 %h5.italic
                   = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
                 %p= raw session.abstract
-              -session.speakers.each do |speaker|
-                .speaker
-                  %h5.italic
-                    ="About #{speaker.name}"
-                  %p= raw speaker.bio
+              .speaker
+                %h5.italic
+                  ="About #{session.speaker_names}"
+                %p= raw session.speakers.first.bio
 
 :javascript
   $(function() {
