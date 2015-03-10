@@ -3,300 +3,300 @@
     "id":1,
     "name":"The Social Coding Contract",
     "room":1,
-    "slot":"2015-05-29 13:00:00 UTC"
+    "slot":"2015-05-29 14:00:00 UTC"
   },
   {
     "id":47,
     "name":"Fun with Mind Reading",
     "room":1,
-    "slot":"2015-05-29 14:00:00 UTC"
-  },
-  {
-    "id":7,
-    "name":"Introduction to WatchKit",
-    "room":1,
     "slot":"2015-05-29 15:00:00 UTC"
-  },
-  {
-    "id":20,
-    "name":"5 Things I Wish Someone Told Me Before I Started Programming",
-    "room":1,
-    "slot":"2015-05-29 17:00:00 UTC"
-  },
-  {
-    "id":3,
-    "name":"Aesthetics and the Evolution of Code",
-    "room":1,
-    "slot":"2015-05-29 18:00:00 UTC"
-  },
-  {
-    "id":6,
-    "name":"Finding Joy at Work",
-    "room":1,
-    "slot":"2015-05-29 19:00:00 UTC"
-  },
-  {
-    "id":35,
-    "name":"Opening up Conversations about Mental Health in Computer Science Education",
-    "room":1,
-    "slot":"2015-05-29 20:00:00 UTC"
-  },
-  {
-    "id":2,
-    "name":"Choose your Character",
-    "room":1,
-    "slot":"2015-05-30 13:00:00 UTC"
-  },
-  {
-    "id":45,
-    "name":"JavaScript Robotics? Not a bad idea.",
-    "room":1,
-    "slot":"2015-05-30 14:00:00 UTC"
-  },
-  {
-    "id":9,
-    "name":"Climbing the Testing Pyramid in iOS",
-    "room":1,
-    "slot":"2015-05-30 15:00:00 UTC"
-  },
-  {
-    "id":40,
-    "name":"How Would Plato Program? : The Ethics of Software Engineering",
-    "room":1,
-    "slot":"2015-05-30 17:00:00 UTC"
-  },
-  {
-    "id":14,
-    "name":"Sometimes Optimism is Good Business: Why we train, and why we will keep training",
-    "room":1,
-    "slot":"2015-05-30 18:00:00 UTC"
-  },
-  {
-    "id":12,
-    "name":"Coming Clean About Mental Health at Work",
-    "room":1,
-    "slot":"2015-05-30 19:00:00 UTC"
-  },
-  {
-    "id":4,
-    "name":"Planetary Engineering",
-    "room":1,
-    "slot":"2015-05-30 20:00:00 UTC"
   },
   {
     "id":25,
     "name":"Bring Your Whole Self To Work (In 15 Years Or Less)!",
     "room":2,
-    "slot":"2015-05-29 14:00:00 UTC"
-  },
-  {
-    "id":11,
-    "name":"Running a self-organizing/self-managing team (or company)",
-    "room":2,
     "slot":"2015-05-29 15:00:00 UTC"
-  },
-  {
-    "id":29,
-    "name":"How Long Will It Take? - A Guide to Software Estimation",
-    "room":2,
-    "slot":"2015-05-29 17:00:00 UTC"
-  },
-  {
-    "id":23,
-    "name":"How to Fix Software Bugs: Stronger, Faster, Better",
-    "room":2,
-    "slot":"2015-05-29 18:00:00 UTC"
-  },
-  {
-    "id":33,
-    "name":"Empathy \\u0026 Gender Diversity: AMA",
-    "room":2,
-    "slot":"2015-05-29 19:00:00 UTC"
-  },
-  {
-    "id":21,
-    "name":"How I Learned to Stop Caring and Made Better Software",
-    "room":2,
-    "slot":"2015-05-29 20:00:00 UTC"
-  },
-  {
-    "id":31,
-    "name":"Better testing with Spies",
-    "room":2,
-    "slot":"2015-05-30 14:00:00 UTC"
-  },
-  {
-    "id":46,
-    "name":"The Cloud is Your Free Hobby Computer",
-    "room":2,
-    "slot":"2015-05-30 15:00:00 UTC"
-  },
-  {
-    "id":16,
-    "name":"Turn your Raspberry Pi into a retro-gaming console",
-    "room":2,
-    "slot":"2015-05-30 17:00:00 UTC"
-  },
-  {
-    "id":13,
-    "name":"There Is No Work/Life Balance",
-    "room":2,
-    "slot":"2015-05-30 18:00:00 UTC"
-  },
-  {
-    "id":44,
-    "name":"How To Be A Real Developer In Two Easy Steps!",
-    "room":2,
-    "slot":"2015-05-30 19:00:00 UTC"
-  },
-  {
-    "id":22,
-    "name":"Practical RESTful Webservices API Design",
-    "room":2,
-    "slot":"2015-05-30 20:00:00 UTC"
   },
   {
     "id":19,
     "name":"Ask vs. Guess Culture Communication",
     "room":3,
-    "slot":"2015-05-29 14:00:00 UTC"
-  },
-  {
-    "id":30,
-    "name":"Decoupling the Front-end through Modular CSS",
-    "room":3,
     "slot":"2015-05-29 15:00:00 UTC"
-  },
-  {
-    "id":39,
-    "name":"Scala: the pointy bits",
-    "room":3,
-    "slot":"2015-05-29 17:00:00 UTC"
-  },
-  {
-    "id":18,
-    "name":"Excellent Technical Interviews",
-    "room":3,
-    "slot":"2015-05-29 18:00:00 UTC"
-  },
-  {
-    "id":32,
-    "name":"Refactoring Real Legacy Code",
-    "room":3,
-    "slot":"2015-05-29 19:00:00 UTC"
-  },
-  {
-    "id":49,
-    "name":"Inclusive Web: Getting started with Accessibility",
-    "room":3,
-    "slot":"2015-05-29 20:00:00 UTC"
-  },
-  {
-    "id":36,
-    "name":"From Sand To Tech: How To Overcome Cultural Expectations",
-    "room":3,
-    "slot":"2015-05-30 14:00:00 UTC"
-  },
-  {
-    "id":34,
-    "name":"Give Up",
-    "room":3,
-    "slot":"2015-05-30 15:00:00 UTC"
-  },
-  {
-    "id":38,
-    "name":"Secure the App, Save the World",
-    "room":3,
-    "slot":"2015-05-30 17:00:00 UTC"
-  },
-  {
-    "id":15,
-    "name":"Code along: Building your first iOS game in 45 minutes",
-    "room":3,
-    "slot":"2015-05-30 18:00:00 UTC"
-  },
-  {
-    "id":37,
-    "name":"Working Remote: What Works, What Doesn't, and Where We Go From Here.",
-    "room":3,
-    "slot":"2015-05-30 19:00:00 UTC"
-  },
-  {
-    "id":8,
-    "name":"Stepping Outside Your Comfort Zone: Learning to Teach",
-    "room":3,
-    "slot":"2015-05-30 20:00:00 UTC"
   },
   {
     "id":42,
     "name":"Basic Git \\u0026 Github for Designers, Visual Learners, and Everyone Else",
     "room":4,
-    "slot":"2015-05-29 14:00:00 UTC"
+    "slot":"2015-05-29 15:00:00 UTC"
+  },
+  {
+    "id":7,
+    "name":"Introduction to WatchKit",
+    "room":1,
+    "slot":"2015-05-29 16:00:00 UTC"
+  },
+  {
+    "id":11,
+    "name":"Running a self-organizing/self-managing team (or company)",
+    "room":2,
+    "slot":"2015-05-29 16:00:00 UTC"
+  },
+  {
+    "id":30,
+    "name":"Decoupling the Front-end through Modular CSS",
+    "room":3,
+    "slot":"2015-05-29 16:00:00 UTC"
   },
   {
     "id":5,
     "name":"Megateam vs Code-nado: Lessons Learned While Working on a Large Team",
     "room":4,
-    "slot":"2015-05-29 15:00:00 UTC"
+    "slot":"2015-05-29 16:00:00 UTC"
+  },
+  {
+    "id":20,
+    "name":"5 Things I Wish Someone Told Me Before I Started Programming",
+    "room":1,
+    "slot":"2015-05-29 18:00:00 UTC"
+  },
+  {
+    "id":29,
+    "name":"How Long Will It Take? - A Guide to Software Estimation",
+    "room":2,
+    "slot":"2015-05-29 18:00:00 UTC"
+  },
+  {
+    "id":39,
+    "name":"Scala: the pointy bits",
+    "room":3,
+    "slot":"2015-05-29 18:00:00 UTC"
   },
   {
     "id":24,
     "name":"Creating a Safe Space: Embracing Diversity In The Workplace",
     "room":4,
-    "slot":"2015-05-29 17:00:00 UTC"
+    "slot":"2015-05-29 18:00:00 UTC"
+  },
+  {
+    "id":3,
+    "name":"Aesthetics and the Evolution of Code",
+    "room":1,
+    "slot":"2015-05-29 19:00:00 UTC"
+  },
+  {
+    "id":23,
+    "name":"How to Fix Software Bugs: Stronger, Faster, Better",
+    "room":2,
+    "slot":"2015-05-29 19:00:00 UTC"
+  },
+  {
+    "id":18,
+    "name":"Excellent Technical Interviews",
+    "room":3,
+    "slot":"2015-05-29 19:00:00 UTC"
   },
   {
     "id":48,
     "name":"What do I do with my hands?!?!?",
     "room":4,
-    "slot":"2015-05-29 18:00:00 UTC"
+    "slot":"2015-05-29 19:00:00 UTC"
+  },
+  {
+    "id":6,
+    "name":"Finding Joy at Work",
+    "room":1,
+    "slot":"2015-05-29 20:00:00 UTC"
+  },
+  {
+    "id":33,
+    "name":"Empathy \\u0026 Gender Diversity: AMA",
+    "room":2,
+    "slot":"2015-05-29 20:00:00 UTC"
+  },
+  {
+    "id":32,
+    "name":"Refactoring Real Legacy Code",
+    "room":3,
+    "slot":"2015-05-29 20:00:00 UTC"
   },
   {
     "id":28,
     "name":"BYOD : Build your own drone... multi-rotor quadcopter that is.",
     "room":4,
-    "slot":"2015-05-29 19:00:00 UTC"
+    "slot":"2015-05-29 20:00:00 UTC"
+  },
+  {
+    "id":35,
+    "name":"Opening up Conversations about Mental Health in Computer Science Education",
+    "room":1,
+    "slot":"2015-05-29 21:00:00 UTC"
+  },
+  {
+    "id":21,
+    "name":"How I Learned to Stop Caring and Made Better Software",
+    "room":2,
+    "slot":"2015-05-29 21:00:00 UTC"
+  },
+  {
+    "id":49,
+    "name":"Inclusive Web: Getting started with Accessibility",
+    "room":3,
+    "slot":"2015-05-29 21:00:00 UTC"
   },
   {
     "id":17,
     "name":"A Question of Time: 3000 Years of Why 'What Time Is It?' Is Hard",
     "room":4,
-    "slot":"2015-05-29 20:00:00 UTC"
+    "slot":"2015-05-29 21:00:00 UTC"
+  },
+  {
+    "id":2,
+    "name":"Choose your Character",
+    "room":1,
+    "slot":"2015-05-30 14:00:00 UTC"
+  },
+  {
+    "id":45,
+    "name":"JavaScript Robotics? Not a bad idea.",
+    "room":1,
+    "slot":"2015-05-30 15:00:00 UTC"
+  },
+  {
+    "id":31,
+    "name":"Better testing with Spies",
+    "room":2,
+    "slot":"2015-05-30 15:00:00 UTC"
+  },
+  {
+    "id":36,
+    "name":"From Sand To Tech: How To Overcome Cultural Expectations",
+    "room":3,
+    "slot":"2015-05-30 15:00:00 UTC"
   },
   {
     "id":10,
     "name":"Build real-time web applications using WebSockets and Node.js",
     "room":4,
-    "slot":"2015-05-30 14:00:00 UTC"
+    "slot":"2015-05-30 15:00:00 UTC"
+  },
+  {
+    "id":9,
+    "name":"Climbing the Testing Pyramid in iOS",
+    "room":1,
+    "slot":"2015-05-30 16:00:00 UTC"
+  },
+  {
+    "id":46,
+    "name":"The Cloud is Your Free Hobby Computer",
+    "room":2,
+    "slot":"2015-05-30 16:00:00 UTC"
+  },
+  {
+    "id":34,
+    "name":"Give Up",
+    "room":3,
+    "slot":"2015-05-30 16:00:00 UTC"
   },
   {
     "id":41,
     "name":"Strong Teams as Healthy Communities",
     "room":4,
-    "slot":"2015-05-30 15:00:00 UTC"
+    "slot":"2015-05-30 16:00:00 UTC"
+  },
+  {
+    "id":40,
+    "name":"How Would Plato Program? : The Ethics of Software Engineering",
+    "room":1,
+    "slot":"2015-05-30 18:00:00 UTC"
+  },
+  {
+    "id":16,
+    "name":"Turn your Raspberry Pi into a retro-gaming console",
+    "room":2,
+    "slot":"2015-05-30 18:00:00 UTC"
+  },
+  {
+    "id":38,
+    "name":"Secure the App, Save the World",
+    "room":3,
+    "slot":"2015-05-30 18:00:00 UTC"
   },
   {
     "id":26,
     "name":"Cutting the Cord: How to Make the Jump to Freelance!",
     "room":4,
-    "slot":"2015-05-30 17:00:00 UTC"
+    "slot":"2015-05-30 18:00:00 UTC"
+  },
+  {
+    "id":14,
+    "name":"Sometimes Optimism is Good Business: Why we train, and why we will keep training",
+    "room":1,
+    "slot":"2015-05-30 19:00:00 UTC"
+  },
+  {
+    "id":13,
+    "name":"There Is No Work/Life Balance",
+    "room":2,
+    "slot":"2015-05-30 19:00:00 UTC"
+  },
+  {
+    "id":15,
+    "name":"Code along: Building your first iOS game in 45 minutes",
+    "room":3,
+    "slot":"2015-05-30 19:00:00 UTC"
   },
   {
     "id":43,
     "name":"Once You See It You Can't Unsee It: Designing Information Ecologies",
     "room":4,
-    "slot":"2015-05-30 18:00:00 UTC"
+    "slot":"2015-05-30 19:00:00 UTC"
+  },
+  {
+    "id":12,
+    "name":"Coming Clean About Mental Health at Work",
+    "room":1,
+    "slot":"2015-05-30 20:00:00 UTC"
+  },
+  {
+    "id":44,
+    "name":"How To Be A Real Developer In Two Easy Steps!",
+    "room":2,
+    "slot":"2015-05-30 20:00:00 UTC"
+  },
+  {
+    "id":37,
+    "name":"Working Remote: What Works, What Doesn't, and Where We Go From Here.",
+    "room":3,
+    "slot":"2015-05-30 20:00:00 UTC"
   },
   {
     "id":27,
     "name":"iOS real time content modifications using websockets",
     "room":4,
-    "slot":"2015-05-30 19:00:00 UTC"
+    "slot":"2015-05-30 20:00:00 UTC"
+  },
+  {
+    "id":4,
+    "name":"Planetary Engineering",
+    "room":1,
+    "slot":"2015-05-30 21:00:00 UTC"
+  },
+  {
+    "id":22,
+    "name":"Practical RESTful Webservices API Design",
+    "room":2,
+    "slot":"2015-05-30 21:00:00 UTC"
+  },
+  {
+    "id":8,
+    "name":"Stepping Outside Your Comfort Zone: Learning to Teach",
+    "room":3,
+    "slot":"2015-05-30 21:00:00 UTC"
   },
   {
     "id":50,
     "name":"Everything is fine. Nothing is fine. Lessons learned from transitioning roles.",
     "room":4,
-    "slot":"2015-05-30 20:00:00 UTC"
+    "slot":"2015-05-30 21:00:00 UTC"
   }
 ]
