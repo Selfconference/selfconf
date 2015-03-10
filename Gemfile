@@ -18,8 +18,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
+gem 'pry-rails'
+gem 'pry-byebug', '~> 3.0.1'
+
 group :development, :test do
-  gem 'pry-rails'
-  gem 'pry-byebug', '~> 3.0.1'
   gem 'spring'
 end
