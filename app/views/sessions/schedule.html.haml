@@ -1,87 +1,32 @@
-.mid_block
+.mid_block.schedule
   .container
     .row
-      .col-md-offset-1.col-md-10
-        .visible-desktop
-          %h4 Friday, May 30th
+      .col-md-12.visible-md-block.visible-lg-block
+        -@schedule.keys.each do |day|
+          %h4= day.strftime("%A, %b %d")
           %table.table.table-striped.table-bordered
             %tr
               %td
-              -@rooms.each do |room|
+              -@schedule[day][@schedule[day].keys[2]].keys.map(&:name).each do |room|
                 %td
-                  %h5= room.name
-            -@friday.keys.each do | time |
+                  %h5= room
+            -@schedule[day].keys.each do |slot|
               %tr
                 %td
-                  %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
-                -sessions = @friday["time"]
-                -@rooms.each do |room|
-                  -session = sessions.find { |value| value["room"] == room }
-                  -if session
-                    %td
-                      -has_link = session["anchor"] != "none"
-                      -if hasLink
-                        %a{href: "/2014/speakers##{session['anchor']}"}>
-                      = session['name']
-                      -if hasLink
-                        =" – #{session['title']}"
-                  -else
-                    %td
+                  %h5= slot.in_time_zone("EST").strftime('%l:%M %p')
+                - @schedule[day][slot].keys.each do | room |
+                  %td
+                    -session = @schedule[day][slot][room]
+                    =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
 
-          %h4 Saturday, May 31st
-          %table.table.table-striped.table-bordered
-            %tr
-              %td
-              -@rooms.each do |room|
-                %td
-                  %h5= room.name
-            -@saturday.keys.each do | time |
-              %tr
-                %td
-                  %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
-                -sessions = @saturday["time"]
-                -@rooms.each do |room|
-                  -session = sessions.find { |value| value["room"] == room }
-                  -if session
-                    %td
-                      -has_link = session["anchor"] != "none"
-                      -if hasLink
-                        %a{href: "/2014/speakers##{session['anchor']}"}>
-                      = session['name']
-                      -if hasLink
-                        =" – #{session['title']}"
-                  -else
-                    %td
-
-        .hidden-desktop
-          %h4 Friday, May 30th
-          -@friday.keys.each do | time |
-            %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
+      .col-md-12.visible-xs-block.visible-sm-block.phone-schedule
+        -@schedule.keys.each do |day|
+          %h4= day.strftime("%A, %b %d")
+          -@schedule[day].keys.each do |slot|
+            %h5= slot.in_time_zone("EST").strftime('%l:%M %p')
             %ul
-              -rooms = @friday["slot"]
-              -rooms.each do |row|
+              - @schedule[day][slot].keys.each do | room |
+                -session = @schedule[day][slot][room]
                 %li
-                  -hasLink = row['anchor'] != 'none'
-                  = "#{row['room']}: "
-                  -if hasLink
-                    %a{href: "/2014/speakers##{row['anchor']}"}
-                  -if row['name'] != 'blank'
-                    = row['name']
-                    -if hasLink
-                      =" – #{row['title']}"
-
-          %h4 Saturday, May 31st
-          -@saturday.keys.each do | time |
-            %h5= DateTime.strptime(time, '%m/%d/%Y %H:%M:%S').strftime('%l:%M %p')
-            %ul
-              -rooms = @saturday["slot"]
-              -rooms.each do |row|
-                %li
-                  -hasLink = row['anchor'] != 'none'
-                  = "#{row['room']}: "
-                  -if hasLink
-                    %a{href: "/2014/speakers##{row['anchor']}"}
-                  -if row['name'] != 'blank'
-                    = row['name']
-                    -if hasLink
-                      =" – #{row['title']}"
+                  ="#{room.name}: "
+                  =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
