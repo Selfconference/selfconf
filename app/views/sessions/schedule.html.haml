@@ -6,16 +6,16 @@
           %h4= day.strftime("%A, %b %d")
           %table.table.table-striped.table-bordered
             %tr
-              %td
+              %td.col-md-1
               -@schedule[day][@schedule[day].keys[2]].keys.map(&:name).each do |room|
-                %td
+                %td.col-md-2
                   %h5= room
             -@schedule[day].keys.each do |slot|
               %tr
-                %td
+                %td.col-md-1
                   %h5= slot.in_time_zone("EST").strftime('%l:%M %p')
                 - @schedule[day][slot].keys.each do | room |
-                  %td
+                  %td.col-md-2
                     -session = @schedule[day][slot][room]
                     =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
 
