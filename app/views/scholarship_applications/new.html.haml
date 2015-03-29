@@ -1,0 +1,69 @@
+.mid_block
+  .container
+    .row
+      .col-md-12
+        .scholarship
+        %h4.submit-header Apply for a Diversity Scholarship
+        =form_for(@scholarship_application, url: {action: "create"}, html: {class: ""}) do |f|
+
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          .form-group.form-group-lg
+            %label First Name
+            %span.required *
+
+            =f.text_field :first_name, required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label Last Name
+            %span.required *
+
+            =f.text_field :last_name, required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label Email
+            %span.required *
+
+            =f.text_field :email,  required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label Location (from which you will be traveling to attend Self.conference)
+            %span.required *
+
+            =f.text_field :location,  required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label Which underrepresented group(s) do you identify with?
+            %span.required *
+
+            =f.text_field :groups,  required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label I am requesting (check all that apply)
+
+            %fieldset
+              =f.check_box :needs_help_with_tickets
+              financial assistance with tickets
+              %br
+              =f.check_box :needs_help_with_travel
+              financial assistance with travel expenses (if yes, estimate your expenses below)
+              %br
+              =f.check_box :needs_help_with_other
+              other financial assistance (please describe and estimate your expenses below)
+          .form-group.form-group-lg
+            %label Please briefly describe your financial need
+
+            =f.text_area :financial_need_explanation, class: 'form-control'
+          .form-group.form-group-lg
+            %label Please tell us why you would like to attend Self.conference 2015
+            %span.required *
+
+            =f.text_area :why_attend, required: true, class: 'form-control'
+          .form-group.form-group-lg
+            %label Self.conference strives to make all conference activities accessible to all participants. If you will need any special accommodations in order to fully participate in Self.conference 2015, please share them below (special needs are not considered when determining scholarship decisions)
+
+            =f.text_area :special_accomodations, class: 'form-control'
+
+          .center-wrapper
+            =f.submit 'Submit Application', class: 'orange-btn'
+
+.color-line
+  .colored_line_a>
+  .colored_line_b>
+  .colored_line_c>
+  .colored_line_d>
+  .colored_line_e>
