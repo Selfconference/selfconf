@@ -9,6 +9,10 @@ class SessionDecorator < Draper::Decorator
     speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
   end
 
+  def slot
+    "#{session.slot.strftime("%A")}, #{session.slot.in_time_zone("EST").strftime('%l:%M %p')}"
+  end
+
   def nav_speaker_display
     {
       id: speakers.first.id,
