@@ -5,6 +5,10 @@ class SessionDecorator < Draper::Decorator
     speakers.map(&:name).join(", ")
   end
 
+  def twitter_handles
+    speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
+  end
+
   def nav_speaker_display
     {
       id: speakers.first.id,

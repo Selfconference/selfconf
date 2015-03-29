@@ -37,8 +37,11 @@
                   .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
                 %h4
                   = "#{session.speaker_names}: #{session.name}"
+                %h5
+                  %a{href: "schedule"}
+                    = "#{session.room.name}, #{session.slot.in_time_zone("EST").strftime('%l:%M %p')}"
                 %h5.italic
-                  = raw session.speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
+                  = raw session.twitter_handles
                 %p= raw session.abstract
               .speaker
                 %h5.italic
