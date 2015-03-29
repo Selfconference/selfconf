@@ -48,9 +48,9 @@
                       %a{:href => "/coc"} code of conduct
                     %li
                       %a{:href => "/#organizers"} organizers
-              %a.navbar-link.navbar-right{:href => "http://lanyrd.com/#{@event.lanyard}"}
+              %a.navbar-link.navbar-right{:href => "http://lanyrd.com/#{current_event.lanyard}"}
                 =image_tag "lanyrd.png", {class: "social navbar-text"}
-              %a.navbar-link.navbar-right{:href => "http://twitter.com/#{@event.twitter}"}
+              %a.navbar-link.navbar-right{:href => "http://twitter.com/#{current_event.twitter}"}
                 =image_tag "twitter.png", {class: "social navbar-text"}
               %a.navbar-link.navbar-right.btn.sponsor-nav-btn{:href => "/sponsor"}
                 Sponsor
@@ -62,10 +62,10 @@
               %span{:style => "font-weight:900"}> self.
               conference
             %ul.tag-line.lead
-              %li= "#{@event.decorate.when}"
+              %li= "#{current_event.decorate.when}"
               %li ·
               %li
-                ="#{@event.venue.address}, "
+                ="#{current_event.venue.address}, "
                 %span{:style => "font-weight:900"} Detroit
     .color-line
       .colored_line_a>
