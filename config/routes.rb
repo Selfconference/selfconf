@@ -10,11 +10,6 @@ Rails.application.routes.draw do
   get 'schedule' => 'sessions#schedule'
 
   resources :sessions
-  resources :scholarship_applications do
-    collection do
-      get :thanks
-    end
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
