@@ -1,7 +1,17 @@
 class SessionsController < ApplicationController
 
   def index
-    @sessions = Session.where("event_id = #{current_event.id}").map(&:decorate)
+    respond_to do |format|
+      format.html { @sessions = Session.where("event_id = #{current_event.id}").map(&:decorate) }
+      format.json do
+        event = Event.find(params[:id])
+        render json: event.sessions
+      end
+    end
+  end
+
+  def show
+    render json: Session.find(params[:id]).to_json(:include => [:speakers, :room])
   end
 
   def schedule

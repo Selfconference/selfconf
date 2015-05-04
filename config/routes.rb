@@ -11,6 +11,19 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  scope 'api', defaults: { format: :json } do
+    resources :events, only: [:index, :show] do
+      collection do
+        get 'latest'
+      end
+      member do
+        resources :sessions, :speakers, :sponsors, :sponsor_levels, :venue,
+                  :rooms, :organizers,
+                  only: [:index, :show]
+      end
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

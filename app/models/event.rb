@@ -8,7 +8,5 @@ class Event < ActiveRecord::Base
   has_many :sponsors
   has_and_belongs_to_many :organizers
 
-  def self.latest
-    Event.order('start_date DESC').first
-  end
+  scope :latest, -> { order('start_date DESC').first }
 end
