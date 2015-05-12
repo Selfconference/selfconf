@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :sessions
 
   scope 'api', defaults: { format: :json } do
+    resources :venues, only: [:index, :show]
+
     resources :events, only: [:index, :show] do
       collection do
         get 'latest'
