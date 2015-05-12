@@ -1,7 +1,7 @@
 class SponsorsController < ApplicationController
   def index
     event = Event.find(params[:id])
-    render json: event.sponsors
+    render json: event.sponsors.to_json(:include => [:sponsor_levels])
   end
 
   def show
