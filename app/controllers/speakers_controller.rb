@@ -1,7 +1,7 @@
 class SpeakersController < ApplicationController
   def index
     event = Event.find(params[:id])
-    render json: event.speakers
+    render json: event.speakers.to_json(:include => [:sessions])
   end
 
   def show
