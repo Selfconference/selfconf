@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'coc' => 'coc#view'
   get 'sponsor' => 'sponsor#view'
   get 'schedule' => 'sessions#schedule'
+  get 'contact' => 'contact#view'
 
   resources :sessions
 
