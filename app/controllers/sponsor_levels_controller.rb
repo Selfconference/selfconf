@@ -1,7 +1,8 @@
 class SponsorLevelsController < ApplicationController
   def index
-    event = Event.find(params[:id])
-    render json: event.sponsor_levels
+    sponsor_levels = Event.find(params[:id]).sponsor_levels
+    sponsor_levels = sponsor_levels.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    render json: sponsor_levels
   end
 
   def show

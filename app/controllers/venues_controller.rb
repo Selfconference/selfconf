@@ -1,6 +1,8 @@
 class VenuesController < ApplicationController
   def index
-    render json: Venue.all
+    venues = Venue.all
+    venues = venues.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    render json: venues
   end
 
   def show

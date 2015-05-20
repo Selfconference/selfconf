@@ -1,7 +1,8 @@
 class RoomsController < ApplicationController
   def index
-    event = Event.find(params[:id])
-    render json: event.rooms
+    rooms = Event.find(params[:id]).rooms
+    rooms = rooms.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    render json: rooms
   end
 
   def show

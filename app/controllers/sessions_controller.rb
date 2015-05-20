@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
     respond_to do |format|
       format.html { @sessions = Session.where("event_id = #{current_event.id}").map(&:decorate) }
       format.json do
-        event = Event.find(params[:id])
-        render json: event.sessions.to_json(:include => [:speakers, :room])
+        sessions = Event.find(params[:id]).sessions
+        sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]
+        render json: sessions.to_json(:include => [:speakers, :room])
       end
     end
   end

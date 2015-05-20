@@ -1,7 +1,8 @@
 class OrganizersController < ApplicationController
   def index
-    event = Event.find(params[:id])
-    render json: event.organizers
+    organizers = Event.find(params[:id]).organizers
+    organizers = organizers.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    render json: organizers
   end
 
   def show

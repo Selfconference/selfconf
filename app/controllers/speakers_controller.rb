@@ -1,7 +1,8 @@
 class SpeakersController < ApplicationController
   def index
-    event = Event.find(params[:id])
-    render json: event.speakers.to_json(:include => [:sessions])
+    speakers = Event.find(params[:id]).speakers
+    speakers = speakers.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    render json: speakers.to_json(:include => [:sessions])
   end
 
   def show
