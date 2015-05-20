@@ -20,8 +20,13 @@ Rails.application.routes.draw do
       end
       member do
         resources :sessions, :speakers, :sponsors, :sponsor_levels, :venue,
-                  :rooms, :organizers,
-                  only: [:index, :show]
+                  :rooms, :organizers, only: [:index, :show]
+      end
+    end
+
+    resources :sessions, only: [:index, :show] do
+      member do
+        resources :feedbacks, only: :create
       end
     end
   end

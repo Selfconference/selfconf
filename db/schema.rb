@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329172129) do
+ActiveRecord::Schema.define(version: 20150520023714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20150329172129) do
 
   add_index "events_organizers", ["event_id"], name: "index_events_organizers_on_event_id", using: :btree
   add_index "events_organizers", ["organizer_id"], name: "index_events_organizers_on_organizer_id", using: :btree
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "session_id"
+    t.integer  "vote"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "organizers", force: :cascade do |t|
     t.string   "name"
