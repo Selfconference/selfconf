@@ -20,10 +20,6 @@ class SessionDecorator < Draper::Decorator
     }
   end
 
-  def speakers
-    object.speakers.map(&:decorate)
-  end
-
   def name
     "#{if keynote then "Keynote - " end}#{object.name}"
   end
