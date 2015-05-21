@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  protect_from_forgery with: :null_session
+  protect_from_forgery except: :create
 
   def create
     session = Session.find(params[:id])
