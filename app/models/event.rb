@@ -9,4 +9,16 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :organizers
 
   scope :latest, -> { order('start_date DESC').first }
+
+  def highlighted_speakers
+    speakers = []
+    speakers << Speaker.find(2)
+    speakers << Speaker.find(4)
+    speakers << Speaker.find(1)
+    speakers << Speaker.find(3)
+    speakers << Speaker.find(10)
+    speakers << Speaker.find(20)
+    speakers << Speaker.find(35)
+    speakers << Speaker.find(13)
+  end
 end
