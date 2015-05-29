@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
     speakers << Speaker.find(4)
     speakers << Speaker.find(1)
     speakers << Speaker.find(3)
-    speakers << Speaker.find(10)
+    speakers << Speaker.find(9)
     speakers << Speaker.find(20)
     speakers << Speaker.find(35)
     speakers << Speaker.find(43)
