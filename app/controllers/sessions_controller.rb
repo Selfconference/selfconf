@@ -16,12 +16,15 @@ class SessionsController < ApplicationController
   end
 
   def schedule
+    current_event = Event.find(1)
+    sessions = current_event.sessions
     @schedule = {}
-    current_event.sessions.map(&:slot).uniq.sort.each do |slot|
+    sessions.map(&:slot).uniq.sort.map do |slot|
       @schedule[slot.to_date] = {} unless @schedule.has_key?(slot.to_date)
       day = @schedule[slot.to_date]
       day[slot] = {} unless day.has_key?(slot)
-      current_event.sessions.map(&:room).uniq.sort.each do |room|
+      sessions.map(&:room).uniq.sort.map do |room|
+        day[slot][room] = nil unless day[slot].has_key?(room)
         session = current_event.sessions.where(slot: slot, room: room).first
         day[slot][room] = session.decorate if session
       end

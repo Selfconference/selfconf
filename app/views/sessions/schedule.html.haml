@@ -17,7 +17,8 @@
                 - @schedule[day][slot].keys.each do | room |
                   %td.col-md-2
                     -session = @schedule[day][slot][room]
-                    =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                    - if session.present?
+                      =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
 
       .col-md-12.visible-xs-block.visible-sm-block.phone-schedule
         -@schedule.keys.each do |day|
@@ -29,4 +30,5 @@
                 -session = @schedule[day][slot][room]
                 %li
                   ="#{room.name}: "
-                  =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                  - if session.present?
+                    =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
