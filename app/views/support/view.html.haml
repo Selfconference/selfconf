@@ -16,7 +16,7 @@
       %br
       .row
         .col-md-12
-          %span{style: "width: #{@meter.percentage}%, text-align: right"}= @meter.formatted_current
+          %span.pull-left{style: "width: #{@meter.percentage}%"}= @meter.formatted_current
           %span.pull-right{style: "width: #{@meter.percentage_left}%, text-align: right"}= @meter.formatted_goal
       .row
         .col-md-12
