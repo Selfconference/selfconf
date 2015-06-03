@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520023714) do
+ActiveRecord::Schema.define(version: 20150603184800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20150520023714) do
     t.integer  "session_id"
     t.integer  "vote"
     t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "funding_meters", force: :cascade do |t|
+    t.integer  "event_id"
+    t.float    "current"
+    t.float    "goal"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

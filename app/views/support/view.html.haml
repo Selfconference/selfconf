@@ -11,12 +11,21 @@
             %input{type: "hidden", name: "LinkId", value: "2f7a7b96-7a6f-4926-a59d-2224969a55d6"}
             %input{type: "image", src: "//content.authorize.net/images/donate-blue.gif"}
 
-        %br
-        .progress
-          .progress-bar.progress-bar-success{style: "width: 24%"}
-            $3,575 of $15,000
-          .progress-bar.progress-bar-striped{style: "width: 76%"}
+    -if @meter.present?
+      - @meter = @meter.decorate
+      %br
+      .row
+        .col-md-12
+          %span{style: "width: #{@meter.percentage}%, text-align: right"}= @meter.formatted_current
+          %span.pull-right{style: "width: #{@meter.percentage_left}%, text-align: right"}= @meter.formatted_goal
+      .row
+        .col-md-12
+          .progress
+            .progress-bar.progress-bar-success{style: "width: #{@meter.percentage}%"}
+            .progress-bar.progress-bar-striped{style: "width: #{@meter.percentage_left}%"}
 
+    .row
+      .col-md-12
         %br
         %h4 Why Support Self.conference?
         %p We are a volunteer-run conference dedicated to making information about all aspects of programming, from the technical bits to the people bits, as affordable and accessible as possible. As such, we keep our ticket prices as cheap as we can possibly afford and depend on help from sponsors and the community to help us continue running. Most of our day-to-day costs are covered out of pocket by the organizers, and no organizer wants or receives monetary compensation for their time and effort. It's a labor of love. We care deeply about our industry, and think it is important to not only provide a safe and inclusive environment for learning about programming languages, tools, or libraries, but to provide an equally safe and inclusive space to foster conversations about the future of our industry and teams as far as diversity, empathy, communication, and just getting along.

@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   has_many :sponsor_levels
   has_many :sponsors
   has_and_belongs_to_many :organizers
+  has_one :funding_meter
 
   scope :latest, -> { order('start_date DESC').first }
 
