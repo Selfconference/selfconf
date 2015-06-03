@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'sponsor' => 'sponsor#view'
   get 'schedule' => 'sessions#schedule'
   get 'contact' => 'contact#view'
+  get 'support' => 'support#view'
 
   resources :sessions
 
