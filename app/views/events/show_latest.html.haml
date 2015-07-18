@@ -167,7 +167,7 @@
               %p= raw organizer.bio
               %p
                 ="Want to email #{organizer.name.split(" ").first}? Do it: "
-                %a{:href => "mailto:#{organizer.email}"}= "@#{organizer.email}"
+                %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
                 ="."
                 %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
         .row
