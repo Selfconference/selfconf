@@ -26,4 +26,5 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'awesome_print'
   gem 'spring'
+  gem "seed_dump"
 end

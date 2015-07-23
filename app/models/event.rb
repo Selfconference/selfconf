@@ -12,14 +12,6 @@ class Event < ActiveRecord::Base
   scope :latest, -> { order('start_date DESC').first }
 
   def highlighted_speakers
-    speakers = []
-    speakers << Speaker.find(2)
-    speakers << Speaker.find(4)
-    speakers << Speaker.find(1)
-    speakers << Speaker.find(3)
-    speakers << Speaker.find(13)
-    speakers << Speaker.find(20)
-    speakers << Speaker.find(35)
-    speakers << Speaker.find(43)
+    speakers.all.sample(8)
   end
 end

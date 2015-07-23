@@ -37,34 +37,35 @@
                 .center-wrapper
                   %button#mc-embedded-subscribe.sign-up{:name => "subscribe", :type => "submit", :value => "Subscribe"} Subscribe
 
-%section#speakers
-  .color-line
-    .colored_line_a>
-    .colored_line_b>
-    .colored_line_c>
-    .colored_line_d>
-    .colored_line_e>
-  .blue_header
-    .container
-      .row
-        .col-md-12
-          %h1 speakers
-  .blue_block.keynote
-    .container
-      .row
-        -current_event.highlighted_speakers.each do |speaker|
-          .col-md-3.main-page-speaker
-            %a{:href => "sessions#speaker_#{speaker.id}"}
-              .center
-                .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
-              %h4= speaker.name
-              %p= speaker.sessions.sample.name
-
+- unless current_event.speakers.empty?
+  %section#speakers
+    .color-line
+      .colored_line_a>
+      .colored_line_b>
+      .colored_line_c>
+      .colored_line_d>
+      .colored_line_e>
+    .blue_header
+      .container
         .row
           .col-md-12
-            Check out
-            %a{:href => "sessions"} all our speakers
-            %span>="!"
+            %h1 speakers
+    .blue_block.keynote
+      .container
+        .row
+          -current_event.highlighted_speakers.each do |speaker|
+            .col-md-3.main-page-speaker
+              %a{:href => "sessions#speaker_#{speaker.id}"}
+                .center
+                  .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
+                %h4= speaker.name
+                %p= speaker.sessions.sample.name
+
+          .row
+            .col-md-12
+              Check out
+              %a{:href => "sessions"} all our speakers
+              %span>="!"
 
 %section#location
   .color-line
@@ -85,15 +86,8 @@
           %h4= current_event.venue.name
           %p= current_event.venue.about
           %iframe{:frameborder => "0", :height => "450", :src => current_event.venue.maps_link, :style => "border:0", :width => "100%"}
-      %section#room-block
-        .row
-          .col-md-12
-            %h4 Need a room? We've got a room block at Courtyard Marriott
-            %p
-              Get yourself a room in our block either by calling (800) 321-2211 (make sure to mention the Courtyard by Marriott, Detroit Downtown and Self.conference to get the group rate) or by
-              %a{href: "http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Self.conference%20Room%20block%5Edtwdc%60selsela%60169.00%60USD%60false%605/28/15%605/30/15%605/7/15&app=resvlink&stop_mobi=yes"} booking online
-              =". Reservations must be booked by Tuesday, May 12th at 11:59pm in order to get the group rate."
-%section#tickets
+
+%section#tickets.hidden
   .color-line
     .colored_line_a>
     .colored_line_b>
@@ -110,18 +104,8 @@
       .row
         .col-md-12
           %p
-            If the Eventbrite widget is not working for some reason, just head over to
-            %a{:href => current_event.tickets_link}= current_event.tickets_link
-            to get your tickets.
-          %div{:style => "width:100%; text-align:left;"}
-            %iframe{:allowtransparency => "true", :frameborder => "0", :height => "415", :hspace => "0", :marginheight => "5", :marginwidth => "5", :scrolling => "auto", :src => "#{current_event.tickets_iframe_link}", :vspace => "0", :width => "100%"}
-            %div{:style => "font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;"}
-              %a{:href => "http://www.eventbrite.com/r/etckt", :style => "color:#ddd; text-decoration:none;", :target => "_blank"} Event management
-              %span{:style => "color:#ddd;"} for
-              %a{:href => "https://selfconf2015.eventbrite.com/?ref=etckt", :style => "color:#ddd; text-decoration:none;", :target => "_blank"} self.conference 2015
-              %span{:style => "color:#ddd;"} powered by
-              %a{:href => "#{current_event.tickets_link}?ref=etckt", :style => "color:#ddd; text-decoration:none;", :target => "_blank"} Eventbrite
-%section#sponsors
+            On sale closer to the event!
+%section#sponsors.hidden
   .color-line
     .colored_line_a>
     .colored_line_b>
@@ -145,38 +129,38 @@
                   %a{:href => sponsor.link}
                     %img.img-responsive{:src => sponsor.photo}/
 
-  %section#organizers
-    .color-line
-      .colored_line_a>
-      .colored_line_b>
-      .colored_line_c>
-      .colored_line_d>
-      .colored_line_e>
-    .blue_header
-      .container
-        .row
-          .col-md-12
-            %h1 ORGANIZERS
-    .blue_block
-      .container
-        .row
-          -current_event.organizers.each do |organizer|
-            .col-md-4
-              %img.img-responsive.img-rounded.speaker-img{:src => organizer.photo}/
-              %h4= organizer.name
-              %p= raw organizer.bio
-              %p
-                ="Want to email #{organizer.name.split(" ").first}? Do it: "
-                %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
-                =". Or send her a tweet!"
-                %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
-        .row
-          .col-md-12
-            .center-wrapper
-              %p
-                Not sure who to contact? Just reach out to us at
-                %a{:href => "mailto:hello@selfconference.org"} hello@selfconference.org
+%section#organizers
+  .color-line
+    .colored_line_a>
+    .colored_line_b>
+    .colored_line_c>
+    .colored_line_d>
+    .colored_line_e>
+  .blue_header
+    .container
+      .row
+        .col-md-12
+          %h1 ORGANIZERS
+  .blue_block
+    .container
+      .row
+        -current_event.organizers.each do |organizer|
+          .col-md-4
+            %img.img-responsive.img-rounded.speaker-img{:src => organizer.photo}/
+            %h4= organizer.name
+            %p= raw organizer.bio
+            %p
+              ="Want to email #{organizer.name.split(" ").first}? Do it: "
+              %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
+              =". Or send her a tweet!"
+              %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
+      .row
+        .col-md-12
+          .center-wrapper
+            %p
+              Not sure who to contact? Just reach out to us at
+              %a{:href => "mailto:hello@selfconference.org"} hello@selfconference.org
 
-    %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
-    :javascript
-      (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+  %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+  :javascript
+    (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);

@@ -1,13 +1,31 @@
-event = Event.all.first
-
-talk = event.sessions.create!(
-  name: "Everything is fine. Nothing is fine. Lessons learned from transitioning roles.",
-  abstract: "A look at failures and successes for anyone interested in making the jump from one part of the organization to another. Whether you're a UX designer that secretly loves programming or a product manager needing something more, this session reflects on lessons learned and delightful missteps in the wacky world of software development.<br /><br />In this talk we'll look at why the hunger to learn and continued exploration can lead to a bumpy path, and why that path is so important. We'll explore key takeaways from folks that have made a career transition and lived to tell the tale."
-)
-
-speaker = talk.speakers.create!(
-  name: "Ashley Hathaway",
-  twitter: "ash_hathaway",
-  bio: "Ashley Hathaway is a product manager who believes great design is great business. She excels in telling stories that distill large ideas into executable visions. Her previous role as a UX designer and front-end developer help her develop the product vision from holistic idea to tactile execution. Her process is rooted in scalability and collaboration while always maintaining a sense of humor.<br /><br />Ashley is currently working for IBM Watson as part of the IBM Design Studio in Austin, Texas."
-)
-speaker.update_attributes!(event_id: event.id)
+Event.create!([
+  {venue_id: 1, name: "self.conference", about: "Self.conference is a mix of fantastic tech presentations and insightful soft talks in fabulous downtown Detroit. We're filling two whole days in the middle of May with mobile, web, hardware, software, process, and team talks to help you expand your knowledge, meet other technically-minded folk, and immerse yourself in Detroit's tech renaissance.", twitter: "selfconference", lanyard: "2015/selfconf", tickets_link: "http://selfconf2015.eventbrite.com", tickets_iframe_link: "//eventbrite.com/tickets-external?eid=15432000529&ref=etckt", start_date: "2016-05-13 13:00:00", end_date: "2016-05-14 23:00:00"}
+])
+Event::HABTM_Organizers.create!([
+  {event_id: 2, organizer_id: 1}
+])
+Organizer::HABTM_Events.create!([
+  {event_id: 2, organizer_id: 1}
+])
+Room.create!([
+  {name: "Ballroom", event_id: 2, venue_id: 1},
+  {name: "MCC1", event_id: 2, venue_id: 1},
+  {name: "MCC2", event_id: 2, venue_id: 1},
+  {name: "MCC3", event_id: 2, venue_id: 1},
+  {name: "MCC 4", event_id: 2, venue_id: 1},
+  {name: "Amnesia", event_id: 2, venue_id: 1}
+])
+SponsorLevel.create!([
+  {name: "Platinum", event_id: 2, order: 1},
+  {name: "Gold", event_id: 2, order: 2},
+  {name: "Silver", event_id: 2, order: 3},
+  {name: "Bronze", event_id: 2, order: 4},
+  {name: "Startup", event_id: 2, order: 5},,
+  {name: "Indie", event_id: 2, order: 6},
+  {name: "Diversity", event_id: 2, order: 7},
+  {name: "Attendee Party", event_id: 2, order: 8},
+  {name: "Lanyard", event_id: 2, order: 9},
+  {name: "Breakfast", event_id: 2, order: 10},
+  {name: "Coffee", event_id: 2, order: 11},
+  {name: "Snack", event_id: 2, order: 12}
+])
