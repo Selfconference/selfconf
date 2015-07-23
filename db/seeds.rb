@@ -20,7 +20,7 @@ SponsorLevel.create!([
   {name: "Gold", event_id: 2, order: 2},
   {name: "Silver", event_id: 2, order: 3},
   {name: "Bronze", event_id: 2, order: 4},
-  {name: "Startup", event_id: 2, order: 5},,
+  {name: "Startup", event_id: 2, order: 5},
   {name: "Indie", event_id: 2, order: 6},
   {name: "Diversity", event_id: 2, order: 7},
   {name: "Attendee Party", event_id: 2, order: 8},
