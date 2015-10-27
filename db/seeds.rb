@@ -4,9 +4,6 @@ Event.create!([
 Event::HABTM_Organizers.create!([
   {event_id: 2, organizer_id: 1}
 ])
-Organizer::HABTM_Events.create!([
-  {event_id: 2, organizer_id: 1}
-])
 Room.create!([
   {name: "Ballroom", event_id: 2, venue_id: 1},
   {name: "MCC1", event_id: 2, venue_id: 1},
