@@ -18,12 +18,18 @@ class EventsController < ApplicationController
     end
   end
 
-  def event
-    @event = if id = params[:id]
-      Event.find(params[:id])
-    else
-      Event.latest
+  def schedule
+    sessions = @event.sessions
+    @schedule = {}
+    sessions.map(&:slot).uniq.sort.map do |slot|
+      @schedule[slot.to_date] = {} unless @schedule.has_key?(slot.to_date)
+      day = @schedule[slot.to_date]
+      day[slot] = {} unless day.has_key?(slot)
+      sessions.map(&:room).uniq.sort.map do |room|
+        day[slot][room] = nil unless day[slot].has_key?(room)
+        session = @event.sessions.where(slot: slot, room: room).first
+        day[slot][room] = session.decorate if session
+      end
     end
   end
-
 end

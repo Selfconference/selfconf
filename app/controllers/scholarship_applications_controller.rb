@@ -1,9 +1,11 @@
 class ScholarshipApplicationsController < ApplicationController
+  before_action :event
+
   def index
   end
 
   def new
-    @scholarship_application = ScholarshipApplication.new(event_id: current_event.id)
+    @scholarship_application = ScholarshipApplication.new(event_id: @event.id)
   end
 
   def create

@@ -4,4 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ApplicationHelper
 
+
+  def event
+    @event = if id = params[:id]
+      Event.find(params[:id])
+    else
+      Event.latest
+    end
+  end
 end

@@ -6,13 +6,10 @@ Rails.application.routes.draw do
       get 'coc'
       get 'sponsor'
       get 'contact'
-      resources :sessions, only: [:index, :show] do
-        get 'schedule'
-      end
+      get 'schedule'
+      resources :sessions, only: [:index, :show]
     end
   end
-
-  resources :sessions
 
   scope 'api', defaults: { format: :json } do
     resources :venues, only: [:index, :show]
@@ -23,7 +20,7 @@ Rails.application.routes.draw do
       end
       member do
         resources :speakers, :sponsors, :sponsor_levels, :venue,
-                  :rooms, :organizers, only: [:index, :show]
+                  :rooms, :organizers, :sessions, only: [:index, :show]
       end
     end
 

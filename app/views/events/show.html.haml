@@ -7,50 +7,8 @@
         %h4= "What is #{@event.name}?"
         %p= @event.about
 
-        %h4= "2016 Timeline"
-        %p
-          Interested in when things will get going with our call for speakers or ticket sales? Here's the plan:
-
-          %ul
-            %li
-              %span.bold January 18th:
-              Call for speakers opens
-            %li
-              %span.bold February 1st:
-              Earlybird tickets go on sale
-            %li
-              %span.bold February 15th:
-              Call for speakers closes
-            %li
-              %span.bold March 7th:
-              Speakers announced!
-            %li
-              %span.bold March 7th:
-              Scholarship applications open
-            %li
-              %span.bold March 7th:
-              Earlybird sales end, Regular tickets go on sale
-            %li
-              %span.bold March 28th:
-              Scholarship applications close
-            %li
-              %span.bold April 4th:
-              Scholarship recipients notified
-            %li
-              %span.bold April 15th:
-              Volunteer applications open
-            %li
-              %span.bold April 29th:
-              Volunteer applications close
-            %li
-              %span.bold April 29th:
-              Regular sales end, Latecomer tickets go on sale
-            %li
-              %span.bold May 6th:
-              Volunteers notified
-            %li
-              %span.bold May 20-21:
-              Self.conference!
+        -if @event.extra.present?
+          = raw @event.extra
 
       .col-md-5
         .blue_block.sign-up-box
@@ -102,7 +60,7 @@
         .row
           -@event.highlighted_speakers.each do |speaker|
             .col-md-3.main-page-speaker
-              %a{:href => "sessions#speaker_#{speaker.id}"}
+              = link_to "#{sessions_path(@event)}#speaker_#{speaker.id}" do
                 .center
                   .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
                 %h4= speaker.name
@@ -111,7 +69,8 @@
           .row
             .col-md-12
               Check out
-              %a{:href => "sessions"} all our speakers
+              = succeed ' ' do
+                = link_to "all our speakers", sessions_path(@event)
               %span>="!"
 
 %section#location
@@ -134,47 +93,49 @@
           %p= @event.venue.about
           %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
-%section#tickets.hidden
-  .color-line
-    .colored_line_a>
-    .colored_line_b>
-    .colored_line_c>
-    .colored_line_d>
-    .colored_line_e>
-  .blue_header
-    .container
-      .row
-        .col-md-12
-          %h1 TICKETS
-  .blue_block
-    .container
-      .row
-        .col-md-12
-          %p
-            On sale closer to the event!
-%section#sponsors.hidden
-  .color-line
-    .colored_line_a>
-    .colored_line_b>
-    .colored_line_c>
-    .colored_line_d>
-    .colored_line_e>
-  .blue_header
-    .container
-      .row
-        .col-md-12
-          %h1 sponsors
-  .mid_block
-    .container
-      -@event.sponsor_levels.each do |sponsor_level|
-        -unless sponsor_level.sponsors.empty?
-          .row
-            %h5= "#{sponsor_level.name} Sponsors"
-            %ul.sponsors
-              -sponsor_level.sponsors.each do |sponsor|
-                %li.col-md-2
-                  %a{:href => sponsor.link}
-                    %img.img-responsive{:src => sponsor.photo}/
+- unless @event.tickets.blank?
+  %section#tickets
+    .color-line
+      .colored_line_a>
+      .colored_line_b>
+      .colored_line_c>
+      .colored_line_d>
+      .colored_line_e>
+    .blue_header
+      .container
+        .row
+          .col-md-12
+            %h1 TICKETS
+    .blue_block
+      .container
+        .row
+          .col-md-12
+            = raw @event.tickets
+
+- unless @event.sponsors.empty?
+  %section#sponsors
+    .color-line
+      .colored_line_a>
+      .colored_line_b>
+      .colored_line_c>
+      .colored_line_d>
+      .colored_line_e>
+    .blue_header
+      .container
+        .row
+          .col-md-12
+            %h1 sponsors
+    .mid_block
+      .container
+        -@event.sponsor_levels.each do |sponsor_level|
+          -unless sponsor_level.sponsors.empty?
+            .row
+              %h5= "#{sponsor_level.name} Sponsors"
+              %ul.sponsors
+                -sponsor_level.sponsors.each do |sponsor|
+                  %li.col-md-2
+                    %a{:href => sponsor.link}
+                      %img.img-responsive{:src => sponsor.photo}/
 
 %section#organizers
   .color-line
