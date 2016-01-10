@@ -15,39 +15,7 @@
     = javascript_include_tag "application"
     = stylesheet_link_tag "application", :media => "all"
   %body{"data-spy" => "scroll", "data-target" => ".navbar"}
-    #main-nav.navbar.navbar-default
-      .container
-        .row
-          .col-md-12
-            .navbar-header
-              %button.navbar-toggle.collapsed{"data-target" => "#menu", "data-toggle" => "collapse", :type => "button"}
-                %span.sr-only Toggle navigation
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-            #menu.navbar-collapse.collapse
-              %ul.navbar-nav.nav
-                %li
-                  %a{:href => "/"} home
-                %li.dropdown
-                  %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                    menu
-                    %span.caret
-                  %ul.dropdown-menu{:role => "menu"}
-                    %li
-                      %a{:href => "/#location"} location
-                    %li
-                      %a{:href => "/sponsor"} sponsor
-                    %li
-                      %a{:href => "/coc"} code of conduct
-                    %li
-                      %a{:href => "/#organizers"} organizers
-              %a.navbar-link.navbar-right{:href => "http://lanyrd.com/#{current_event.lanyard}"}
-                =image_tag "lanyrd.png", {class: "social navbar-text"}
-              %a.navbar-link.navbar-right{:href => "http://twitter.com/#{current_event.twitter}"}
-                =image_tag "twitter.png", {class: "social navbar-text"}
-              %a.navbar-link.navbar-right.btn.sponsor-nav-btn{:href => "/support"}
-                Support self.conf
+    = yield :nav
     .top_block
       .container
         .row
@@ -56,11 +24,8 @@
               %span{:style => "font-weight:900"}> self.
               conference
             %ul.tag-line.lead
-              %li= "#{current_event.decorate.when}"
-              %li ·
-              %li
-                ="#{current_event.venue.address}, "
-                %span{:style => "font-weight:900"} Detroit
+              = yield :subtitle
+
     .color-line
       .colored_line_a>
       .colored_line_b>

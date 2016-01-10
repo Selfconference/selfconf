@@ -1,0 +1,9 @@
+-content_for :nav do
+  = render partial: "shared/nav", event: @event
+
+- content_for :subtitle do
+  %li= "#{@event.decorate.when}"
+  %li ·
+  %li
+    ="#{@event.venue.address}, "
+    %span{:style => "font-weight:900"} Detroit
