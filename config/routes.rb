@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   get    'login'   => 'user_sessions#new'
   post   'login'   => 'user_sessions#create'
   delete 'logout'  => 'user_sessions#destroy'
+  get 'coc'        => 'events#coc'
+  get 'sponsor'    => 'events#sponsor'
 
   resources :users
   resources :events, only: [:index, :show] do
     member do
-      get 'coc'
-      get 'sponsor'
-      get 'contact'
       get 'schedule'
       resources :sessions, only: [:index, :show]
     end
