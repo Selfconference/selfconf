@@ -1,0 +1,27 @@
+= render partial: "shared/header", event: @event
+= render partial: "shared/logged_in"
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %p#notice= notice
+
+        %p
+          %b Name:
+          = @user.name
+
+        %p
+          %b Bio:
+          = @user.bio
+
+        %p
+          %b Twitter:
+          = @user.twitter
+
+        %p
+          %b Headshot:
+          %img.img-rounded.speaker-img{src: @user.headshot}
+
+        = link_to 'Edit', edit_user_path(@user), class: "btn orange-btn"
+        = link_to 'Your Submissions', event_submissions_path(@event), class: "btn orange-btn"

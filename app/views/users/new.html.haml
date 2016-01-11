@@ -1,0 +1,32 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4 Create Account
+
+        = form_for(@user) do |f|
+          = render 'shared/error_messages', object: f.object
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+
+          = f.label :email
+          = f.email_field :email, class: 'form-control'
+
+          = f.label :twitter
+          = f.text_field :twitter, class: 'form-control'
+
+          = f.label :bio
+          = f.text_area :bio, class: 'form-control'
+
+          = f.label :headshot, "Headshot URL"
+          = f.url_field :headshot, class: 'form-control'
+
+          = f.label :password
+          = f.password_field :password, class: 'form-control'
+
+          = f.label :password_confirmation, "Confirm Password"
+          = f.password_field :password_confirmation, class: 'form-control'
+
+          = f.submit "Create my account", class: "btn orange-btn"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110235132) do
+ActiveRecord::Schema.define(version: 20160111012756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20160110235132) do
     t.datetime "updated_at"
     t.text     "extra"
     t.text     "tickets"
+    t.boolean  "sessions_published"
+    t.datetime "submissions_start"
+    t.datetime "submissions_end"
   end
 
   create_table "events_organizers", id: false, force: :cascade do |t|
@@ -145,11 +148,42 @@ ActiveRecord::Schema.define(version: 20160110235132) do
     t.datetime "updated_at"
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.string   "talkname",   null: false
+    t.text     "abstract",   null: false
+    t.string   "talktype",   null: false
+    t.string   "notes"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                            null: false
+    t.string   "email",                           null: false
+    t.string   "twitter"
+    t.text     "bio",                             null: false
+    t.string   "headshot",                        null: false
+    t.boolean  "admin",           default: false, null: false
+    t.string   "password_digest",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "venues", force: :cascade do |t|
     t.string   "name"
     t.text     "about"
     t.string   "maps_link"
     t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

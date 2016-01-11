@@ -44,12 +44,7 @@
 
 - unless @event.speakers.empty?
   %section#speakers
-    .color-line
-      .colored_line_a>
-      .colored_line_b>
-      .colored_line_c>
-      .colored_line_d>
-      .colored_line_e>
+    = render partial: "shared/color_line"
     .blue_header
       .container
         .row
@@ -74,12 +69,7 @@
               %span>="!"
 
 %section#location
-  .color-line
-    .colored_line_a>
-    .colored_line_b>
-    .colored_line_c>
-    .colored_line_d>
-    .colored_line_e>
+  = render partial: "shared/color_line"
   .blue_header
     .container
       .row
@@ -95,12 +85,7 @@
 
 - unless @event.tickets.blank?
   %section#tickets
-    .color-line
-      .colored_line_a>
-      .colored_line_b>
-      .colored_line_c>
-      .colored_line_d>
-      .colored_line_e>
+    = render partial: "shared/color_line"
     .blue_header
       .container
         .row
@@ -114,12 +99,7 @@
 
 - unless @event.sponsors.empty?
   %section#sponsors
-    .color-line
-      .colored_line_a>
-      .colored_line_b>
-      .colored_line_c>
-      .colored_line_d>
-      .colored_line_e>
+    = render partial: "shared/color_line"
     .blue_header
       .container
         .row
@@ -138,12 +118,7 @@
                       %img.img-responsive{:src => sponsor.photo}/
 
 %section#organizers
-  .color-line
-    .colored_line_a>
-    .colored_line_b>
-    .colored_line_c>
-    .colored_line_d>
-    .colored_line_e>
+  = render partial: "shared/color_line"
   .blue_header
     .container
       .row

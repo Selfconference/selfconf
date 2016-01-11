@@ -1,0 +1,16 @@
+= form_for [@event, @submission] do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :talkname, "Title"
+  = f.text_field :talkname, class: 'form-control'
+
+  = f.label :abstract
+  = f.text_area :abstract, class: 'form-control'
+
+  = f.label :talktype, "Type of Talk"
+  = f.select(:talktype, options_for_select([["People Talk", "people"], ["Technical Talk", "tech"]]), {}, {class: 'form-control'})
+
+  = f.label :notes, "Notes to the panel"
+  = f.text_area :notes, class: 'form-control'
+
+  = f.submit "Submit", class: "btn orange-btn"
+  = link_to "Cancel", event_submissions_path(@event), class: "btn orange-btn"

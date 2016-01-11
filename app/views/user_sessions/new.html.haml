@@ -1,0 +1,20 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4 Submit a Talk
+        %p Please log in to create or edit your talk submission(s).
+        = form_for(:session, url: login_path) do |f|
+          = f.label :email
+          = f.email_field :email, class: 'form-control'
+
+          = f.label :password
+          = f.password_field :password, class: 'form-control'
+
+          = f.submit "Log in", class: "btn orange-btn"
+
+        %p
+          New user?
+          = link_to "Sign up now!", signup_path

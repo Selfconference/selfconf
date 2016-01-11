@@ -1,0 +1,24 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4 Edit your profile
+
+        = form_for(@user) do |f|
+          = render 'shared/error_messages', object: f.object
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+
+          = f.label :twitter
+          = f.text_field :twitter, class: 'form-control'
+
+          = f.label :bio
+          = f.text_area :bio, class: 'form-control'
+
+          = f.label :headshot, "Headshot URL"
+          = f.url_field :headshot, class: 'form-control'
+
+          = f.submit "Update profile", class: "btn orange-btn"
+          = link_to "Cancel", current_user, class: "btn orange-btn"

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1.rc2'
+gem 'bcrypt', '3.1.7'
 gem 'pg'
 
 gem 'draper', '~> 1.4.0'

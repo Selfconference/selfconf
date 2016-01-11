@@ -1,0 +1,31 @@
+= render partial: "shared/header", event: @event
+= render partial: "shared/logged_in"
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        .pull-right
+          = link_to new_event_submission_path(@event) do
+            .btn.orange-btn Submit Talk
+        - if @submissions.empty?
+          No submissions yet!
+        - else
+          %table#submissions_table.table.table-striped.table-bordered
+            %thead
+              %tr
+                %th Title
+                %th Abstract
+                %th Type
+                %th Notes
+                %th.actions
+            %tbody
+              - @submissions.each do |submission|
+                %tr
+                  %td= submission.talkname
+                  %td= submission.abstract
+                  %td= submission.talktype
+                  %td= submission.notes
+                  %td.actions
+                    %btn= link_to "Edit", edit_event_submission_path(@event, submission)
+                    %btn= link_to "Delete", event_submission_path(@event, submission), method: :delete, data: { confirm: 'Are you sure?' }

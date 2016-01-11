@@ -1,0 +1,10 @@
+= render partial: "shared/header", event: @event
+= render partial: "shared/logged_in"
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4 Create submission
+
+        = render 'form'

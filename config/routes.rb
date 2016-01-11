@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   root 'events#show'
 
+  get    'signup'  => 'users#new'
+  get    'login'   => 'user_sessions#new'
+  post   'login'   => 'user_sessions#create'
+  delete 'logout'  => 'user_sessions#destroy'
+
+  resources :users
   resources :events, only: [:index, :show] do
     member do
       get 'coc'
@@ -9,6 +15,7 @@ Rails.application.routes.draw do
       get 'schedule'
       resources :sessions, only: [:index, :show]
     end
+    resources :submissions
   end
 
   scope 'api', defaults: { format: :json } do

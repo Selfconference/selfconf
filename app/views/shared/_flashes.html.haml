@@ -1,0 +1,9 @@
+- flash.each do |type, message|
+  .flashes_block
+    .container
+      .row
+        .col-md-12
+          .alert.fade.in.alert-dismissible{class: "alert-#{bootstrap_class_for(type)}", role: "alert"}
+            %button.close{type: "button", "data-dismiss" => "alert", "aria-label" => "Close"}
+              %span{"aria-hidden" => "true"} &times;
+            = message

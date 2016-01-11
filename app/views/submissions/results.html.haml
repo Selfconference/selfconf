@@ -1,0 +1,27 @@
+- if @submissions.empty?
+  No submissions :'(
+- else
+  %table#submissions_table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th Votes
+        %th Name
+        %th Email
+        %th Type
+        %th Talk Name
+        %th Abstract
+    %tbody
+      - @submissions.each do |submission|
+        %tr
+          %td.actions
+            = submission.votes.map { |vote| vote.user.admin? && vote.value == 1 ? vote.value * 2 : vote.value }.reduce(:+)
+          %td= submission.name
+          %td= submission.email
+          %td.type
+            -if submission.talk_type.present?
+              = submission.talk_type
+            -else
+              = link_to "Soft", submission_path(submission, talk_type: "soft"), method: :patch, data: {id: submission.id, type: 'soft' }
+              = link_to "Tech", submission_path(submission, talk_type: "tech"), method: :patch, data: {id: submission.id, type: 'tech' }
+          %td= submission.talkname
+          %td= submission.abstract
