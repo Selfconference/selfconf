@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20160111012756) do
     t.text     "about"
     t.string   "maps_link"
     t.string   "address"
+    t.integer  "events_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
