@@ -23,7 +23,7 @@
               - @submissions.each do |submission|
                 %tr
                   %td= submission.talkname
-                  %td= submission.abstract
+                  %td= raw submission.abstract
                   %td= submission.talktype
                   %td= submission.notes
                   %td.actions

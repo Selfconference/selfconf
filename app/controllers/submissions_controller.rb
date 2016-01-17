@@ -25,8 +25,8 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    submission = Submission.find(params[:id])
-    if submission.update_attributes(submission_params)
+    @submission = Submission.find(params[:id])
+    if @submission.update_attributes(submission_params)
       flash[:success] = "Submission updated!"
       redirect_to event_submissions_path(@event)
     else
