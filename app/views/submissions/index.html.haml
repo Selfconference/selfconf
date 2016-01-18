@@ -5,30 +5,44 @@
   .container
     .row
       .col-md-12
-        %h4 Your talk submissions
-        %p All speakers will receive a free ticket to the conference. We have a smaller budget than last year, but are happy to talk about the availability of covering travel expenses with anyone interested. Please reach out to Amber at amber@selfconference.org to discuss.
+        %p
+          We're looking for 45 minute long talks on both technical and people topics. This means anything from web and mobile, to back end concurrent systems, to talks about team communication, inclusivity, diversity, or mental health. If you need inspiration, check out
+          = link_to "last year's", sessions_path(Event.find(1))
+          talks!
+        %p
+          All speakers will receive a free ticket to the conference. We have a smaller budget than last year, but are happy to talk covering travel expenses with anyone interested. Please reach out to
+          = link_to "Amber", "mailto:amber@selfconference.org"
+          to discuss.
         %p All submissions are anonymized and then selected by a panel of volunteers. Please refrain from using identifying information in your titles, abstracts, and notes to the panel.
-        .pull-right
-          = link_to new_submission_path do
-            .btn.orange-btn Submit Talk
-        - if @submissions.empty?
-          No submissions yet!
-        - else
-          %table#submissions_table.table.table-striped.table-bordered
-            %thead
-              %tr
-                %th Title
-                %th Abstract
-                %th Type
-                %th Notes
-                %th.actions
-            %tbody
-              - @submissions.each do |submission|
+
+        %h4 Your talk submissions
+        - if user_signed_in?
+          .pull-right
+            = link_to new_submission_path do
+              .btn.orange-btn Submit Talk
+          - if @submissions.empty?
+            No submissions yet!
+          - else
+            %table#submissions_table.table.table-striped.table-bordered
+              %thead
                 %tr
-                  %td= submission.talkname
-                  %td= simple_format submission.abstract
-                  %td= submission.talktype
-                  %td= submission.notes
-                  %td.actions
-                    %btn= link_to "Edit", edit_submission_path(submission)
-                    %btn= link_to "Delete", submission_path(submission), method: :delete, data: { confirm: 'Are you sure?' }
+                  %th Title
+                  %th Abstract
+                  %th Type
+                  %th Notes
+                  %th.actions
+              %tbody
+                - @submissions.each do |submission|
+                  %tr
+                    %td= submission.talkname
+                    %td= simple_format submission.abstract
+                    %td= submission.talktype
+                    %td= submission.notes
+                    %td.actions
+                      %btn= link_to "Edit", edit_submission_path(submission)
+                      %btn= link_to "Delete", submission_path(submission), method: :delete, data: { confirm: 'Are you sure?' }
+        - else
+          %p
+            You'll need to
+            =link_to "login", user_session_path
+            in order to see, edit, or submit talks. :)

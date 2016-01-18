@@ -1,9 +1,11 @@
 class SubmissionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :index
   before_action :latest_event
 
   def index
-    @submissions = Submission.where(user_id: current_user, event_id: @event)
+    if user_signed_in?
+      @submissions = Submission.where(user_id: current_user, event_id: @event)
+    end
   end
 
   def new
