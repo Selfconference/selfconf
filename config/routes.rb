@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   get 'sponsor'    => 'events#sponsor'
 
 
+  resources :submissions
   resources :events, only: [:index, :show] do
     member do
       get 'schedule'
       resources :sessions, only: [:index, :show]
     end
-    resources :submissions
   end
 
   namespace "admin" do

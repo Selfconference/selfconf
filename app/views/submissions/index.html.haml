@@ -6,7 +6,7 @@
     .row
       .col-md-12
         .pull-right
-          = link_to new_event_submission_path(@event) do
+          = link_to new_submission_path do
             .btn.orange-btn Submit Talk
         - if @submissions.empty?
           No submissions yet!
@@ -27,5 +27,5 @@
                   %td= submission.talktype
                   %td= submission.notes
                   %td.actions
-                    %btn= link_to "Edit", edit_event_submission_path(@event, submission)
-                    %btn= link_to "Delete", event_submission_path(@event, submission), method: :delete, data: { confirm: 'Are you sure?' }
+                    %btn= link_to "Edit", edit_submission_path(submission)
+                    %btn= link_to "Delete", submission_path(submission), method: :delete, data: { confirm: 'Are you sure?' }

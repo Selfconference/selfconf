@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1.rc2'
 gem 'devise'
+gem 'pundit', '~> 1.1'
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 gem 'bcrypt', '3.1.7'
 gem 'pg'

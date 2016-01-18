@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    event_submissions_path(@event)
+    submissions_path
   end
 
   private
