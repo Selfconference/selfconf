@@ -3,9 +3,9 @@
     .row
       .col-md-12
         .pull-right
-          - if logged_in?
+          - if user_signed_in?
             Hello,
             = succeed " " do
-              = link_to current_user.name, current_user
+              = link_to current_user.name, edit_user_registration_path
             = surround "(",")" do
-              = link_to "Log out", logout_path, method: :delete
+              = link_to "Log out", destroy_user_session_path, method: :delete

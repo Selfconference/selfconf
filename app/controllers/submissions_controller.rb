@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_filter :logged_in
+  before_filter :authenticate_user!
   before_action :event
 
   def index
@@ -42,16 +42,6 @@ class SubmissionsController < ApplicationController
       flash[:danger] = "Submission could not be destroyed, please try again."
     end
     redirect_to event_submissions_path(@event)
-  end
-
-  def vote
-    user_id = current_user.id
-    submission_id = params[:submission_id]
-
-    vote = Vote.find_or_create_by(user_id: user_id, submission_id: submission_id)
-    if vote.update_attributes!(value: params[:vote])
-      head :accepted
-    end
   end
 
   def submission_params

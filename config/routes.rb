@@ -1,20 +1,31 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {sessions: "user_sessions",
+                                      registrations: "registrations",
+                                      passwords: "passwords",
+                                      confirmations: "confirmations",
+                                      unlocks: "unlocks"}
+
   root 'events#show'
 
-  get    'signup'  => 'users#new'
-  get    'login'   => 'user_sessions#new'
-  post   'login'   => 'user_sessions#create'
-  delete 'logout'  => 'user_sessions#destroy'
   get 'coc'        => 'events#coc'
   get 'sponsor'    => 'events#sponsor'
 
-  resources :users
+
   resources :events, only: [:index, :show] do
     member do
       get 'schedule'
       resources :sessions, only: [:index, :show]
     end
     resources :submissions
+  end
+
+  namespace "admin" do
+    resources :events, only: :index do
+      resources :submissions, only: :index
+    end
+    resources :submissions, only: nil do
+      resources :votes, only: :create
+    end
   end
 
   scope 'api', defaults: { format: :json } do

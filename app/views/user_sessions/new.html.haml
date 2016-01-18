@@ -4,17 +4,21 @@
   .container
     .row
       .col-md-12
-        %h4 Submit a Talk
-        %p Please log in to create or edit your talk submission(s).
-        = form_for(:session, url: login_path) do |f|
+        %h4 Log in
+        %p Please log in or sign up to create or edit submissions.
+        = form_for(resource, as: resource_name, url: user_session_path) do |f|
           = f.label :email
-          = f.email_field :email, class: 'form-control'
+          = f.email_field :email, autofocus: true, class: 'form-control'
 
           = f.label :password
-          = f.password_field :password, class: 'form-control'
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
 
+          - if devise_mapping.rememberable?
+            = f.check_box :remember_me
+            = f.label :remember_me
+
+          %br
           = f.submit "Log in", class: "btn orange-btn"
+          = link_to "Cancel", :back, class: "btn orange-btn"
 
-        %p
-          New user?
-          = link_to "Sign up now!", signup_path
+        = render "devise/shared/links"

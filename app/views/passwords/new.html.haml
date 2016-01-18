@@ -1,0 +1,17 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4 Forgot your password?
+
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+
+          = f.label :email
+          = f.email_field :email, autofocus: true, class: 'form-control'
+
+          = f.submit "Send me reset password instructions", class: 'btn orange-btn'
+
+        = render "devise/shared/links"
