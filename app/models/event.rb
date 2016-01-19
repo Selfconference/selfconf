@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   has_many :sessions
   has_many :submissions
   has_many :speakers
+  has_many :timelines
   has_many :sponsor_levels
   has_many :sponsors
   has_and_belongs_to_many :organizers

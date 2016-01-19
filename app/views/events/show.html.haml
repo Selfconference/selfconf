@@ -10,37 +10,51 @@
         -if @event.extra.present?
           = raw @event.extra
 
+        .col-md-10
+          .blue_block.sign-up-box
+            #mc_embed_signup
+              %form#mc-embedded-subscribe-form.validate.form-horizontal{:action => "//selfconference.us5.list-manage.com/subscribe/post?u=e629a43dedc6cbed53830761c&id=3dee572f6e", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+                #mc_embed_signup_scroll
+                  %h4 get email updates:
+                  .form-group
+                    %label.col-sm-4.control-label{:for => "mce-EMAIL"}
+                      Email
+                      %span.asterisk *
+                    .col-md-8
+                      %input#mce-EMAIL.required.email.form-control{:name => "EMAIL", :type => "email", :value => ""}/
+                  .form-group
+                    %label.col-sm-4.control-label{:for => "mce-FNAME"}
+                      First Name
+                      %span.asterisk *
+                    .col-md-8
+                      %input#mce-FNAME.required.form-control{:name => "FNAME", :type => "text", :value => ""}/
+                  .form-group
+                    %label.col-sm-4.control-label{:for => "mce-LNAME"}
+                      Last Name
+                      %span.asterisk *
+                    .col-md-8
+                      %input#mce-LNAME.required.form-control{:name => "LNAME", :type => "text", :value => ""}/
+                  #mce-responses.clear
+                    #mce-error-response.response{:style => "display:none"}
+                    #mce-success-response.response{:style => "display:none"}
+                  %div{:style => "position: absolute; left: -5000px;"}
+                    %input{:name => "b_e629a43dedc6cbed53830761c_3dee572f6e", :tabindex => "-1", :type => "text", :value => ""}/
+                  .center-wrapper
+                    %button#mc-embedded-subscribe.sign-up{:name => "subscribe", :type => "submit", :value => "Subscribe"} Subscribe
+
       .col-md-5
-        .blue_block.sign-up-box
-          #mc_embed_signup
-            %form#mc-embedded-subscribe-form.validate.form-horizontal{:action => "//selfconference.us5.list-manage.com/subscribe/post?u=e629a43dedc6cbed53830761c&id=3dee572f6e", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
-              #mc_embed_signup_scroll
-                %h4 get email updates:
-                .form-group
-                  %label.col-sm-4.control-label{:for => "mce-EMAIL"}
-                    Email
-                    %span.asterisk *
-                  .col-md-8
-                    %input#mce-EMAIL.required.email.form-control{:name => "EMAIL", :type => "email", :value => ""}/
-                .form-group
-                  %label.col-sm-4.control-label{:for => "mce-FNAME"}
-                    First Name
-                    %span.asterisk *
-                  .col-md-8
-                    %input#mce-FNAME.required.form-control{:name => "FNAME", :type => "text", :value => ""}/
-                .form-group
-                  %label.col-sm-4.control-label{:for => "mce-LNAME"}
-                    Last Name
-                    %span.asterisk *
-                  .col-md-8
-                    %input#mce-LNAME.required.form-control{:name => "LNAME", :type => "text", :value => ""}/
-                #mce-responses.clear
-                  #mce-error-response.response{:style => "display:none"}
-                  #mce-success-response.response{:style => "display:none"}
-                %div{:style => "position: absolute; left: -5000px;"}
-                  %input{:name => "b_e629a43dedc6cbed53830761c_3dee572f6e", :tabindex => "-1", :type => "text", :value => ""}/
-                .center-wrapper
-                  %button#mc-embedded-subscribe.sign-up{:name => "subscribe", :type => "submit", :value => "Subscribe"} Subscribe
+        .timeline.well
+          %p Interested in when things will get going with our call for speakers or ticket sales? Here's the plan:
+          - if @event.timelines.any?
+            %ul
+              - @event.timelines.each do |timeline|
+                %li
+                  %span.bold= timeline.when.strftime("%B %e: ")
+                  = timeline.what
+          - else
+            (No timeline yet!)
+
+
 
 - unless @event.speakers.empty?
   %section#speakers
@@ -83,7 +97,7 @@
           %p= @event.venue.about
           %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
-- unless @event.tickets.blank?
+- unless @event.tickets_link.blank?
   %section#tickets
     = render partial: "shared/color_line"
     .blue_header
@@ -95,7 +109,14 @@
       .container
         .row
           .col-md-12
-            = raw @event.tickets
+            %p
+              Having trouble with the widget below? Just head over to
+              =link_to @event.tickets_link, @event.tickets_link
+              to get your tickets!
+            %div{style: "width:100%, text-align:left"}
+              %iframe{src: @event.tickets_iframe_link, frameborder: "0", height: "431", width: "100%", vspace: "0", hspace: "0", marginheight: "5", marginwidth: "5", scrolling: "auto", allowtransparency: "true"}
+              %div{style: "font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;"}
+                =link_to "Powered by Eventbrite", "http://www.eventbrite.com/r/etckt", class: "powered-by-eb", style: "color: #dddddd; text-decoration: none;", target: :blank
 
 - unless @event.sponsors.empty?
   %section#sponsors
