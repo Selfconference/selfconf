@@ -128,13 +128,13 @@
             %h1 sponsors
     .mid_block
       .container
-        -@event.sponsor_levels.each do |sponsor_level|
+        -@event.sponsor_levels.each_with_index do |sponsor_level, index|
           - if sponsor_level.sponsors.any?
             .row
               %h5= "#{sponsor_level.name} Sponsors"
               %ul.sponsors
                 -sponsor_level.sponsors.each do |sponsor|
-                  %li.col-md-2
+                  %li{class: "col-md-#{index < 3 ? 5 - index : 2 }"}
                     %a{:href => sponsor.link}
                       %img.img-responsive{:src => sponsor.photo}/
 
