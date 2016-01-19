@@ -82,21 +82,6 @@
                 = link_to "all our speakers", sessions_path(@event)
               %span>="!"
 
-%section#location
-  = render partial: "shared/color_line"
-  .blue_header
-    .container
-      .row
-        .col-md-12
-          %h1 LOCATION
-  .mid_block
-    .container
-      .row
-        .col-md-12
-          %h4= @event.venue.name
-          %p= @event.venue.about
-          %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
-
 - unless @event.tickets_link.blank?
   %section#tickets
     = render partial: "shared/color_line"
@@ -117,6 +102,21 @@
               %iframe{src: @event.tickets_iframe_link, frameborder: "0", height: "431", width: "100%", vspace: "0", hspace: "0", marginheight: "5", marginwidth: "5", scrolling: "auto", allowtransparency: "true"}
               %div{style: "font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;"}
                 =link_to "Powered by Eventbrite", "http://www.eventbrite.com/r/etckt", class: "powered-by-eb", style: "color: #dddddd; text-decoration: none;", target: :blank
+
+%section#location
+  = render partial: "shared/color_line"
+  .blue_header
+    .container
+      .row
+        .col-md-12
+          %h1 LOCATION
+  .mid_block
+    .container
+      .row
+        .col-md-12
+          %h4= @event.venue.name
+          %p= @event.venue.about
+          %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
 - unless @event.sponsors.empty?
   %section#sponsors
