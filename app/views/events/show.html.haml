@@ -118,7 +118,7 @@
           %p= @event.venue.about
           %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
-- unless @event.sponsors.empty?
+- if @event.sponsors.any?
   %section#sponsors
     = render partial: "shared/color_line"
     .blue_header
@@ -129,7 +129,7 @@
     .mid_block
       .container
         -@event.sponsor_levels.each do |sponsor_level|
-          -unless sponsor_level.sponsors.empty?
+          - if sponsor_level.sponsors.any?
             .row
               %h5= "#{sponsor_level.name} Sponsors"
               %ul.sponsors

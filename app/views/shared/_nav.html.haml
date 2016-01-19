@@ -25,6 +25,7 @@
                 - if @event.sessions_published
                   %li= link_to "sessions", sessions_path(@event)
                   %li= link_to "schedule", schedule_event_path(@event)
+                %li= link_to "sponsors", event_path(@event) + "#sponsors" if @event.sponsors.any?
                 %li= link_to "code of conduct", coc_path
                 %li= link_to "organizers", event_path(@event) + "#organizers"
                 %li.divider{role: "separator"}
