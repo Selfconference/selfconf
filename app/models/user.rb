@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :bio, presence: true
   validates :headshot, presence: true
   has_many :votes
+  has_many :submissions
   has_and_belongs_to_many :roles
 
   def admin?

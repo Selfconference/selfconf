@@ -116,7 +116,7 @@
         .col-md-12
           %h4= @event.venue.name
           %p= @event.venue.about
-          .map
+          %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
 - if @event.sponsors.any?
   %section#sponsors
@@ -168,37 +168,3 @@
   %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
   :javascript
     (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
-
-    function initMap() {
-      var myLatLng = JSON.parse('#{@event.venue.maps_link}');
-
-      var map = new google.maps.Map($('.map')[0], {
-        center: myLatLng,
-        scrollwheel: false,
-        zoom: 16,
-        zoomControl: true,
-        mapTypeControl: true,
-        scaleControl: true,
-        streetViewControl: true,
-        rotateControl: true
-      });
-
-      // Create a marker and set its position.
-      var marker = new google.maps.Marker({
-        map: map,
-        position: myLatLng,
-        title: 'MotorCity Casino Hotel'
-      });
-
-      var infowindow = new google.maps.InfoWindow({
-        content: '<h5>MotorCity Casino Hotel</h5><p>View on <a href="https://www.google.com/maps?ll=42.340632,-83.067465&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=16476427092579106389">google maps</a> for directions!</p>'
-      });
-
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
-    };
-
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMETa4KxlTl_b7EkZ8uRO1cN1ar1As39A&callback=initMap",
-                            defer: "defer",
-                            async: "async"
