@@ -20,11 +20,8 @@ Rails.application.routes.draw do
   end
 
   namespace "admin" do
-    resources :events, only: :index do
-      resources :submissions, only: :index
-    end
-    resources :submissions, only: nil do
-      resources :votes, only: :create
+    resources :submissions, only: :index do
+      resources :votes, only: [:create, :destroy]
     end
   end
 

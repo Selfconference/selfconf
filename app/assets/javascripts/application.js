@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require twitter/bootstrap
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require vendor/underscore-min
+//= require vendor/underscore.string
+//= require components
 //= require_tree .

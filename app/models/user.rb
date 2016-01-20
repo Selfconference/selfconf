@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
   validates :bio, presence: true
   validates :headshot, presence: true
   has_many :votes
+  has_and_belongs_to_many :roles
+
+  def admin?
+    roles.include?(Role.find_by_name("admin"))
+  end
+
+  def selector?
+    roles.include?(Role.find_by_name("selector"))
+  end
 end

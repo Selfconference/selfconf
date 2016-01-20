@@ -1,9 +1,11 @@
 class Admin::SubmissionsController < ApplicationController
-  before_filter :selector
-  before_action :event
+  before_filter :authenticate_user!
+  before_action :latest_event
 
-  def index
-    @submissions = Submission.where(event_id: @event)
+  private
+
+  def latest_event
+    @event = Event.latest
   end
 
 end

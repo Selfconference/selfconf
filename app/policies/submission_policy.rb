@@ -1,4 +1,9 @@
 class SubmissionPolicy < ApplicationPolicy
+
+  def index?
+    user.selector?
+  end
+
   def show?
     user == record.user
   end

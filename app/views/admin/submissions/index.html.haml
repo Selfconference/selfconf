@@ -4,34 +4,6 @@
   .container
     .row
       .col-md-12
-        - if @submissions.empty?
-          No submissions :'(
-        - else
-          %table#submissions_table.table.table-striped.table-bordered
-            %thead
-              %tr
-                %th.col-md-1 Vote
-                %th.col-md-4 Talk Name
-                %th Abstract
-            %tbody
-              - @submissions.each do |submission|
-                %tr
-                  %td.actions
-                    - if current_user.admin?
-                      = submission.votes.pluck(:value).reduce(:+)
-                    - else
-                      - if vote = submission.votes.find { |vote| vote.user_id == current_user.id }
-                        Voted:
-                        - case vote.value
-                        - when 1
-                          Yes
-                        - when 0
-                          Don't care
-                        - else
-                          No
-                      -else
-                        = link_to "Yes", admin_submission_votes_path(submission, value: 1), class: 'btn btn-primary', method: :post, remote: true
-                        = link_to "Don't care", admin_submission_votes_path(submission, value: 0), class: 'btn btn-primary', method: :post, remote: true
-                        = link_to "No", admin_submission_votes_path(submission, value: -1), class: 'btn btn-primary', method: :post, remote: true
-                  %td= submission.talkname
-                  %td= submission.abstract
+        = react_component "Submissions",
+              submissions: JSON.parse(Submission.where(event_id: @event).to_json(include: :votes)),
+              user: current_user

@@ -15,6 +15,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
+gem "jquery-datatables-rails"
+gem 'react-rails', '~> 1.5.0'
+gem 'sprockets-coffee-react'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

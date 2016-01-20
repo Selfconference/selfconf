@@ -6,12 +6,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def admin
-    unless user_signed_in? && current_user.admin?
-      redirect_to root_url
-    end
-  end
-
   def event
     @event = if event_id
       Event.find(event_id)
