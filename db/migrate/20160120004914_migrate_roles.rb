@@ -5,8 +5,8 @@ class MigrateRoles < ActiveRecord::Migration
   end
 
   def up
-    adminRole = Role.find_by_name(name: "admin")
-    selectorRole = Role.find_by_name(name: "selector")
+    adminRole = Role.find_by_name("admin")
+    selectorRole = Role.find_by_name("selector")
     User.find_each do |user|
       if user.admin == true
         user.roles << adminRole
