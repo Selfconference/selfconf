@@ -1,4 +1,9 @@
 class MigrateRoles < ActiveRecord::Migration
+  class MigrationUser < ActiveRecord::Base
+    self.table_name = :users
+    has_many :roles
+  end
+
   def up
     adminRole = Role.find_by_name(name: "admin")
     selectorRole = Role.find_by_name(name: "selector")
