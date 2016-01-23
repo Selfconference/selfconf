@@ -67,13 +67,14 @@
     .blue_block.keynote
       .container
         .row
-          -@event.highlighted_speakers.each do |speaker|
+          -@event.sessions.sample(8).each do |session|
+            - speaker = session.speakers.sample
             .col-md-3.main-page-speaker
               = link_to "#{sessions_path(@event)}#speaker_#{speaker.id}" do
                 .center
                   .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
                 %h4= speaker.name
-                %p= speaker.sessions.sample.name
+                %p= session.name
 
           .row
             .col-md-12

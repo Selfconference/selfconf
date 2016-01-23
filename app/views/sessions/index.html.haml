@@ -40,7 +40,7 @@
                 %h4
                   = "#{session.speaker_names}: #{session.name}"
                 %h5
-                  = link_to "#{session.room.name}, #{session.slot}", schedule_event_path(@event)
+                  = link_to "#{session.room.name}, #{session.slot}", schedule_event_path(@event) if session.room
                 %h5.italic
                   = raw session.twitter_handles
                 %p= raw session.abstract

@@ -13,10 +13,6 @@ class Event < ActiveRecord::Base
 
   scope :latest, -> { order('start_date DESC').first }
 
-  def highlighted_speakers
-    speakers.all.sample(8)
-  end
-
   def submissions_open?
     return false if submissions_start.nil? or submissions_end.nil?
     Time.now > submissions_start && Time.now < submissions_end
