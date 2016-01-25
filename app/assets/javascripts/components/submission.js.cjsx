@@ -1,10 +1,11 @@
 @Submission = React.createClass
+  mixins: [SimpleFormatMixin]
+
   propTypes:
     submission: React.PropTypes.object.isRequired
     user: React.PropTypes.object.isRequired
-
-  getInitialState: ->
-    submission: @props.submission
+    voted: React.PropTypes.func.isRequired
+    skip: React.PropTypes.func.isRequired
 
   voteYes: (e) ->
     @castVote(e, 1)
@@ -20,60 +21,27 @@
 
     $.ajax
       method: "post"
-      url: "/admin/submissions/#{@state.submission.id}/votes"
+      url: "/admin/submissions/#{@props.submission.id}/votes"
       dataType: "json"
       data: { vote: value }
       success: (submission) =>
-        @setState submission: submission
-
-  resetVote: (e) ->
-    e.preventDefault()
-
-    $.ajax
-      method: "delete"
-      url: "/admin/submissions/#{@state.submission.id}/votes/#{@vote().id}"
-      dataType: "json"
-      success: (submission) =>
-        @setState submission: submission
+        @props.voted(submission)
 
   vote: ->
-    _(@state.submission.votes).find (vote) => vote.user_id == @props.user.id
+    _(@props.submission.votes).find (vote) => vote.user_id == @props.user.id
 
   render: ->
     vote = @vote()
     <tr>
       <td className="actions">
-        {
-          if vote
-            <div>
-              {
-                if vote.value == 1
-                  "Yes"
-                else if vote.value == 0
-                  "Meh"
-                else
-                  "No"
-              }
-              <a className="btn" onClick={@resetVote} rel="nofollow" href="#">(Reset)</a>
-            </div>
-          else
-            <div className="center-wrapper">
-              <a className="btn btn-primary" onClick={@voteYes} rel="nofollow" href="#">Yes</a>
-              <a className="btn btn-primary" onClick={@voteDontCare} rel="nofollow" href="#">Meh</a>
-              <a className="btn btn-primary" onClick={@voteNo} rel="nofollow" href="#">No</a>
-            </div>
-        }
+          <div className="center-wrapper">
+            <a className="btn orange-btn" onClick={@voteYes} rel="nofollow" href="#">Yes</a>
+            <a className="btn orange-btn" onClick={@voteDontCare} rel="nofollow" href="#">Meh</a>
+            <a className="btn orange-btn" onClick={@voteNo} rel="nofollow" href="#">No</a>
+            <a onClick={@props.skip} rel="nofollow" href="#">Skip for now...</a>
+          </div>
       </td>
-      {
-        if vote
-          <td>{s.truncate(@state.submission.talkname, 30)}</td>
-        else
-          <td>{@state.submission.talkname}</td>
-      }
-      {
-        if vote
-          <td>{s.truncate(@state.submission.abstract, 50)}</td>
-        else
-          <td>{@state.submission.abstract}</td>
-      }
+      <td>{@props.submission.talkname}</td>
+      <td dangerouslySetInnerHTML={__html: @simpleFormat(@props.submission.abstract)}></td>
+      <td dangerouslySetInnerHTML={__html: @simpleFormat(@props.submission.notes)}></td>
     </tr>

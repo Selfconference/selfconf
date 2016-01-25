@@ -42,12 +42,12 @@
                 %h5
                   = link_to "#{session.room.name}, #{session.slot}", schedule_event_path(@event) if session.room
                 %h5.italic
-                  = raw session.twitter_handles
-                %p= raw session.abstract
+                  = simple_format session.twitter_handles
+                %p= simple_format session.abstract
               .speaker
                 %h5.italic
                   ="About #{session.speaker_names}"
-                %p= raw session.speakers.first.bio
+                %p= simple_format session.speakers.first.bio
 
 :javascript
   $(function() {

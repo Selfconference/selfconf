@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
-//= require vendor/underscore-min
-//= require vendor/underscore.string
+//= require underscore-min
+//= require underscore.string
 //= require components
 //= require_tree .
