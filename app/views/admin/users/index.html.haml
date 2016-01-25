@@ -1,0 +1,21 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %table#submissions_table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Email
+              %th.actions
+          %tbody
+            - User.all.each do |user|
+              %tr
+                %td= user.name
+                %td= user.email
+                %td.actions
+                  %btn= link_to "Make Selector", make_selector_admin_user_path(user), method: :post unless user.selector?
+                  |
+                  %btn= link_to "Make Admin", make_admin_admin_user_path(user), method: :post unless user.admin?

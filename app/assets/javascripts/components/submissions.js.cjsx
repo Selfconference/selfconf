@@ -20,7 +20,7 @@
 
   componentDidMount: ->
     if @props.admin
-      table = $("#submissions_table").dataTable()
+      table = $("#talks_table").dataTable()
       table.fnSort [ [0,'desc'] ]
 
   render: ->
@@ -36,7 +36,7 @@
               <span className="bold">Tech</span>: {_(@state.submissions).filter((s) -> s.talktype == 'tech').length}
             </div>
         }
-        <table id="submissions_table" className="table table-striped table-bordered">
+        <table id="talks_table" className="table table-striped table-bordered">
           <thead>
             {
               if @props.admin

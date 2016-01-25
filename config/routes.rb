@@ -26,7 +26,14 @@ Rails.application.routes.draw do
   end
 
   namespace "admin" do
+    resources :admin, only: :index
     resources :submissions, only: :index
+    resources :users, only: :index do
+      member do
+        post 'make_selector'
+        post 'make_admin'
+      end
+    end
   end
 
   scope 'api', defaults: { format: :json } do
