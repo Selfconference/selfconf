@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace "admin" do
+  namespace "selection" do
     resources :submissions, only: :index do
       resources :votes, only: [:create, :destroy]
     end

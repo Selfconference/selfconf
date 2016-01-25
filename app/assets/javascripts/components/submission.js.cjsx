@@ -20,7 +20,7 @@
 
     $.ajax
       method: "post"
-      url: "/admin/submissions/#{@props.submission.id}/votes"
+      url: "/selection/submissions/#{@props.submission.id}/votes"
       dataType: "json"
       data: { vote: value }
       success: (submission) =>

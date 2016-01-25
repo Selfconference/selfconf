@@ -1,9 +1,9 @@
-class Admin::SubmissionsController < ApplicationController
+class Selection::SubmissionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :latest_event
 
   def index
-    authorize :admin_submission, :index?
+    authorize :selection_submissions, :index?
   end
 
   private

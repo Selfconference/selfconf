@@ -1,4 +1,4 @@
-class Admin::VotesController < ApplicationController
+class Selection::VotesController < ApplicationController
   before_filter :authenticate_user!
   before_action :latest_event
 

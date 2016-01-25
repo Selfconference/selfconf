@@ -1,0 +1,18 @@
+%tr
+  %td.actions
+    - if vote = submission.votes.find { |vote| vote.user_id == current_user.id }
+      Voted:
+      - case vote.value
+      - when 1
+        Yes
+      - when 0
+        No Strong Feeling
+      - else
+        No
+    -else
+      .center-wrapper
+        = link_to "Yes", selection_submission_votes_path(submission, value: 1), class: 'btn btn-primary', method: :post, remote: true
+        = link_to "Don't care", selection_submission_votes_path(submission, value: 0), class: 'btn btn-primary', method: :post, remote: true
+        = link_to "No", selection_submission_votes_path(submission, value: -1), class: 'btn btn-primary', method: :post, remote: true
+    %td= submission.talkname
+    %td= simple_format submission.abstract
