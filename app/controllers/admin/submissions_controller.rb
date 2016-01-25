@@ -2,6 +2,10 @@ class Admin::SubmissionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :latest_event
 
+  def index
+    authorize :admin_submission, :index?
+  end
+
   private
 
   def latest_event

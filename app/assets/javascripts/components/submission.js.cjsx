@@ -3,7 +3,6 @@
 
   propTypes:
     submission: React.PropTypes.object.isRequired
-    user: React.PropTypes.object.isRequired
     voted: React.PropTypes.func.isRequired
     skip: React.PropTypes.func.isRequired
 
@@ -27,11 +26,7 @@
       success: (submission) =>
         @props.voted(submission)
 
-  vote: ->
-    _(@props.submission.votes).find (vote) => vote.user_id == @props.user.id
-
   render: ->
-    vote = @vote()
     <tr>
       <td className="actions">
           <div className="center-wrapper">

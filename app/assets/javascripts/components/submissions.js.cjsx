@@ -1,7 +1,6 @@
 @Submissions = React.createClass
   propTypes:
     submissions: React.PropTypes.array.isRequired
-    user: React.PropTypes.object.isRequired
 
   getInitialState: ->
     submissions: @props.submissions
