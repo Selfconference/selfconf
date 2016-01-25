@@ -1,5 +1,4 @@
 = render partial: "shared/header", event: @event
-= render partial: "shared/logged_in", event: @event
 - submissions = Submission.includes(:votes).where(event_id: @event)
 
 .mid_block
