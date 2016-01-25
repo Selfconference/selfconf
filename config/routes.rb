@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace "admin" do
+    resources :submissions, only: :index
+  end
+
   scope 'api', defaults: { format: :json } do
     resources :venues, only: [:index, :show]
 
