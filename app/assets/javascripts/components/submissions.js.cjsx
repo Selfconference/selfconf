@@ -10,6 +10,7 @@
     submissions: @props.submissions
 
   voted: (submission) ->
+
     filtered = _(@state.submissions).reject (s) -> s.id == submission.id
     @setState(submissions: filtered)
 
@@ -48,16 +49,18 @@
                 </tr>
               else
                 <tr>
-                <th className="col-md-1">Vote</th>
-                <th className="col-md-3">Talk Name</th>
-                <th className="col-md-5">Abstract</th>
-                <th>Notes</th>
+                  <th className="col-md-1">Vote</th>
+                  <th className="col-md-3">Talk Name</th>
+                  <th className="col-md-5">Abstract</th>
+                  <th>Notes</th>
                 </tr>
             }
           </thead>
           <tbody>
             {
-              _(@state.submissions).map (submission) =>
+              submissions = @state.submissions
+              submissions = _(submissions).sample(1) unless @props.admin
+              _(submissions).map (submission) =>
                 <Submission submission={submission}
                             user={@props.user}
                             key={submission.id}
