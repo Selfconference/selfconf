@@ -14,8 +14,6 @@ default: &default
 development:
   <<: *default
   database: selfconf_development
-  username: selfconf
-  password: somethingridiculousthatislong
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,5 +21,3 @@ development:
 test:
   <<: *default
   database: selfconf_test
-  username: selfconf
-  password: somethingridiculousthatislong
