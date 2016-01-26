@@ -4,6 +4,7 @@ class Selection::SubmissionsController < ApplicationController
 
   def index
     authorize :selection_submissions, :index?
+    @submissions = Submission.not_voted_on_by(current_user, @event)
   end
 
   private

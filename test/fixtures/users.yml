@@ -1,0 +1,21 @@
+jill:
+  name: "jill"
+  email: "jill@example.com"
+  bio: "Some bio"
+  encrypted_password: "LOLOLOL"
+  headshot: "a headshot"
+
+jack:
+  name: "jack"
+  email: "jack@example.com"
+  bio: "an bio"
+  encrypted_password: "LOLOLOL2"
+  headshot: "an headshot"
+
+jane:
+  name: "jane"
+  email: "jane@example.com"
+  bio: "the bio"
+  encrypted_password: "LOLOLOL3"
+  headshot: "the headshot"
+
