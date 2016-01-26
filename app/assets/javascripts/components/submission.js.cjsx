@@ -22,9 +22,6 @@
   castVote: (e, value) ->
     e.preventDefault()
 
-    if @props.admin
-      value = value * 2
-
     $.ajax
       method: "post"
       url: "/selection/submissions/#{@props.submission.id}/votes"
