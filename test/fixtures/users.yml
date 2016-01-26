@@ -1,0 +1,13 @@
+jill:
+  name: "jill"
+  email: "jill@example.com"
+  bio: "Some bio"
+  encrypted_password: "LOLOLOL"
+  headshot: "a headshot"
+
+jack:
+  name: "jack"
+  email: "jack@example.com"
+  bio: "an bio"
+  encrypted_password: "LOLOLOL"
+  headshot: "an headshot"

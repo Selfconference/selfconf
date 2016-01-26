@@ -4,12 +4,7 @@ class Selection::SubmissionsController < ApplicationController
 
   def index
     authorize :selection_submissions, :index?
-    @submissions = Submission
-      .includes(:votes)
-      .where(event_id: @event)
-      .reject { |s|
-        s.votes.map(&:user).include?(current_user)
-      }
+    @submissions = Submission.not_voted_on_by(current_user, @event)
   end
 
   private
