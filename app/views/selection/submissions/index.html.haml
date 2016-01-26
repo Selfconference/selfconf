@@ -1,9 +1,8 @@
 = render partial: "shared/header", event: @event
-- submissions = Submission.includes(:votes).where(event_id: @event).reject {|s| s.votes.map(&:user).include?(current_user) }
 
 .mid_block
   .container
     .row
       .col-md-12
         = react_component "Submissions",
-              submissions: JSON.parse(submissions.to_json(include: :votes))
+              submissions: JSON.parse(@submissions.to_json(include: :votes))
