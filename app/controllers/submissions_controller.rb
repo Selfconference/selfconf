@@ -31,6 +31,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     authorize @submission
     if @submission.update_attributes(submission_params)
+      @submissions.votes.destroy_all
       flash[:success] = "Submission updated!"
       redirect_to submissions_path
     else
