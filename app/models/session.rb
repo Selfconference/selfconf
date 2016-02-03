@@ -4,5 +4,5 @@ class Session < ActiveRecord::Base
   has_and_belongs_to_many :speakers
   has_many :feedbacks
 
-  default_scope -> { order("#{table_name}.keynote ASC, #{table_name}.name ASC") }
+  default_scope -> { order(keynote: :desc, name: :asc) }
 end
