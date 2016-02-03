@@ -260,9 +260,8 @@ ul.tag-line
   font-weight: 400
   margin: 9px 5px !important
 
-.orange-btn
+.button
   font-family: $font-family
-  background-color: $orange
   color: $white
   border: none
   border-radius: 2px
@@ -270,6 +269,25 @@ ul.tag-line
   font-size: 30px
   font-weight: 400
   margin: 15px auto
+
+.small-button
+  @extend .button
+  font-size: 18px
+  padding: 4px 8px
+  margin: 4px auto
+
+.orange-button
+  background-color: $orange
+
+.yellow-button
+  background-color: $yellow
+  text-shadow: 0px 0px 1px #000000
+
+.purple-button
+  background-color: $purple
+
+.red-button
+  background-color: $red
 
 .center-wrapper
   text-align: center
@@ -279,3 +297,10 @@ ul.tag-line
   font-size: 16px
   text-align: right
   line-height: 125%
+
+.nested-fields
+  font-size: .75em
+
+.control-label
+  line-height: 100%
+  font-size: 20px

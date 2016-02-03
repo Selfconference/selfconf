@@ -18,6 +18,8 @@ gem "twitter-bootstrap-rails"
 gem "jquery-datatables-rails"
 gem 'react-rails', '~> 1.5.0'
 gem 'sprockets-coffee-react'
+gem 'cocoon', '~> 1.2', '>= 1.2.7'
+gem 'momentjs-rails', '>= 2.9.0'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

@@ -40,10 +40,10 @@
             </div>
           else
             <div className="center-wrapper">
-              <a className="btn orange-btn" onClick={@voteYes} rel="nofollow" href="#">Yes</a>
-              <a className="btn orange-btn" onClick={@voteDontCare} rel="nofollow" href="#">Meh</a>
-              <a className="btn orange-btn" onClick={@voteNo} rel="nofollow" href="#">No</a>
-              <a onClick={@props.skip} rel="nofollow" href="#">Skip for now...</a>
+              <a className="btn button purple-button" onClick={@voteYes} rel="nofollow" href="#">Yes</a>
+              <a className="btn button orange-button" onClick={@voteDontCare} rel="nofollow" href="#">Meh</a>
+              <a className="btn button red-button" onClick={@voteNo} rel="nofollow" href="#">No</a>
+              <a onClick={@props.skip} className="btn button yellow-button" rel="nofollow" href="#">Skip</a>
             </div>
         }
       </td>
@@ -60,5 +60,11 @@
       {
         unless @props.admin
           <td dangerouslySetInnerHTML={__html: @simpleFormat(@props.submission.notes)}></td>
+      }
+      {
+        if @props.admin
+          <td>
+            <a className="btn small-button purple-button" rel="nofollow" data-method="post" href="/admin/submissions/#{@props.submission.id}/make_session">Make Session</a>
+          </td>
       }
     </tr>

@@ -12,6 +12,6 @@
           = f.label :email
           = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
 
-          = f.submit "Resend confirmation instructions", class: 'btn orange-btn'
+          = f.submit "Resend confirmation instructions", class: 'btn button orange-button'
 
         = render "devise/shared/links"

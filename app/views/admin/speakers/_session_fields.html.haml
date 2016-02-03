@@ -1,0 +1,29 @@
+.well
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :keynote, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select(:keynote, options_for_select([["No", false], ["Yes", true]], f.object.keynote), {}, {class: 'form-control'})
+
+  .form-group
+    = f.label :abstract, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :abstract, class: 'form-control'
+
+  .form-group
+    = f.label :room_id, "Room", class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :room_id, @event.rooms.collect { |r| [ r.name, r.id ] }, {include_blank: "--"}, {class: 'form-control'}
+
+  .form-group
+    = f.label :slot, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :slot, class: 'form-control', min: @event.start_date, max: @event.end_date
+
+  .form-group
+    .col-sm-12
+      = link_to_remove_association "remove session", f, class: "pull-right btn small-button red-button"

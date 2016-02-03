@@ -27,9 +27,12 @@ Rails.application.routes.draw do
   end
 
   namespace "admin" do
-    resources :submissions, only: :index
+    resources :submissions, only: :index do
+      member do
+        post 'make_session'
+      end
+    end
     resources :speakers
-    resources :sessions
     resources :users, only: :index do
       member do
         post 'make_selector'

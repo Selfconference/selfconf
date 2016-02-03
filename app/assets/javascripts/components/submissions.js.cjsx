@@ -46,6 +46,7 @@
                   <th>Talk Name</th>
                   <th>Type</th>
                   <th>Abstract</th>
+                  <th></th>
                 </tr>
               else
                 <tr>

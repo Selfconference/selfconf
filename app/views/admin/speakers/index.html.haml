@@ -1,0 +1,24 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        .pull-right
+          =link_to "New Speaker", new_admin_speaker_path, class: "btn small-button orange-button"
+        %table#submissions_table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Twitter
+              %th Bio
+              %th.actions
+          %tbody
+            - Speaker.where(event: @event).each do |speaker|
+              %tr
+                %td= speaker.name
+                %td= speaker.twitter
+                %td= simple_format speaker.bio
+                %td.actions
+                  %btn= link_to "Edit", edit_admin_speaker_path(speaker), class: "btn small-button purple-button"
+                  %btn= link_to "Delete", admin_speaker_path(speaker), method: :delete, class: "btn small-button red-button"
