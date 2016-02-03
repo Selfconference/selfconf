@@ -39,6 +39,7 @@ class Admin::SpeakersController < ApplicationController
                                     :photo,
                                     sessions_attributes: [
                                       :id,
+                                      :event_id,
                                       :name,
                                       :keynote,
                                       :abstract,
