@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   def event
     @event = if params[:event_id]
       Event.find(params[:event_id])
-    elsif request.path.include?("events")
+    elsif request.path.include?("events") && params.has_key?(:id)
       Event.find(params[:id])
     else
       Event.latest
