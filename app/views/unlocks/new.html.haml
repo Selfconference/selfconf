@@ -6,12 +6,16 @@
       .col-md-12
         %h4 Resend unlock instructions
 
-        = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+        = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: "form-horizontal" }) do |f|
           = devise_error_messages!
 
-          = f.label :email
-          = f.email_field :email, autofocus: true, class: 'form-control'
+          .form-group
+            = f.label :email, class: 'col-sm-2 control-label'
+            .col-sm-10
+              = f.email_field :email, autofocus: true, class: 'form-control'
 
-          = f.submit "Resend unlock instructions", class: 'btn button orange-button'
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              = f.submit "Resend unlock instructions", class: 'btn button orange-button'
 
-        = render "devise/shared/links"
+              = render "devise/shared/links"

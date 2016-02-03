@@ -40,7 +40,7 @@
                   %div{:style => "position: absolute; left: -5000px;"}
                     %input{:name => "b_e629a43dedc6cbed53830761c_3dee572f6e", :tabindex => "-1", :type => "text", :value => ""}/
                   .center-wrapper
-                    %button#mc-embedded-subscribe.sign-up{:name => "subscribe", :type => "submit", :value => "Subscribe"} Subscribe
+                    %button#mc-embedded-subscribe.btn.button.orange-button{:name => "subscribe", :type => "submit", :value => "Subscribe"} Subscribe
 
       .col-md-5
         .timeline.well
@@ -49,7 +49,7 @@
             %ul
               - @event.timelines.each do |timeline|
                 %li
-                  %span.bold= timeline.when.strftime("%B %e: ")
+                  %span.bold.purple-color= timeline.when.strftime("%B %e: ")
                   = timeline.what
           - else
             (No timeline yet!)
@@ -156,8 +156,9 @@
             %p= simple_format organizer.bio
             %p
               ="Want to email #{organizer.name.split(" ").first}? Do it: "
-              %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
-              =". Or send her a tweet!"
+              = succeed ". " do
+                %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
+              ="Or send her a tweet!"
               %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
       .row
         .col-md-12
