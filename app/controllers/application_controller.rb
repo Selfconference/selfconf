@@ -3,24 +3,9 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :event
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-  def event
-    @event = if event_id
-      Event.find(event_id)
-    else
-      Event.latest
-    end
-  end
-
-  def event_id
-    if params[:event_id]
-      params[:event_id]
-    else
-      params[:id]
-    end
-  end
 
   protected
 
@@ -30,6 +15,16 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def event
+    @event = if params[:event_id]
+      Event.find(params[:event_id])
+    elsif request.path.start_with?("/events")
+      Event.find(params[:id])
+    else
+      Event.latest
+    end
+  end
 
   def user_not_authorized
     flash[:error] = "You are not authorized to perform this action."

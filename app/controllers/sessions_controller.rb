@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :event
 
   def index
     respond_to do |format|

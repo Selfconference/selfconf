@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  before_action :event
 
   def latest
     render json: Event.latest.to_json(:include => [:organizers])

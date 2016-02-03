@@ -1,5 +1,4 @@
 class OrganizersController < ApplicationController
-  before_action :event
 
   def index
     organizers = @event.organizers.where('updated_at > ?', params[:from_date]) if params[:from_date]

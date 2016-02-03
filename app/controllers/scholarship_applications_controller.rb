@@ -1,5 +1,4 @@
 class ScholarshipApplicationsController < ApplicationController
-  before_action :event
 
   def index
   end

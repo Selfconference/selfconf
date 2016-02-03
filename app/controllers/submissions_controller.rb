@@ -1,6 +1,5 @@
 class SubmissionsController < ApplicationController
   before_filter :authenticate_user!, except: :index
-  before_action :latest_event
 
   def index
     if user_signed_in?
@@ -52,9 +51,5 @@ class SubmissionsController < ApplicationController
 
   def submission_params
     params.require(:submission).permit(:talkname, :abstract, :talktype, :notes)
-  end
-
-  def latest_event
-    @event = Event.latest
   end
 end

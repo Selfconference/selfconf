@@ -1,5 +1,4 @@
 class SponsorLevelsController < ApplicationController
-  before_action :event
 
   def index
     sponsor_levels = @event.sponsor_levels.where('updated_at > ?', params[:from_date]) if params[:from_date]

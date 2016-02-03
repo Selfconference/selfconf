@@ -1,6 +1,5 @@
 class Selection::VotesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :latest_event
 
   def create
     user_id = current_user.id
@@ -16,11 +15,5 @@ class Selection::VotesController < ApplicationController
     submission_id = vote.submission_id
     vote.destroy
     render json: Submission.find(submission_id).to_json(include: :votes)
-  end
-
-  private
-
-  def latest_event
-    @event = Event.latest
   end
 end

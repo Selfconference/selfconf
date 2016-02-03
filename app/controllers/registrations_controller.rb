@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :event
 
   protected
 
