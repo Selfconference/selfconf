@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'coc'        => 'events#coc'
   get 'sponsor'    => 'events#sponsor'
+  get 'admin'    => 'admin/admin#admin'
 
 
   resources :submissions
@@ -26,8 +27,9 @@ Rails.application.routes.draw do
   end
 
   namespace "admin" do
-    resources :admin, only: :index
     resources :submissions, only: :index
+    resources :speakers
+    resources :sessions
     resources :users, only: :index do
       member do
         post 'make_selector'

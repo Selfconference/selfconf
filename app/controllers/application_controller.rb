@@ -16,6 +16,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authorize_admin!
+    authorize(:admin, :admin?)
+  end
+
+  def authorize_selector!
+    authorize(:selector, :selector?)
+  end
+
   def event
     @event = if params[:event_id]
       Event.find(params[:event_id])
