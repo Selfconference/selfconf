@@ -1,0 +1,22 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        .pull-right
+          =link_to "New Event", new_admin_event_path, class: "btn small-button orange-button"
+        %table#submissions_table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Date
+              %th.actions
+          %tbody
+            - Event.all.each do |event|
+              %tr
+                %td= event.name
+                %td= event.start_date
+                %td.actions
+                  %btn= link_to "Edit", edit_admin_event_path(event), class: "btn small-button purple-button"
+                  %btn= link_to "Delete", admin_event_path(event), method: :delete, class: "btn small-button red-button"

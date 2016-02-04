@@ -1,0 +1,72 @@
+= form_for [:admin, @event], html: {class: 'form-horizontal'} do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :about, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :about, class: 'form-control'
+
+  .form-group
+    = f.label :venue, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :venue, Venue.all.collect {|v| [v.name, v.id]}, {include_blank: false}, {class: 'form-control'}
+
+  .form-group
+    = f.label :twitter, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :twitter, class: 'form-control'
+
+  .form-group
+    = f.label :lanyard, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.url_field :lanyard, class: 'form-control'
+
+  .form-group
+    = f.label :tickets_link, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.url_field :tickets_link, class: 'form-control'
+
+  .form-group
+    = f.label :tickets_iframe_link, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.url_field :tickets_iframe_link, class: 'form-control'
+
+  .form-group
+    = f.label :start_date, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :start_date, class: 'form-control'
+
+  .form-group
+    = f.label :end_date, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :end_date, class: 'form-control'
+
+  .form-group
+    = f.label :extra, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :extra, class: 'form-control'
+
+  .form-group
+    = f.label :sessions_published, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select(:sessions_published, options_for_select([["No", false], ["Yes", true]], f.object.sessions_published), {}, {class: 'form-control'})
+
+  .form-group
+    = f.label :submissions_start, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :submissions_start, class: 'form-control'
+
+  .form-group
+    = f.label :submissions_end, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :submissions_end, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit "Submit", class: "btn button orange-button"
+      = link_to "Cancel", admin_events_path, class: "btn button orange-button"

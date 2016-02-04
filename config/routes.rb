@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       end
     end
     resources :speakers
+    resources :events
     resources :users, only: :index do
       member do
         post 'make_selector'
