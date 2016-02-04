@@ -8,12 +8,14 @@
           %thead
             %tr
               %th Name
+              %th Twitter
               %th Email
               %th.actions
           %tbody
             - User.all.each do |user|
               %tr
                 %td= user.name
+                %td= user.twitter
                 %td= user.email
                 %td.actions
                   %btn= link_to "Make Selector", make_selector_admin_user_path(user), method: :post, class: "btn small-button purple-button" unless user.selector?

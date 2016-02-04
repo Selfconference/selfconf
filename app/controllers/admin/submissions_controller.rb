@@ -4,10 +4,10 @@ class Admin::SubmissionsController < ApplicationController
 
   def make_session
     @submission = Submission.find(params[:id])
-    speaker = @event.speakers.build(speaker_from(@submission.user))
+    speaker = speaker(@submission.user)
     speaker.sessions.build(session_from(@submission))
     if speaker.save
-      flash[:success] = "#{speaker.name} is now a speaker."
+      flash[:success] = "Submission promoted to session."
     else
       flash[:error] = "Could not promote submission."
     end
@@ -16,9 +16,14 @@ class Admin::SubmissionsController < ApplicationController
 
   private
 
+  def speaker(user)
+    speaker = Speaker.find_or_create_by(name: user.name)
+    speaker.update_attributes(speaker_from(user))
+    speaker
+  end
+
   def speaker_from(user)
     {
-      name: user.name,
       twitter: user.twitter,
       bio: user.bio,
       photo: user.headshot
