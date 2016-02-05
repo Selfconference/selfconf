@@ -17,9 +17,12 @@ class Admin::SubmissionsController < ApplicationController
   private
 
   def speaker(user)
-    speaker = Speaker.find_or_create_by(name: user.name)
-    speaker.update_attributes(speaker_from(user))
-    speaker
+    if speaker = Speaker.find_by(name: user.name, event: @event)
+      speaker.update_attributes(speaker_from(user))
+      speaker
+    else
+      @event.speakers.create!({name: user.name}.merge(speaker_from(user)))
+    end
   end
 
   def speaker_from(user)
@@ -34,7 +37,8 @@ class Admin::SubmissionsController < ApplicationController
     {
       name: submission.talkname,
       abstract: submission.abstract,
-      event_id: submission.event_id
+      event_id: submission.event_id,
+      keynote: false
     }
   end
 

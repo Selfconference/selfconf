@@ -30,6 +30,23 @@ class Admin::SpeakersController < ApplicationController
     end
   end
 
+  def destroy
+    @speaker = Speaker.find(params[:id])
+    @speaker.sessions.each do |s|
+      if s.speakers.count > 1
+        s.speakers.delete(@speaker)
+      else
+        s.destroy
+      end
+    end
+    if @speaker.destroy
+      flash[:success] = "Speaker destroyed"
+    else
+      flash[:error] = "Speaker could not be destroyed"
+    end
+    redirect_to admin_speakers_path
+  end
+
   private
 
   def speaker_params

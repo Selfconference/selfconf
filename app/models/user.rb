@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 50 }
   validates :bio, presence: true
   validates :headshot, presence: true
-  has_many :votes
-  has_many :submissions
+  has_many :votes, dependent: :destroy
+  has_many :submissions, dependent: :destroy
   has_and_belongs_to_many :roles
 
   def admin?

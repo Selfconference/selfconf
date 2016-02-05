@@ -9,4 +9,5 @@ class SpeakersController < ApplicationController
   def show
     render json: Speaker.find(params[:id]).to_json(:include => [:sessions])
   end
+
 end
