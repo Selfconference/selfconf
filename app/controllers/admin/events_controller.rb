@@ -27,6 +27,22 @@ class Admin::EventsController < ApplicationController
 
   private
 
+  def speaker_params
+    params.require(:speaker).permit(:name,
+                                    :bio,
+                                    :twitter,
+                                    :photo,
+                                    sessions_attributes: [
+                                      :id,
+                                      :event_id,
+                                      :name,
+                                      :keynote,
+                                      :abstract,
+                                      :room_id,
+                                      :slot,
+                                      :_destroy])
+  end
+
   def event_params
     params.require(:event).permit(:venue_id,
                                   :name,
@@ -40,7 +56,14 @@ class Admin::EventsController < ApplicationController
                                   :extra,
                                   :sessions_published,
                                   :submissions_start,
-                                  :submissions_end)
+                                  :submissions_end,
+                                  sponsors_attributes: [
+                                    :id,
+                                    :name,
+                                    :link,
+                                    :photo,
+                                    :_destroy,
+                                    sponsor_level_ids: []])
   end
 
 end

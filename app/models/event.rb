@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
   has_many :sponsors, dependent: :destroy
   has_and_belongs_to_many :organizers
   has_one :funding_meter, dependent: :destroy
+  accepts_nested_attributes_for :sponsors, reject_if: :all_blank, allow_destroy: true
 
   scope :latest, -> { order('start_date DESC').first }
 
