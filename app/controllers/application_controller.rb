@@ -28,11 +28,15 @@ class ApplicationController < ActionController::Base
   def event
     @event = if params[:event_id]
       Event.find(params[:event_id])
-    elsif request.path.include?("events") && params.has_key?(:id) && params[:id].is_a?(Integer)
+    elsif request.path.include?("events") && params.has_key?(:id) && is_number?(params[:id])
       Event.find(params[:id])
     else
       Event.latest
     end
+  end
+
+  def is_number?(id)
+    true if Integer(id) rescue false
   end
 
   def user_not_authorized
