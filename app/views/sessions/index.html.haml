@@ -34,9 +34,12 @@
           - @sessions.each do | session |
             .row.speaker-session-row
               .session{:id => "session_#{session.id}"}
-                -session.speakers.each do |speaker|
-                  .img-rounded.speaker-img.img-responsive.visible-sm-block.visible-md-block.visible-lg-block.pull-right{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
-                  .img-rounded.speaker-img.img-responsive.visible-xs-block{style: "background-image:url(#{speaker.photo});", :id => "speaker_#{speaker.id}"}
+                -session.speakers.decorate.each do |speaker|
+                  .speaker-img.img-rounded.pull-right.visible-sm-block.visible-md-block.visible-lg-block
+                    = image_tag speaker.photo, class: 'img-responsive', id: "speaker_#{speaker.id}"
+                  .speaker-img.img-rounded.visible-xs-block
+                    = image_tag speaker.photo, class: 'img-responsive', id: "speaker_#{speaker.id}"
+
                 %h4
                   = "#{session.speaker_names}: #{session.name}"
                 %h5

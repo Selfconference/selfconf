@@ -68,13 +68,13 @@
       .container
         .row
           -@event.sessions.sample(8).each do |session|
-            - speaker = session.speakers.sample
+            - speaker = session.speakers.sample.decorate
             .col-md-3.main-page-speaker
               = link_to "#{sessions_path(@event)}#speaker_#{speaker.id}" do
-                .center
-                  .img-rounded.img-responsive.speaker-img{style: "background-image:url(#{speaker.photo});"}
-                %h4= speaker.name
-                %p= session.name
+                .speaker-img.img-rounded
+                  = image_tag speaker.photo, class: "img-responsive"
+              %h4= speaker.name
+              %p= session.name
 
           .row
             .col-md-12
