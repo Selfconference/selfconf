@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
   end
 
   def show
-    render json: Session.find(params[:id]).to_json(:include => [:speakers, :room])
+    session = Session.find(params[:id])
+    render json: JSON.parse(session.to_json).merge(
+      speakers: session.speakers.decorate,
+      room: session.room
+    ).to_json
   end
 end
