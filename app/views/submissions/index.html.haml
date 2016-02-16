@@ -39,7 +39,7 @@
                     %td= submission.talktype
                     %td= submission.notes
                     %td.actions
-                      %btn= link_to "Edit", edit_submission_path(submission)
+                      %btn= link_to "Edit", edit_submission_path(submission) if @event.submissions_open?
                       %btn= link_to "Delete", submission_path(submission), method: :delete, data: { confirm: 'Are you sure?' }
         - else
           %p
