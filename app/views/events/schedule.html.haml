@@ -9,9 +9,10 @@
           %table.table.table-striped.table-bordered
             %tr
               %td.col-md-1
-              -@schedule[day][@schedule[day].keys[2]].keys.map(&:name).each do |room|
-                %td.col-md-2
-                  %h5= room
+              - if @schedule[day][@schedule[day].keys[2]]
+                -@schedule[day][@schedule[day].keys[2]].keys.map(&:name).each do |room|
+                  %td.col-md-2
+                    %h5= room
             -@schedule[day].keys.each do |slot|
               %tr
                 %td.col-md-1

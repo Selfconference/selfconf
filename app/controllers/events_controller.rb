@@ -20,11 +20,11 @@ class EventsController < ApplicationController
   def schedule
     sessions = @event.sessions
     @schedule = {}
-    sessions.map(&:slot).uniq.sort.map do |slot|
+    sessions.pluck(:slot).compact.uniq.sort.map do |slot|
       @schedule[slot.to_date] = {} unless @schedule.has_key?(slot.to_date)
       day = @schedule[slot.to_date]
       day[slot] = {} unless day.has_key?(slot)
-      sessions.map(&:room).uniq.sort.map do |room|
+      sessions.map(&:room).compact.uniq.sort.map do |room|
         day[slot][room] = nil unless day[slot].has_key?(room)
         session = @event.sessions.where(slot: slot, room: room).first
         day[slot][room] = session.decorate if session

@@ -32,6 +32,11 @@ Rails.application.routes.draw do
         post 'make_session'
       end
     end
+    resources :sessions, only: :index do
+      member do
+        post 'schedule'
+      end
+    end
     resources :speakers
     resources :events
     resources :users, only: :index do

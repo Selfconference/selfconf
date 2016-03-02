@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui.min
 //= require cocoon
 //= require dataTables/jquery.dataTables
 //= require twitter/bootstrap

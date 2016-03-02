@@ -1,0 +1,44 @@
+= render partial: "shared/header", event: @event
+
+#admin-schedule
+  .mid_block.schedule
+    .container
+      .row
+        .col-md-9
+          %h4
+            = @event.start_date.strftime("%A, %b %d")
+            %table.table.table-striped.table-bordered
+              %tr
+                %td.col-md-1
+                  -@event.rooms.map(&:name).each do |room|
+                    %td.col-md-2
+                      %h5= room
+
+              -[Time.parse("Fri, 20 May 2016 14:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 15:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 16:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 18:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 19:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 20:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 21:00:00 UTC +00:00")].each do |slot|
+                %tr
+                  %td.col-md-1
+                    %h5= "#{slot.in_time_zone('EST').strftime('%l:%M %p')} - #{(slot + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')}"
+                  -@event.rooms.map(&:id).each do |room|
+                    %td.slot{ data: { slot: slot, room: room }}
+
+          %h4
+            = @event.end_date.strftime("%A, %b %d")
+            %table.table.table-striped.table-bordered
+              %tr
+                %td.col-md-1
+                  -@event.rooms.map(&:name).each do |room|
+                    %td.col-md-2
+                      %h5= room
+
+              -[Time.parse("Sat, 21 May 2016 14:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 15:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 16:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 18:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 19:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 20:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 21:00:00 UTC +00:00")].each do |slot|
+                %tr
+                  %td.col-md-1
+                    %h5= "#{slot.in_time_zone('EST').strftime('%l:%M %p')} - #{(slot + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')}"
+                  -@event.rooms.map(&:id).each do |room|
+                    %td.slot{ data: { slot: slot, room: room }}
+
+        .col-md-3
+          .session-list
+            - @sessions.each do |session|
+              .session{data: {id: session.id}}
+                = "#{session.speaker_names} - #{session.name}"
