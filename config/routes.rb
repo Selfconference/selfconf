@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace "admin" do
     resources :submissions, only: :index do
-      member do
+      collection do
         post 'make_session'
       end
     end

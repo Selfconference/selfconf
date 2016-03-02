@@ -1,5 +1,7 @@
 = render partial: "shared/header", event: @event
 
+#admin-submissions
+
 .mid_block
   .container
     .row
@@ -7,33 +9,39 @@
         - if @submissions.empty?
           No submissions!
         - else
-          %span.bold
-            Total
-          = ": #{@submissions.count}"
-          %span.bold
-            People
-          = ": #{@submissions.where(talktype: 'people').count}"
-          %span.bold
-            Tech
-          = ": #{@submissions.where(talktype: 'tech').count}"
-          %table.datatable.table.table-striped.table-bordered{data: { pagelength: 50, sortorder: 'desc' }}
+          .pull-left
+            %span.bold
+              Total
+            = ": #{@submissions.count}"
+            %span.bold
+              People
+            = ": #{@submissions.where(talktype: 'people').count}"
+            %span.bold
+              Tech
+            = ": #{@submissions.where(talktype: 'tech').count}"
+          .pull-right
+            %button.promote.button.purple-button Promote selected to sessions
+          %table.datatable.table.table-striped.table-bordered{data: { pagelength: 50, sortcolumn: 1, sortorder: 'desc' }}
             %thead
               %tr
+                %th= check_box_tag 'select-all', '0', false, class: 'select-all'
                 %th.col-md-1 Votes
                 %th.col-md-2 Name
-                %th Talk Name
+                %th.col-md-3 Talk Name
                 %th Type
                 %th Abstract
-                %th
             %tbody
               - @submissions.each do |submission|
                 %tr
-                  %td.actions
+                  %td
+                    = check_box_tag 'selected', '0', false, class: 'selected', data: { id: submission.id }
+                  %td
                     .center-wrapper
                       = submission.votes.pluck(:value).reduce(:+)
                   %td= submission.user.name
                   %td= submission.talkname
                   %td= submission.talktype
-                  %td= simple_format truncate(submission.abstract, length: 50)
                   %td
-                    = link_to "Make Session", make_session_admin_submission_path(submission), class: "btn small-button purple-button"
+                    .pull-left
+                      = simple_format(truncate(submission.abstract, length: 35))
+                    %button.button.small-button.purple-button.pull-right show

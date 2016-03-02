@@ -7,15 +7,13 @@ class Admin::SubmissionsController < ApplicationController
   end
 
   def make_session
-    @submission = Submission.find(params[:id])
-    speaker = speaker(@submission.user)
-    speaker.sessions.build(session_from(@submission))
-    if speaker.save
-      flash[:success] = "Submission promoted to session."
-    else
-      flash[:error] = "Could not promote submission."
+    @submissions = Submission.where(id: params[:ids])
+    @submissions.each do |submission|
+      speaker = speaker(submission.user)
+      speaker.sessions.build(session_from(submission))
+      speaker.save
     end
-    redirect_to admin_submissions_path
+    redirect_to root_path
   end
 
   private
