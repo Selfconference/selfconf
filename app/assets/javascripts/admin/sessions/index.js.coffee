@@ -10,10 +10,15 @@ $ ->
       session = $item.data('id')
       saveRoomAndSlot(session, null, null)
 
+      ui.draggable
+        .prependTo( $(@) )
+
   _(sessions).each (session) ->
     $(session).draggable
       revert: "invalid"
       snap: ".slot"
+      stack: ".session"
+      helper: "clone"
 
   _(slots).each (slot) ->
     scheduledSession = $(slot).find('.session')[0]
@@ -27,6 +32,10 @@ $ ->
         room = $slot.data('room')
         time = $slot.data('slot')
         saveRoomAndSlot(session, room, time)
+
+        ui.draggable
+          .prependTo( $slot )
+
       out: (e, ui) ->
         $(@).droppable "option", "accept", "*"
 
