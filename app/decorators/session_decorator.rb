@@ -10,7 +10,7 @@ class SessionDecorator < Draper::Decorator
   end
 
   def slot
-    "#{session.slot.strftime("%A")}, #{session.slot.in_time_zone("EST").strftime('%l:%M %p')}"
+    "#{session.slot.time.strftime("%A")}, #{session.slot.time.in_time_zone("EST").strftime('%l:%M %p')}"
   end
 
   def nav_speaker_display
