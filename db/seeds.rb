@@ -36,7 +36,7 @@ organizer = Organizer.create! name: "your name",
                               twitter: "twitter",
                               photo: "http://placekitten.com/200/200"
 
-event.organizer = organizer
+event.organizers << organizer
 event.save!
 
 venue.rooms.create! [
