@@ -5,37 +5,22 @@
     .container
       .row
         .col-md-9
-          %h4
-            = @event.start_date.strftime("%A, %b %d")
-            %table.table.table-striped.table-bordered
-              %tr
-                %td.col-md-1
-                  -@event.rooms.map(&:name).each do |room|
-                    %td.col-md-2
-                      %h5= room
-
-              -[Time.parse("Fri, 20 May 2016 14:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 15:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 16:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 18:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 19:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 20:00:00 UTC +00:00"), Time.parse("Fri, 20 May 2016 21:00:00 UTC +00:00")].each do |slot|
+          - @event.slots.group_by {|s| s.time.to_date}.keys.each do |day|
+            %h4
+              = day.strftime("%A, %b %d")
+              %table.table.table-striped.table-bordered
                 %tr
                   %td.col-md-1
-                    %h5= "#{slot.in_time_zone('EST').strftime('%l:%M %p')} - #{(slot + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')}"
-                  -@event.rooms.map(&:id).each do |room|
-                    %td.slot{ data: { slot: slot, room: room }}
+                    -@event.rooms.map(&:name).each do |room|
+                      %td.col-md-2
+                        %h5= room
 
-          %h4
-            = @event.end_date.strftime("%A, %b %d")
-            %table.table.table-striped.table-bordered
-              %tr
-                %td.col-md-1
-                  -@event.rooms.map(&:name).each do |room|
-                    %td.col-md-2
-                      %h5= room
-
-              -[Time.parse("Sat, 21 May 2016 14:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 15:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 16:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 18:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 19:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 20:00:00 UTC +00:00"), Time.parse("Sat, 21 May 2016 21:00:00 UTC +00:00")].each do |slot|
-                %tr
-                  %td.col-md-1
-                    %h5= "#{slot.in_time_zone('EST').strftime('%l:%M %p')} - #{(slot + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')}"
-                  -@event.rooms.map(&:id).each do |room|
-                    %td.slot{ data: { slot: slot, room: room }}
+                - @event.slots.where("date(time) = ?", day).each do |slot|
+                  %tr
+                    %td.col-md-1
+                      %h5= slot.time_slot
+                    -@event.rooms.map(&:id).each do |room|
+                      %td.slot{ data: { slot: slot.id, room: room }}
 
         .col-md-3
           .session-list

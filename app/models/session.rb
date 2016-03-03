@@ -1,6 +1,7 @@
 class Session < ActiveRecord::Base
   belongs_to :event
   belongs_to :room
+  belongs_to :slot
   has_and_belongs_to_many :speakers
   has_many :feedbacks
 

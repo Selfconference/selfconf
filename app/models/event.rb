@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :venue
   has_many :rooms
+  has_many :slots
   has_many :sessions, dependent: :destroy
   has_many :submissions, dependent: :destroy
   has_many :speakers, dependent: :destroy

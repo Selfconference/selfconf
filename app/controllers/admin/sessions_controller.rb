@@ -8,7 +8,7 @@ class Admin::SessionsController < ApplicationController
 
   def schedule
     session = Session.find(params[:id])
-    session.update_attributes(room_id: params[:room], slot: params[:slot])
+    session.update_attributes(room_id: params[:room], slot_id: params[:slot])
     head :accepted
   end
 

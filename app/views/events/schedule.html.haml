@@ -4,34 +4,33 @@
   .container
     .row
       .col-md-12.visible-md-block.visible-lg-block
-        -@schedule.keys.each do |day|
+        - @schedule.each do |day, slots|
           %h4= day.strftime("%A, %b %d")
           %table.table.table-striped.table-bordered
             %tr
               %td.col-md-1
-              - if @schedule[day][@schedule[day].keys[2]]
-                -@schedule[day][@schedule[day].keys[2]].keys.map(&:name).each do |room|
+                - @event.rooms.pluck(:name).each do |room|
                   %td.col-md-2
                     %h5= room
-            -@schedule[day].keys.each do |slot|
+            - slots.each do |slot|
               %tr
                 %td.col-md-1
-                  %h5= "#{slot.in_time_zone('EST').strftime('%l:%M %p')} - #{(slot + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')}"
-                - @schedule[day][slot].keys.each do | room |
+                  %h5= slot.time_slot
+                - @event.rooms.each do |room|
                   %td.col-md-2
-                    -session = @schedule[day][slot][room]
-                    - if session.present?
+                    - if session = slot.sessions.where(room: room).first
+                      - session = session.decorate
                       =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
 
       .col-md-12.visible-xs-block.visible-sm-block.phone-schedule
-        -@schedule.keys.each do |day|
+        - @schedule.each do |day, slots|
           %h4= day.strftime("%A, %b %d")
-          -@schedule[day].keys.each do |slot|
-            %h5= slot.in_time_zone("EST").strftime('%l:%M %p')
-            %ul
-              - @schedule[day][slot].keys.each do | room |
-                -session = @schedule[day][slot][room]
-                %li
-                  ="#{room.name}: "
-                  - if session.present?
-                    =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+          %table.table.table-striped.table-bordered
+            - slots.each do |slot|
+              %ul
+                %h5= slot.time_slot
+                - @event.rooms.each do |room|
+                  - if session = slot.sessions.where(room: room).first
+                    - session = session.decorate
+                    %li
+                      =link_to "#{room.name}: #{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"

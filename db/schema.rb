@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120005538) do
+ActiveRecord::Schema.define(version: 20160303030944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160120005538) do
     t.integer  "venue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
 
   create_table "scholarship_applications", force: :cascade do |t|
@@ -114,8 +115,10 @@ ActiveRecord::Schema.define(version: 20160120005538) do
     t.integer  "room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "slot"
+    t.integer  "slot_id"
   end
+
+  add_index "sessions", ["slot_id"], name: "index_sessions_on_slot_id", using: :btree
 
   create_table "sessions_speakers", id: false, force: :cascade do |t|
     t.integer "session_id"
@@ -124,6 +127,13 @@ ActiveRecord::Schema.define(version: 20160120005538) do
 
   add_index "sessions_speakers", ["session_id"], name: "index_sessions_speakers_on_session_id", using: :btree
   add_index "sessions_speakers", ["speaker_id"], name: "index_sessions_speakers_on_speaker_id", using: :btree
+
+  create_table "slots", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "time",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "speakers", force: :cascade do |t|
     t.string   "name"
@@ -206,7 +216,6 @@ ActiveRecord::Schema.define(version: 20160120005538) do
     t.text     "about"
     t.string   "maps_link"
     t.string   "address"
-    t.integer  "events_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -219,4 +228,5 @@ ActiveRecord::Schema.define(version: 20160120005538) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "sessions", "slots"
 end

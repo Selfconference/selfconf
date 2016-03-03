@@ -1,0 +1,13 @@
+class CreateSlots < ActiveRecord::Migration
+  def change
+    create_table :slots do |t|
+      t.belongs_to :event
+      t.datetime :time, null: false
+
+      t.timestamps
+    end
+
+    add_reference :sessions, :slot, index: true
+    add_foreign_key :sessions, :slots
+  end
+end
