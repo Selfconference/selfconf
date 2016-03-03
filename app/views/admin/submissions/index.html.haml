@@ -27,9 +27,9 @@
                 %th= check_box_tag 'select-all', '0', false, class: 'select-all'
                 %th.col-md-1 Votes
                 %th.col-md-2 Name
+                %th.col-md-2 Email
                 %th.col-md-3 Talk Name
                 %th Type
-                %th Abstract
             %tbody
               - @submissions.each do |submission|
                 %tr
@@ -39,9 +39,6 @@
                     .center-wrapper
                       = submission.votes.pluck(:value).reduce(:+)
                   %td= submission.user.name
+                  %td= submission.user.email
                   %td= submission.talkname
                   %td= submission.talktype
-                  %td
-                    .pull-left
-                      = simple_format(truncate(submission.abstract, length: 35))
-                    %button.button.small-button.purple-button.pull-right show
