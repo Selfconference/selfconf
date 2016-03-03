@@ -30,14 +30,11 @@ event.slots.create! [
   { time: Date.parse("Sat, 21 May 2016 21:00:00 UTC +00:00") }
 ]
 
-organizer = Organizer.create! name: "your name",
+event.organizers.create! name: "your name",
                               bio: "things about you",
                               email: "you@email.com",
                               twitter: "twitter",
                               photo: "http://placekitten.com/200/200"
-
-event.organizers << organizer
-event.save!
 
 venue.rooms.create! [
   {name: "Big Room", event_id: event.id, order: 0},
