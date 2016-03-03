@@ -21,7 +21,7 @@
             = ": #{@submissions.where(talktype: 'tech').count}"
           .pull-right
             %button.promote.button.purple-button Promote selected to sessions
-          %table.datatable.table.table-striped.table-bordered{data: { pagelength: 50, sortcolumn: 1, sortorder: 'desc' }}
+          %table.datatable.table.table-striped.table-bordered{data: { pagelength: 35, sortcolumn: 1, sortorder: 'desc' }}
             %thead
               %tr
                 %th= check_box_tag 'select-all', '0', false, class: 'select-all'
