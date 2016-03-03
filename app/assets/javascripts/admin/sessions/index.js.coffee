@@ -16,14 +16,14 @@ $ ->
       snap: ".slot"
 
   _(slots).each (slot) ->
-    scheduledSession = $(slot).find('.session')
+    scheduledSession = $(slot).find('.session')[0]
     $(slot).droppable
-      accept: if scheduledSession then ".session[data-id=#{$(scheduledSession).data("id")}]" else "*"
+      accept: if scheduledSession? then ".session[data-id=#{$(scheduledSession).data("id")}]" else "*"
       tolerance: "fit"
       drop: (e, ui) ->
         $slot = $(@)
         session = $(ui.draggable).data('id')
-        $slot.droppable "option", "accept", ".session[data-id=#{session}]"
+        $slot.droppable("option", "accept", ".session[data-id=#{session}]")
         room = $slot.data('room')
         time = $slot.data('slot')
         saveRoomAndSlot(session, room, time)
