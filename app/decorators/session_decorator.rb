@@ -6,7 +6,9 @@ class SessionDecorator < Draper::Decorator
   end
 
   def twitter_handles
-    speakers.map { |speaker| "<a href=\"http://twitter.com/#{speaker.twitter}\">@#{speaker.twitter}</a>" }.join(", ")
+    speakers.pluck(:twitter).reject {|twitter| twitter.blank?}.map do |twitter|
+      "<a href=\"http://twitter.com/#{twitter}\">@#{twitter}</a>"
+    end.join(", ")
   end
 
   def slot
