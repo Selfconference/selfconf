@@ -57,6 +57,9 @@ class Admin::EventsController < ApplicationController
                                   :sessions_published,
                                   :submissions_start,
                                   :submissions_end,
+                                  :scholarships_start,
+                                  :scholarships_end,
+                                  :scholarships_announce,
                                   sponsors_attributes: [
                                     :id,
                                     :name,

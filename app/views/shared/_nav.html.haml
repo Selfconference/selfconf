@@ -20,6 +20,7 @@
                 %li= link_to "location", event_path(@event) + "#location"
                 %li= link_to "sponsor", sponsor_path
                 %li= link_to "tickets", event_path(@event) + "#tickets" if @event.tickets_iframe_link
+                %li= link_to "apply for a scholarship", scholarship_applications_path if @event.scholarships_open?
                 %li= link_to "submit a talk", submissions_path if @event.submissions_open?
                 %li= link_to "speakers", event_path(@event) + "#speakers" unless @event.speakers.empty?
                 %li= link_to "sessions", sessions_path(@event) unless @event.speakers.empty?

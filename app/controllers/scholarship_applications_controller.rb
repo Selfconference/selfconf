@@ -8,7 +8,7 @@ class ScholarshipApplicationsController < ApplicationController
   end
 
   def create
-    @scholarship_application = ScholarshipApplication.new(allowed_params)
+    @scholarship_application = ScholarshipApplication.new(allowed_params.merge({event_id: @event.id}))
 
     if @scholarship_application.save
       redirect_to thanks_scholarship_applications_path

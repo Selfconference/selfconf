@@ -18,4 +18,9 @@ class Event < ActiveRecord::Base
     return false if submissions_start.nil? or submissions_end.nil?
     Time.now > submissions_start && Time.now < submissions_end
   end
+
+  def scholarships_open?
+    return false if scholarships_start.nil? or scholarships_end.nil?
+    Time.now > scholarships_start && Time.now < scholarships_end
+  end
 end

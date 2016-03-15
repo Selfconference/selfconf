@@ -4,13 +4,13 @@
   .container
     .row
       .col-md-12
-        %h4 Diversity Scholarships
-        %p Self.conference is committed to supporting a diverse, inclusive software community. As such, we are offering a scholarship program to make Self.conference 2015 accessible to people from traditionally underrepresented groups in technology who also have financial need.
-        %p We hope to be able to accommodate all requests; however, as this is the first year we have offered this program and diversity scholarships are dependent upon sponsor support, we are not certain how many scholarships we will be able to offer. Scholarships will be awarded based on financial need and impact.
+        %h4 Scholarships
+        %p Self.conference is committed to supporting a diverse, inclusive software community. As such, we are offering a scholarship program to make Self.conference accessible to people from traditionally underrepresented groups in technology who also have financial need.
+        %p We hope to be able to accommodate all requests; however, scholarships are dependent upon sponsor support, so we are not yet certain how many scholarships we will be able to offer. Scholarships will be awarded based on financial need and impact.
         %p
           Eligibility: Applicants must be a member of an underrepresented group in technology and be
           %span.underline unable to attend without financial assistance
           ="."
-        %p The application period ends on April 20th, and we'll notify applicants of our decision on April 27th.
+        %p= "The application period ends on #{@event.scholarships_end.strftime("%B %e")}, and we'll notify applicants of our decision on #{@event.scholarships_announce.strftime("%B %e")}."
         .center-wrapper
           =link_to "Click here to apply", new_scholarship_application_path, {class: "button orange-button"}

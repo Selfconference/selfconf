@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
 
   resources :submissions
+  resources :scholarship_applications, only: [:index, :new, :create]  do
+    collection do
+      get 'thanks'
+    end
+  end
   resources :events, only: [:index, :show] do
     member do
       get 'schedule'

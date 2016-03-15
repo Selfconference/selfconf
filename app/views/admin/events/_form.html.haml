@@ -66,6 +66,21 @@
     .col-sm-10
       = f.datetime_local_field :submissions_end, class: 'form-control'
 
+  .form-group
+    = f.label :scholarships_start, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :scholarships_start, class: 'form-control'
+
+  .form-group
+    = f.label :scholarships_end, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :scholarships_end, class: 'form-control'
+
+  .form-group
+    = f.label :scholarships_announce, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :scholarships_announce, class: 'form-control'
+
   .col-sm-offset-2.col-sm-10
     = f.fields_for :sponsors do  |sponsor|
       = render 'sponsor_fields', f: sponsor
