@@ -1,0 +1,27 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        .row
+          %table.table.table-striped.table-bordered.table-condensed.datatable
+            %thead
+              %tr
+                %th Name
+                %th Email
+                %th Location
+                %th Groups
+                %th Help
+                %th Explanation
+                %th Why
+            %tbody
+              - @applications.each do |app|
+                %tr
+                  %th= app.name
+                  %th= app.email
+                  %th= app.location
+                  %th= app.groups
+                  %th= app.help_needed
+                  %th= app.financial_need_explanation
+                  %th= app.why_attend

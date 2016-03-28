@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   has_many :sessions, dependent: :destroy
   has_many :submissions, dependent: :destroy
   has_many :speakers, dependent: :destroy
+  has_many :scholarship_applications, dependent: :destroy
   has_many :timelines, dependent: :destroy
   has_many :sponsor_levels, dependent: :destroy
   has_many :sponsors, dependent: :destroy
