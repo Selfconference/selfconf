@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     end
     resources :speakers
     resources :events
+    resources :scholarship_applications, only: :index
     resources :users, only: :index do
       member do
         post 'make_selector'
