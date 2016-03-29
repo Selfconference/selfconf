@@ -96,6 +96,10 @@
         .col-md-12
           %h4= @event.venue.name
           %p= @event.venue.about
+          -if @event.venue.reservation
+            %p
+              Need a place to stay?
+              =link_to "Book a room in our hotel block!", @event.venue.reservation
           %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
 - unless @event.tickets_link.blank?
