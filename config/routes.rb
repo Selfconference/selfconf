@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   root 'events#show'
 
-  get 'coc'        => 'events#coc'
-  get 'sponsor'    => 'events#sponsor'
+  get 'coc'      => 'events#coc'
+  get 'sponsor'  => 'events#sponsor'
   get 'admin'    => 'admin/admin#admin'
-
+  get 'schedule' => 'events#schedule'
 
   resources :submissions
   resources :scholarship_applications, only: [:index, :new, :create]  do
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
       get 'thanks'
     end
   end
+
+  resources :sessions, only: [:index, :show]
+
   resources :events, only: [:index, :show] do
     member do
       get 'schedule'
