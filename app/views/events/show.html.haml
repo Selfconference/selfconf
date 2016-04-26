@@ -135,11 +135,11 @@
       .container
         -@event.sponsor_levels.each_with_index do |sponsor_level, index|
           - if sponsor_level.sponsors.any?
-            .row
-              %h5= "#{sponsor_level.name} Sponsors"
-              %ul.sponsors
+            .sponsor-section
+              %h4.sponsor-name= "#{sponsor_level.name} Sponsors"
+              .sponsors
                 -sponsor_level.sponsors.each do |sponsor|
-                  %li{class: "col-md-#{index < 3 ? 5 - index : 2 }"}
+                  %div{class: "col-md-#{index < 3 ? 5 - index : 2 }"}
                     %a{:href => sponsor.link}
                       %img.img-responsive{:src => sponsor.photo}/
 
