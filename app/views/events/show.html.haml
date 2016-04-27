@@ -80,7 +80,7 @@
             .col-md-12
               Check out
               = succeed ' ' do
-                = link_to "all our speakers", sessions_path(@event)
+                = link_to "all our speakers", @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
               %span>="!"
 
 %section#location

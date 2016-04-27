@@ -11,13 +11,14 @@
             %li
               %a{href: "#talks", data: {toggle: "tab"}} Talks
 
+            - sessions_root = @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
           .tab-content
             .tab-pane.active{id: "names"}
               .nav-wrapper
                 %ul.nav.nav-list
                   -@sessions.map(&:nav_speaker_display).sort { |a,b| a[:name] <=> b[:name] }.each do |speaker|
                     %li
-                      = link_to "#{sessions_path(@event)}#speaker_#{speaker[:id]}" do
+                      = link_to "#{sessions_root}#speaker_#{speaker[:id]}" do
                         %i.glyphicon.glyphicon-chevron-right
                         = speaker[:name]
             .tab-pane{id: "talks"}
@@ -25,7 +26,7 @@
                 %ul.nav.nav-list
                   -@sessions.each do |session|
                     %li
-                      = link_to "#{sessions_path(@event)}#session_#{session.id}" do
+                      = link_to "#{sessions_root}#session_#{session.id}" do
                         %i.glyphicon.glyphicon-chevron-right
                         = session.name
 
@@ -43,7 +44,8 @@
                 %h4
                   = "#{session.speaker_names}: #{session.name}"
                 %h5
-                  = link_to "#{session.room.name}, #{session.slot}", schedule_event_path(@event) if session.room
+                  - schedule_root = @event == Event.latest ? schedule_path : schedule_event_path(@event)
+                  = link_to "#{session.room.name}, #{session.slot}", schedule_root if session.room
                 %h5.italic
                   = simple_format session.twitter_handles
                 %p= simple_format session.abstract
