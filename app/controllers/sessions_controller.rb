@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       format.json do
         sessions = @event.sessions
         sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]
-        render json: sessions.to_json(:include => [:speakers, :room])
+        render json: sessions.to_json(:include => [:speakers, :room, :slot])
       end
     end
   end
