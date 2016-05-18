@@ -70,7 +70,8 @@
           -@event.sessions.sample(8).each do |session|
             - speaker = session.speakers.sample.decorate
             .col-md-3.main-page-speaker
-              = link_to "#{sessions_path(@event)}#speaker_#{speaker.id}" do
+              - speaker_root = @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
+              = link_to "#{speaker_root}#speaker_#{speaker.id}" do
                 .speaker-img.img-rounded
                   = image_tag speaker.photo, class: "img-responsive"
               %h4= speaker.name
