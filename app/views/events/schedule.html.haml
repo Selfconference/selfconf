@@ -20,7 +20,10 @@
                   %td.col-md-2
                     - if session = slot.sessions.where(room: room).first
                       - session = session.decorate
-                      =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                      - if session.speakers.count > 0
+                        =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                      - else
+                        = session.name
 
       .col-md-12.visible-xs-block.visible-sm-block.phone-schedule
         - @schedule.each do |day, slots|

@@ -65,7 +65,7 @@
     .blue_block.keynote
       .container
         .row
-          -@event.sessions.sample(8).each do |session|
+          -@event.sessions.with_speakers.sample(8).each do |session|
             - speaker = session.speakers.sample.decorate
             .col-md-3.main-page-speaker
               - speaker_root = @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"

@@ -6,4 +6,5 @@ class Session < ActiveRecord::Base
   has_many :feedbacks
 
   default_scope -> { order(keynote: :desc, name: :asc) }
+  scope :with_speakers, -> { joins(:speakers) }
 end
