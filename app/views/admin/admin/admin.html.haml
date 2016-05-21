@@ -4,8 +4,9 @@
   .container
     .row
       .col-md-12
-        %ul
+        %ul.admin-links
           %li= link_to "Events", admin_events_path
           %li= link_to "Speakers", admin_speakers_path
           %li= link_to "Users", admin_users_path
           %li= link_to "Submissions", admin_submissions_path
+          %li= link_to "Schedule Builder", admin_sessions_path
