@@ -1,0 +1,72 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h3= "Budget for Self.conference #{@event.start_date.strftime('%Y')}"
+        .row
+          .col-md-6
+            .well
+              %h4 Dollars
+              - unless @expenses.empty?
+                .conf-expenses
+                  %h5 Expenses
+                  - @expenses.each do |expense|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{expense.name}:"
+                      .col-md-7
+                        = number_to_currency(expense.amount)
+
+              - unless @revenues.empty?
+                .revenue
+                  %h5 Revenue
+                  - @revenues.each do |revenue|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{revenue.name}:"
+                      .col-md-7
+                        = number_to_currency(revenue.amount)
+
+              .totals
+                %h5 Totals
+                .row
+                  .col-md-5.right.bold
+                    Expenses:
+                  .col-md-7
+                    = number_to_currency(@expense_total)
+
+                .row
+                  .col-md-5.right.bold
+                    Revenue:
+                  .col-md-7
+                    = number_to_currency(@revenue_total)
+
+                .row
+                  .col-md-5.right.bold
+                    Total:
+                  .col-md-7.bold
+                    = number_to_currency(@total)
+
+          .col-md-6
+            .well
+              .humans
+                %h4 Humans
+                .attendees
+                  %h5 All Attendees
+                  - @attendees.each do |attendee|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{attendee.name}:"
+                      .col-md-7
+                        = number_to_human(attendee.amount)
+
+                .speakers
+                  %h5 Speakers
+                  - @speakers.each do |speaker|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{speaker.name}:"
+                      .col-md-7
+                        = number_to_human(speaker.amount)

@@ -28,6 +28,7 @@
                 %li= link_to "sponsors", (@event == Event.latest ? "#{root_path}#sponsors" : "#{event_path(@event)}#sponsors") if @event.sponsors.any?
                 %li= link_to "code of conduct", coc_path
                 %li= link_to "organizers", (@event == Event.latest ? "#{root_path}#organizers" : "#{event_path(@event)}#organizers")
+                %li= link_to "metrics", (@event == Event.latest ? metrics_path : "#{event_path(@event)}/metrics") unless @event.metrics.empty?
                 %li.divider{role: "separator"}
                 - Event.where.not(id: @event.id).each do |event|
                   %li= link_to "#{event.name} #{event.start_date.strftime("%Y")}", event_path(event)

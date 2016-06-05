@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'admin'    => 'admin/admin#admin'
   get 'schedule' => 'events#schedule'
 
+  resources :metrics, only: [:index]
   resources :submissions
   resources :scholarship_applications, only: [:index, :new, :create]  do
     collection do
@@ -21,10 +22,15 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:index, :show]
 
+  resources :users, only: nil do
+    get 'talks'
+  end
+
   resources :events, only: [:index, :show] do
     member do
       get 'schedule'
       resources :sessions, only: [:index, :show]
+      resources :metrics, only: [:index]
     end
   end
 

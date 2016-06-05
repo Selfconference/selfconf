@@ -11,8 +11,10 @@ class Event < ActiveRecord::Base
   has_many :sponsors, dependent: :destroy
   has_and_belongs_to_many :organizers
   has_one :funding_meter, dependent: :destroy
+  has_many :metrics, dependent: :destroy
   accepts_nested_attributes_for :sponsors, reject_if: :all_blank, allow_destroy: true
 
+  default_scope -> { order('start_date DESC') }
   scope :latest, -> { order('start_date DESC').first }
 
   def submissions_open?

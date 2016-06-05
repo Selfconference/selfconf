@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519172418) do
+ActiveRecord::Schema.define(version: 20160605200158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,21 @@ ActiveRecord::Schema.define(version: 20160519172418) do
     t.integer  "event_id"
     t.float    "current"
     t.float    "goal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "metric_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "metrics", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "metric_type_id"
+    t.string   "name"
+    t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -210,6 +225,7 @@ ActiveRecord::Schema.define(version: 20160519172418) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "speaker_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
