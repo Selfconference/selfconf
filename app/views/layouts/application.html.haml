@@ -40,7 +40,7 @@
 
     :javascript
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', @event.ga_tracking_id]);
+      _gaq.push(['_setAccount', "#{@event.ga_tracking_id}"]);
       _gaq.push(['_trackPageview']);
 
       (function() {
