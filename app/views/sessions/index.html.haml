@@ -35,7 +35,7 @@
           - @sessions.each do | session |
             .row.speaker-session-row
               .session{:id => "session_#{session.id}"}
-                -session.speakers.decorate.each do |speaker|
+                -session.users.decorate.each do |speaker|
                   .speaker-img.img-rounded.pull-right.visible-sm-block.visible-md-block.visible-lg-block
                     = image_tag speaker.photo, class: 'img-responsive', id: "speaker_#{speaker.id}"
                   .speaker-img.img-rounded.visible-xs-block
@@ -52,7 +52,7 @@
               .speaker
                 %h5.italic
                   ="About #{session.speaker_names}"
-                %p= simple_format session.speakers.first.bio
+                %p= simple_format session.users.first.bio
 
 :javascript
   $(function() {

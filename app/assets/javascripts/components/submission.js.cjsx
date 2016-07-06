@@ -36,7 +36,7 @@
           <a onClick={@props.skip} className="btn button yellow-button" rel="nofollow" href="#">Skip</a>
         </div>
       </td>
-      <td>{@props.submission.talkname}</td>
+      <td>{@props.submission.name}</td>
       <td dangerouslySetInnerHTML={__html: @simpleFormat(@props.submission.abstract)}></td>
       <td dangerouslySetInnerHTML={__html: @simpleFormat(@props.submission.notes)}></td>
     </tr>

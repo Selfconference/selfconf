@@ -18,9 +18,9 @@
                   %h5= slot.time_slot
                 - @event.rooms.each do |room|
                   %td.col-md-2
-                    - if session = slot.sessions.where(room: room).first
+                    - if session = slot.submissions.where(room: room).first
                       - session = session.decorate
-                      - if session.speakers.count > 0
+                      - if session.users.count > 0
                         =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
                       - else
                         = session.name
@@ -33,7 +33,7 @@
               %ul
                 %h5= slot.time_slot
                 - @event.rooms.each do |room|
-                  - if session = slot.sessions.where(room: room).first
+                  - if session = slot.submissions.where(room: room).first
                     - session = session.decorate
                     %li
                       =link_to "#{room.name}: #{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"

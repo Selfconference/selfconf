@@ -3,8 +3,8 @@ class Admin::SessionsController < ApplicationController
   before_action :authorize_admin!
 
   def index
-    @schedule = @event.slots.includes(sessions: [:room, :speakers]).group_by {|s| s.time.to_date}
-    @sessions = @event.sessions.where('slot_id IS NULL').decorate
+    @schedule = @event.slots.includes(submissions: [:room, :users]).where(submissions: {selected: true}).group_by {|s| s.time.to_date}
+    @sessions = @event.submissions.selected.where('slot_id IS NULL').decorate
     @rooms = @event.rooms
   end
 

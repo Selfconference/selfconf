@@ -3,12 +3,12 @@ class SubmissionsController < ApplicationController
 
   def index
     if user_signed_in?
-      @submissions = Submission.where(user_id: current_user, event_id: @event)
+      @submissions = current_user.submissions.where(event_id: @event)
     end
   end
 
   def new
-    @submission = @event.submissions.build(user: current_user)
+    @submission = @event.submissions.build(users: [current_user])
   end
 
   def edit
@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    @submission = @event.submissions.build(submission_params.merge(user: current_user))
+    @submission = @event.submissions.build(submission_params.merge(users: [current_user]))
     if @submission.save
       flash[:success] = "Talk submitted!"
       redirect_to submissions_path
@@ -49,7 +49,9 @@ class SubmissionsController < ApplicationController
     redirect_to submissions_path
   end
 
+  private
+
   def submission_params
-    params.require(:submission).permit(:talkname, :abstract, :talktype, :notes)
+    params.require(:submission).permit(:name, :abstract, :talktype, :notes)
   end
 end

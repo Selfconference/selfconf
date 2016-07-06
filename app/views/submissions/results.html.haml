@@ -23,5 +23,5 @@
             -else
               = link_to "Soft", submission_path(submission, talk_type: "soft"), method: :patch, data: {id: submission.id, type: 'soft' }
               = link_to "Tech", submission_path(submission, talk_type: "tech"), method: :patch, data: {id: submission.id, type: 'tech' }
-          %td= submission.talkname
+          %td= submission.name
           %td= submission.abstract

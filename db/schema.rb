@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705234958) do
+ActiveRecord::Schema.define(version: 20160706234651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160705234958) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "submission_id"
   end
 
   create_table "funding_meters", force: :cascade do |t|
@@ -127,19 +128,6 @@ ActiveRecord::Schema.define(version: 20160705234958) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "name"
-    t.text     "abstract"
-    t.boolean  "keynote"
-    t.integer  "event_id"
-    t.integer  "room_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "slot_id"
-  end
-
-  add_index "sessions", ["slot_id"], name: "index_sessions_on_slot_id", using: :btree
-
   create_table "sessions_speakers", id: false, force: :cascade do |t|
     t.integer "session_id"
     t.integer "speaker_id"
@@ -154,16 +142,6 @@ ActiveRecord::Schema.define(version: 20160705234958) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "end_time"
-  end
-
-  create_table "speakers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "twitter"
-    t.text     "bio"
-    t.string   "photo"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "sponsor_levels", force: :cascade do |t|
@@ -192,15 +170,26 @@ ActiveRecord::Schema.define(version: 20160705234958) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.string   "talkname",   null: false
-    t.text     "abstract",   null: false
-    t.string   "talktype",   null: false
+    t.string   "name",                       null: false
+    t.string   "abstract"
+    t.string   "talktype",                   null: false
     t.string   "notes"
-    t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "selected",   default: false, null: false
+    t.integer  "room_id"
+    t.integer  "slot_id"
+    t.boolean  "keynote"
   end
+
+  create_table "submissions_users", id: false, force: :cascade do |t|
+    t.integer "submission_id"
+    t.integer "user_id"
+  end
+
+  add_index "submissions_users", ["submission_id"], name: "index_submissions_users_on_submission_id", using: :btree
+  add_index "submissions_users", ["user_id"], name: "index_submissions_users_on_user_id", using: :btree
 
   create_table "timelines", force: :cascade do |t|
     t.datetime "when"
@@ -227,7 +216,6 @@ ActiveRecord::Schema.define(version: 20160705234958) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.integer  "speaker_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -251,5 +239,4 @@ ActiveRecord::Schema.define(version: 20160705234958) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "sessions", "slots"
 end

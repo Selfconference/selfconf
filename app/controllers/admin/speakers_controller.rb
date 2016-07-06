@@ -16,10 +16,6 @@ class Admin::SpeakersController < ApplicationController
     end
   end
 
-  def new
-    @speaker = @event.speakers.build
-  end
-
   def create
     @speaker = @event.speakers.build(speaker_params)
     if @speaker.save

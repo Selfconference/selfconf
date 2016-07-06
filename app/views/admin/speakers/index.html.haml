@@ -4,8 +4,6 @@
   .container
     .row
       .col-md-12
-        .pull-right
-          =link_to "New Speaker", new_admin_speaker_path, class: "btn small-button orange-button"
         %table#submissions_table.table.table-striped.table-bordered
           %thead
             %tr
@@ -14,7 +12,7 @@
               %th Bio
               %th.actions
           %tbody
-            - Speaker.where(event: @event).each do |speaker|
+            - @event.submissions.selected.with_speakers.map(&:users).each do |speaker|
               %tr
                 %td= speaker.name
                 %td= speaker.twitter

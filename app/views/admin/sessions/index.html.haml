@@ -21,7 +21,7 @@
                     %h5= slot.time_slot
                   -@event.rooms.map(&:id).each do |room|
                     %td.slot{ data: { slot: slot.id, room: room }}
-                      - if session = slot.sessions.where(room: room).first
+                      - if session = slot.submissions.selected.where(room: room).first
                         - session = session.decorate
                         .session{data: {id: session.id}}
                           = "#{session.speaker_names} - #{session.name}"

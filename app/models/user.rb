@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
   validates :bio, presence: true
   validates :headshot, presence: true
   has_many :votes, dependent: :destroy
-  has_many :submissions, dependent: :destroy
+  has_and_belongs_to_many :submissions
   has_and_belongs_to_many :roles
-  belongs_to :speaker
 
   def admin?
     roles.include?(Role.find_by_name("admin"))

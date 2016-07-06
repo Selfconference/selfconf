@@ -34,11 +34,11 @@
               - @submissions.each do |submission|
                 %tr
                   %td
-                    = check_box_tag 'selected', '0', false, class: 'selected', data: { id: submission.id }
+                    = check_box_tag 'selected', '0', false, class: 'selected', data: { id: submission.id } unless submission.selected
                   %td
                     .center-wrapper
                       = submission.votes.pluck(:value).reduce(:+)
-                  %td= submission.user.name
-                  %td= submission.user.email
-                  %td= submission.talkname
+                  %td= submission.users.map(&:name).join(", ")
+                  %td= submission.users.map(&:email).join(", ")
+                  %td= submission.name
                   %td= submission.talktype

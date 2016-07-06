@@ -18,6 +18,6 @@ class EventsController < ApplicationController
   end
 
   def schedule
-    @schedule = @event.slots.includes(sessions: [:room, :speakers]).group_by {|s| s.time.to_date}
+    @schedule = @event.slots.includes(submissions: [:room, :users]).group_by {|s| s.time.to_date}
   end
 end

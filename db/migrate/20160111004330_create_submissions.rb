@@ -13,7 +13,7 @@ class CreateSubmissions < ActiveRecord::Migration
     end
 
     create_table :submissions do |t|
-      t.string :talkname, null: false
+      t.string :name, null: false
       t.text :abstract, null: false
       t.string :talktype, null: false
       t.string :notes
