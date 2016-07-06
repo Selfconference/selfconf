@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :google_analytics
   before_action :event
   around_filter :set_time_zone
 
@@ -34,10 +33,6 @@ class ApplicationController < ActionController::Base
     else
       Event.latest
     end
-  end
-
-  def google_analytics
-    @google_analytics_account
   end
 
   def is_number?(id)

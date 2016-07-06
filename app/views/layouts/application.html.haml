@@ -4,12 +4,12 @@
     %link{:href => "http://fonts.googleapis.com/css?family=Lato:100,300,900", :rel => "stylesheet", :type => "text/css"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{:content => "self.conference", :property => "og:title"}/
-    %meta{:content => "http://selfconference.org", :property => "og:url"}/
+    %meta{:content => @event.name, :property => "og:title"}/
+    %meta{:content => @event.url, :property => "og:url"}/
     %meta{:content => image_url("og.image.png"), :property => "og:image"}/
-    %meta{:content => "self.conference", :property => "og:site_name"}/
-    %meta{:content => "Self.conference is a mix of fantastic tech presentations and insightful soft talks in fabulous downtown Detroit May 20-21, 2016!", :property => "og:description"}/
-    %meta{:content => "Self.conference is a mix of fantastic tech presentations and insightful soft talks in fabulous downtown Detroit May 20-21, 2016!", :name => "description"}/
+    %meta{:content => @event.name, :property => "og:site_name"}/
+    %meta{:content => @event.about, :property => "og:description"}/
+    %meta{:content => @event.about, :name => "description"}/
     %title= @title
     = csrf_meta_tags
     = javascript_include_tag "application"
@@ -21,7 +21,7 @@
         .row
           .col-md-12
             %h1
-              %span{:style => "font-weight:900"}> self.
+              %span{style: "font-weight: 900;"}self.
               conference
             %ul.tag-line.lead
               = yield :subtitle
@@ -34,13 +34,13 @@
     .container
       .row
         .col-md-12
-          %a{:href => "http://twitter.com/selfconference"}
+          %a{:href => "http://twitter.com/#{@event.twitter}"}
             =image_tag "twitter.png", {class: "footer-twitter"}
 
 
     :javascript
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', @google_analytics_account]);
+      _gaq.push(['_setAccount', @event.ga_tracking_id]);
       _gaq.push(['_trackPageview']);
 
       (function() {
