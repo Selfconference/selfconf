@@ -1,0 +1,27 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4= @submission.name
+
+        %p= @submission.abstract
+
+    .row
+      .col-md-12
+        %h4= Feedback
+
+        - if @submission.feedbacks.empty?
+          No feedback for this talk.
+        - else
+          %table.datatable.table.table-striped.table-bordered
+            %thead
+              %tr
+                %th Vote
+                %th Comments
+            %tbody
+              - @submission.feedbacks.each do |feedback|
+                %tr
+                  %td= feedback.vote
+                  %td= feedback.comments

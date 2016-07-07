@@ -5,7 +5,7 @@ class SubmissionPolicy < ApplicationPolicy
   end
 
   def show?
-    user == record.user
+    user.admin? || record.users.include?(user)
   end
 
   def update?

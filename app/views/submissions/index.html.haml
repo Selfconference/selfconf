@@ -15,12 +15,31 @@
           to discuss.
         %p All submissions are anonymized and then selected by a panel of volunteers. Please refrain from using identifying information in your titles, abstracts, and notes to the panel.
 
-        %h4 Your talk submissions
         - if user_signed_in?
+          - unless @talks.empty?
+            %h4 Your talks
+            %table.datatable.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Title
+                  %th Abstract
+                  %th Event
+                  %th Notes
+                  %th.actions
+              %tbody
+                - @talks.each do |submission|
+                  %tr
+                    %td= submission.name
+                    %td= simple_format submission.abstract
+                    %td= "#{submission.event.name} #{submission.event.start_date.strftime("%Y")}"
+                    %td= submission.notes
+                    %td.actions
+                      %btn= link_to "View", submission_path(submission)
+
+          %h4 Your submissions
           .pull-right
-            - if @event.submissions_open?
-              = link_to new_submission_path do
-                .btn.button.orange-button Submit Talk
+            = link_to new_submission_path do
+              .btn.button.orange-button Submit Talk
           - if @submissions.empty?
             No submissions yet!
           - else

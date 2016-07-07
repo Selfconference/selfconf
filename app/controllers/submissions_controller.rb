@@ -3,8 +3,14 @@ class SubmissionsController < ApplicationController
 
   def index
     if user_signed_in?
-      @submissions = current_user.submissions.where(event_id: @event)
+      @submissions = current_user.submissions.unselected.where(event_id: @event)
+      @talks = current_user.submissions.selected
     end
+  end
+
+  def show
+    @submission = Submission.find(params[:id])
+    authorize(@submission, :show?)
   end
 
   def new

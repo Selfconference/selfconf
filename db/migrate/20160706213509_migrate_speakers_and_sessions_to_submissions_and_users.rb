@@ -13,8 +13,16 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
     devise :database_authenticatable
   end
 
+  class MigrationFeedback < ActiveRecord::Base
+    self.table_name = :feedbacks
+
+    belongs_to :submission, class: MigrationSubmission, foreign_key: :submission_id
+  end
+
   class MigrationSession < ActiveRecord::Base
     self.table_name = :sessions
+
+    has_many :feedbacks, class: MigrationFeedback, foreign_key: :session_id
   end
 
   class MigrationSpeaker < ActiveRecord::Base
@@ -93,8 +101,9 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
     end
 
     def associate_feedback(session, sub)
-      Feedback.where(session_id: session.id).each do |feedback|
-        feedback.submission_id = sub.id
+      session.feedbacks.each do |feedback|
+        feedback.submission = sub
+        feedback.save!
       end
     end
   end

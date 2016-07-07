@@ -13,6 +13,7 @@ class Submission < ActiveRecord::Base
   default_scope -> { order(keynote: :desc, name: :asc) }
   scope :with_speakers, -> { joins(:users) }
   scope :selected, -> { where(selected: true) }
+  scope :unselected, -> { where(selected: false) }
 
   def self.not_voted_on_by(user, event)
     includes(:votes).where(event_id: event).reject { |s|
