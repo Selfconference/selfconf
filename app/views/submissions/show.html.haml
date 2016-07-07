@@ -6,7 +6,7 @@
       .col-md-12
         %h4= @submission.name
 
-        %p= @submission.abstract
+        %p= simple_format(@submission.abstract)
 
     .row
       .col-md-12
@@ -18,10 +18,15 @@
           %table.datatable.table.table-striped.table-bordered
             %thead
               %tr
-                %th Vote
+                %th.col-md-2
+                  Vote
                 %th Comments
             %tbody
               - @submission.feedbacks.each do |feedback|
                 %tr
-                  %td= feedback.vote
+                  %td
+                    - vote_class = "glyphicon-thumbs-up"
+                    - if feedback.vote == -1
+                      - vote_class = "glyphicon-thumbs-down"
+                    %span.glyphicon{class: vote_class}
                   %td= feedback.comments
