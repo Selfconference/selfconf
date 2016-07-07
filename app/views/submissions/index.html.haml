@@ -38,8 +38,9 @@
 
           %h4 Your submissions
           .pull-right
-            = link_to new_submission_path do
-              .btn.button.orange-button Submit Talk
+            - if @event.submissions_open?
+              = link_to new_submission_path do
+                .btn.button.orange-button Submit Talk
           - if @submissions.empty?
             No submissions yet!
           - else
