@@ -4,15 +4,15 @@ class SessionsController < ApplicationController
     respond_to do |format|
       format.html { @sessions = @event.submissions.selected.with_speakers.map(&:decorate) }
       format.json do
-        sessions = @event.sessions
+        sessions = @event.submissions
         sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]
-        render json: sessions.to_json(:include => [:speakers, :room, :slot])
+        render json: sessions.to_json(:include => [:users, :room, :slot])
       end
     end
   end
 
   def show
-    session = Session.find(params[:id])
+    session = Submission.find(params[:id])
     render json: JSON.parse(session.to_json).merge(
       speakers: session.speakers.decorate,
       room: session.room
