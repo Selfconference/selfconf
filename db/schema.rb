@@ -150,14 +150,6 @@ ActiveRecord::Schema.define(version: 20170107033536) do
   add_index "sessions_speakers", ["session_id"], name: "index_sessions_speakers_on_session_id", using: :btree
   add_index "sessions_speakers", ["speaker_id"], name: "index_sessions_speakers_on_speaker_id", using: :btree
 
-  create_table "sessions_users", id: false, force: :cascade do |t|
-    t.integer "session_id"
-    t.integer "speaker_id"
-  end
-
-  add_index "sessions_users", ["session_id"], name: "index_sessions_users_on_session_id", using: :btree
-  add_index "sessions_users", ["speaker_id"], name: "index_sessions_users_on_speaker_id", using: :btree
-
   create_table "slots", force: :cascade do |t|
     t.integer  "event_id"
     t.datetime "time",       null: false
