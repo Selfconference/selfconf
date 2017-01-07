@@ -1,3 +1,3 @@
 class Feedback < ActiveRecord::Base
-  belongs_to :submission
+  belongs_to :session
 end
