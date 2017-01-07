@@ -47,4 +47,8 @@ class ApplicationController < ActionController::Base
   def set_time_zone(&block)
     Time.use_zone("EST", &block)
   end
+
+  def pundit_user
+    current_speaker
+  end
 end

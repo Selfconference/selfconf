@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706234651) do
+ActiveRecord::Schema.define(version: 20170107033536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 20160706234651) do
     t.datetime "updated_at"
   end
 
-  create_table "roles_users", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "roles_speakers", force: :cascade do |t|
+    t.integer  "speaker_id"
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -128,6 +128,20 @@ ActiveRecord::Schema.define(version: 20160706234651) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.string   "abstract"
+    t.string   "talktype",                   null: false
+    t.string   "notes"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "selected",   default: false, null: false
+    t.integer  "room_id"
+    t.integer  "slot_id"
+    t.boolean  "keynote"
+  end
+
   create_table "sessions_speakers", id: false, force: :cascade do |t|
     t.integer "session_id"
     t.integer "speaker_id"
@@ -136,6 +150,14 @@ ActiveRecord::Schema.define(version: 20160706234651) do
   add_index "sessions_speakers", ["session_id"], name: "index_sessions_speakers_on_session_id", using: :btree
   add_index "sessions_speakers", ["speaker_id"], name: "index_sessions_speakers_on_speaker_id", using: :btree
 
+  create_table "sessions_users", id: false, force: :cascade do |t|
+    t.integer "session_id"
+    t.integer "speaker_id"
+  end
+
+  add_index "sessions_users", ["session_id"], name: "index_sessions_users_on_session_id", using: :btree
+  add_index "sessions_users", ["speaker_id"], name: "index_sessions_users_on_speaker_id", using: :btree
+
   create_table "slots", force: :cascade do |t|
     t.integer  "event_id"
     t.datetime "time",       null: false
@@ -143,6 +165,28 @@ ActiveRecord::Schema.define(version: 20160706234651) do
     t.datetime "updated_at"
     t.datetime "end_time"
   end
+
+  create_table "speakers", force: :cascade do |t|
+    t.string   "name",                               null: false
+    t.string   "email",                              null: false
+    t.string   "twitter"
+    t.text     "bio",                                null: false
+    t.string   "headshot",                           null: false
+    t.string   "encrypted_password",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+  end
+
+  add_index "speakers", ["email"], name: "index_speakers_on_email", unique: true, using: :btree
+  add_index "speakers", ["reset_password_token"], name: "index_speakers_on_reset_password_token", unique: true, using: :btree
 
   create_table "sponsor_levels", force: :cascade do |t|
     t.string   "name"
@@ -169,28 +213,6 @@ ActiveRecord::Schema.define(version: 20160706234651) do
     t.datetime "updated_at"
   end
 
-  create_table "submissions", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "abstract"
-    t.string   "talktype",                   null: false
-    t.string   "notes"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "selected",   default: false, null: false
-    t.integer  "room_id"
-    t.integer  "slot_id"
-    t.boolean  "keynote"
-  end
-
-  create_table "submissions_users", id: false, force: :cascade do |t|
-    t.integer "submission_id"
-    t.integer "user_id"
-  end
-
-  add_index "submissions_users", ["submission_id"], name: "index_submissions_users_on_submission_id", using: :btree
-  add_index "submissions_users", ["user_id"], name: "index_submissions_users_on_user_id", using: :btree
-
   create_table "timelines", force: :cascade do |t|
     t.datetime "when"
     t.string   "what"
@@ -198,28 +220,6 @@ ActiveRecord::Schema.define(version: 20160706234651) do
   end
 
   add_index "timelines", ["event_id"], name: "index_timelines_on_event_id", using: :btree
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name",                               null: false
-    t.string   "email",                              null: false
-    t.string   "twitter"
-    t.text     "bio",                                null: false
-    t.string   "headshot",                           null: false
-    t.string   "encrypted_password",                 null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"
@@ -233,8 +233,8 @@ ActiveRecord::Schema.define(version: 20160706234651) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "value"
-    t.integer  "user_id"
-    t.integer  "submission_id"
+    t.integer  "speaker_id"
+    t.integer  "session_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

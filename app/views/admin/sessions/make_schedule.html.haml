@@ -1,0 +1,34 @@
+= render partial: "shared/header", event: @event
+
+#admin-schedule
+  .mid_block.schedule
+    .container
+      .row
+        .col-md-9
+          - @event.slots.group_by {|s| s.time.to_date}.keys.each do |day|
+            %h4
+              = day.strftime("%A, %b %d")
+            %table.table.table-striped.table-bordered
+              %tr
+                %td.col-md-1
+                  -@event.rooms.map(&:name).each do |room|
+                    %td.room-name
+                      %h5= room
+
+              - @event.slots.where("date(time) = ?", day).each do |slot|
+                %tr
+                  %td.col-md-1
+                    %h5= slot.time_slot
+                  -@event.rooms.map(&:id).each do |room|
+                    %td.slot{ data: { slot: slot.id, room: room }}
+                      - if session = slot.sessions.selected.where(room: room).first
+                        - session = session.decorate
+                        .session{data: {id: session.id}}
+                          = "#{session.speaker_names} - #{session.name}"
+
+        .col-md-3
+          %h4 Sessions
+          .session-list
+            - @sessions.each do |session|
+              .session{data: {id: session.id}}
+                = "#{session.speaker_names} - #{session.name}"

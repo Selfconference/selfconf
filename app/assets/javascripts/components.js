@@ -1,3 +1,3 @@
 //= require components/mixins/simpleFormatMixin
-//= require components/submissions
-//= require components/submission
+//= require components/sessions
+//= require components/session

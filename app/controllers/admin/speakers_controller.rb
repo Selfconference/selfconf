@@ -1,6 +1,10 @@
 class Admin::SpeakersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_speaker!
   before_action :authorize_admin!
+
+  def list_users
+    @speakers = Speaker.all
+  end
 
   def edit
     @speaker = Speaker.find(params[:id])
@@ -41,6 +45,20 @@ class Admin::SpeakersController < ApplicationController
       flash[:error] = "Speaker could not be destroyed"
     end
     redirect_to admin_speakers_path
+  end
+
+  def make_selector
+    speaker = Speaker.find(params[:id])
+    role = Role.find_by(name: 'selector')
+    speaker.roles << role
+    redirect_to admin_user_path
+  end
+
+  def make_admin
+    speaker = Speaker.find(params[:id])
+    role = Role.find_by(name: 'admin')
+    speaker.roles << role
+    redirect_to admin_user_path
   end
 
   private

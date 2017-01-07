@@ -1,0 +1,27 @@
+- if @sessions.empty?
+  No sessions :'(
+- else
+  %table#sessions_table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th Votes
+        %th Name
+        %th Email
+        %th Type
+        %th Talk Name
+        %th Abstract
+    %tbody
+      - @sessions.each do |session|
+        %tr
+          %td.actions
+            = session.votes.map { |vote| vote.user.admin? && vote.value == 1 ? vote.value * 2 : vote.value }.reduce(:+)
+          %td= session.name
+          %td= session.email
+          %td.type
+            -if session.talk_type.present?
+              = session.talk_type
+            -else
+              = link_to "Soft", session_path(session, talk_type: "soft"), method: :patch, data: {id: session.id, type: 'soft' }
+              = link_to "Tech", session_path(session, talk_type: "tech"), method: :patch, data: {id: session.id, type: 'tech' }
+          %td= session.name
+          %td= session.abstract

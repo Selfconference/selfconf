@@ -2,9 +2,9 @@ class SessionsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @sessions = @event.submissions.selected.with_speakers.map(&:decorate) }
+      format.html { @sessions = @event.sessions.selected.with_speakers.map(&:decorate) }
       format.json do
-        sessions = @event.submissions
+        sessions = @event.sessions
         sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]
         render json: sessions.to_json(:include => [:users, :room, :slot])
       end

@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :venue
   has_many :rooms
   has_many :slots
-  has_many :submissions, dependent: :destroy
+  has_many :sessions, dependent: :destroy
   has_many :scholarship_applications, dependent: :destroy
   has_many :timelines, dependent: :destroy
   has_many :sponsor_levels, dependent: :destroy
@@ -23,5 +23,9 @@ class Event < ActiveRecord::Base
   def scholarships_open?
     return false if scholarships_start.nil? or scholarships_end.nil?
     Time.now > scholarships_start && Time.now < scholarships_end
+  end
+
+  def speakers
+    sessions.map(&:speakers).uniq
   end
 end

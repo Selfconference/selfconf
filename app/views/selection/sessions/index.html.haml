@@ -1,0 +1,8 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        = react_component "Sessions",
+              sessions: JSON.parse(@sessions.to_json(include: :votes))

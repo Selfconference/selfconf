@@ -1,0 +1,32 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %h4= @session.name
+
+        %p= simple_format(@session.abstract)
+
+    .row
+      .col-md-12
+        %h4= Feedback
+
+        - if @session.feedbacks.empty?
+          No feedback for this talk.
+        - else
+          %table.datatable.table.table-striped.table-bordered
+            %thead
+              %tr
+                %th.col-md-2
+                  Vote
+                %th Comments
+            %tbody
+              - @session.feedbacks.each do |feedback|
+                %tr
+                  %td
+                    - vote_class = "glyphicon-thumbs-up"
+                    - if feedback.vote == -1
+                      - vote_class = "glyphicon-thumbs-down"
+                    %span.glyphicon{class: vote_class}
+                  %td= feedback.comments

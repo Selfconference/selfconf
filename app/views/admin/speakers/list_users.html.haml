@@ -1,0 +1,22 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %table.datatable.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Twitter
+              %th Email
+              %th.actions
+          %tbody
+            - Speaker.all.each do |speaker|
+              %tr
+                %td= speaker.name
+                %td= speaker.twitter
+                %td= speaker.email
+                %td.actions
+                  %btn= link_to "Make Selector", make_selector_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" unless speaker.selector?
+                  %btn= link_to "Make Admin", make_admin_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" unless speaker.admin?

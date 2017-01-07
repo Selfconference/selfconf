@@ -1,4 +1,4 @@
 class Vote < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :submission
+  belongs_to :speaker
+  belongs_to :session
 end

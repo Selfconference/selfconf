@@ -1,0 +1,70 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %p
+          We're looking for 45 minute long talks on both technical and people topics. This means anything from web and mobile, to back end concurrent systems, to talks about team communication, inclusivity, diversity, or mental health. If you need inspiration, check out
+          = link_to "last year's", event_sessions_path(Event.find(2))
+          talks!
+        %p Submissions close February 13th at 11:59:59 pm and submitters will be notified of the panel's decision on or before March 6th. :)
+        %p
+          All speakers will receive a free ticket to the conference. We are happy to talk covering travel expenses with anyone interested. Please reach out to
+          = link_to "Amber", "mailto:amber@selfconference.org"
+          to discuss.
+        %p All submissions are anonymized and then selected by a panel of volunteers. Please refrain from using identifying information in your titles, abstracts, and notes to the panel.
+
+        - if speaker_signed_in?
+          %h4 Your submissions
+          .pull-right
+            - if @event.submissions_open?
+              = link_to new_session_path do
+                .btn.button.orange-button Submit Talk
+          - if @sessions.empty?
+            No submissions yet!
+          - else
+            %table.datatable.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Title
+                  %th Abstract
+                  %th Type
+                  %th Notes
+                  %th.actions
+              %tbody
+                - @sessions.each do |submission|
+                  %tr
+                    %td= submission.name
+                    %td= simple_format submission.abstract
+                    %td= submission.talktype
+                    %td= submission.notes
+                    %td.actions
+                      %btn= link_to "Edit", edit_session_path(submission) if @event.submissions_open?
+                      %btn= link_to "Delete", session_path(submission), method: :delete, data: { confirm: 'Are you sure?' }
+
+          - unless @talks.empty?
+            %h4 Your talks
+            %table.datatable.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Title
+                  %th Abstract
+                  %th Event
+                  %th Notes
+                  %th.actions
+              %tbody
+                - @talks.each do |submission|
+                  %tr
+                    %td= submission.name
+                    %td= simple_format submission.abstract
+                    %td= "#{submission.event.name} #{submission.event.start_date.strftime("%Y")}"
+                    %td= submission.notes
+                    %td.actions
+                      %btn= link_to "View", submission_path(submission)
+
+        - else
+          %p
+            You'll need to
+            =link_to "login", user_session_path
+            in order to see, edit, or submit talks. :)

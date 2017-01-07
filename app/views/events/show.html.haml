@@ -54,7 +54,7 @@
           - else
             (No timeline yet!)
 
-- unless @event.submissions.selected.with_speakers.empty?
+- unless @event.sessions.selected.with_speakers.empty?
   %section#speakers
     = render partial: "shared/color_line"
     .blue_header
@@ -65,13 +65,13 @@
     .blue_block.keynote
       .container
         .row
-          - @event.submissions.selected.with_speakers.sample(8).each do |session|
-            - speaker = session.users.sample.decorate
+          - @event.sessions.selected.with_speakers.sample(8).each do |session|
+            - speaker = session.speakers.sample.decorate
             .col-md-3.main-page-speaker
               - speaker_root = @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
               = link_to "#{speaker_root}#speaker_#{speaker.id}" do
                 .speaker-img.img-rounded
-                  = image_tag speaker.photo, class: "img-responsive"
+                  = image_tag speaker.headshot, class: "img-responsive"
               %h4= speaker.name
               %p= session.name
 

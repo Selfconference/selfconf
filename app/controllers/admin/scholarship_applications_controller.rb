@@ -1,5 +1,5 @@
 class Admin::ScholarshipApplicationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_speaker!
   before_action :authorize_admin!
 
   def index

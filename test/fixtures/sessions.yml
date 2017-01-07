@@ -1,0 +1,6 @@
+jill_gdi:
+  name: "Doing stuff"
+  abstract: "Me doing stuff"
+  talktype: "Workshop"
+  speakers: [ jill ]
+  event: gdi

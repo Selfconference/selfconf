@@ -1,5 +1,5 @@
 class Slot < ActiveRecord::Base
-  has_many :submissions
+  has_many :sessions
   belongs_to :event
 
   default_scope -> { order("#{table_name}.time ASC") }

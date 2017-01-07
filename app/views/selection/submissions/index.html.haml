@@ -1,8 +1,0 @@
-= render partial: "shared/header", event: @event
-
-.mid_block
-  .container
-    .row
-      .col-md-12
-        = react_component "Submissions",
-              submissions: JSON.parse(@submissions.to_json(include: :votes))

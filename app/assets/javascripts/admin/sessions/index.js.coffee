@@ -1,43 +1,12 @@
 $ ->
-  return unless $('#admin-schedule').length > 0
+  return unless $('#admin-sessions').length > 0
 
-  sessions = $('.session')
-  slots = $('.slot')
-  $('.session-list').droppable
-    tolerance: "fit"
-    drop: (e, ui) ->
-      $item = $(ui.draggable)
-      session = $item.data('id')
-      saveRoomAndSlot(session, null, null)
+  $('.select-all').on 'change', (e) ->
+    $('.selected').prop('checked', e.target.checked)
 
-      ui.draggable
-        .prependTo( $(@) )
+  $('.promote').on 'click', (e) ->
+    $(e.target).remove()
+    selected = _($('.selected')).map (checkbox) -> if checkbox.checked then $(checkbox).data().id else null
+    selected = _(selected).compact()
 
-  _(sessions).each (session) ->
-    $(session).draggable
-      revert: "invalid"
-      snap: ".slot"
-      stack: ".session"
-      helper: "clone"
-
-  _(slots).each (slot) ->
-    scheduledSession = $(slot).find('.session')[0]
-    $(slot).droppable
-      accept: if scheduledSession? then ".session[data-id=#{$(scheduledSession).data("id")}]" else "*"
-      tolerance: "fit"
-      drop: (e, ui) ->
-        $slot = $(@)
-        session = $(ui.draggable).data('id')
-        $slot.droppable("option", "accept", ".session[data-id=#{session}]")
-        room = $slot.data('room')
-        time = $slot.data('slot')
-        saveRoomAndSlot(session, room, time)
-
-        ui.draggable
-          .prependTo( $slot )
-
-      out: (e, ui) ->
-        $(@).droppable "option", "accept", "*"
-
-  saveRoomAndSlot = (session, room, time) ->
-    $.post "/admin/sessions/#{session}/schedule", { room: room, slot: time }
+    $.post('/admin/sessions/make_session', {ids: selected})

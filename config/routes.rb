@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {sessions: "user_sessions",
-                                      registrations: "registrations",
-                                      passwords: "passwords",
-                                      confirmations: "confirmations",
-                                      unlocks: "unlocks"}
+  devise_for :speakers
 
   root 'events#show'
 
@@ -22,39 +18,48 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:index, :show]
 
-  resources :users, only: nil do
-    get 'talks'
-  end
-
-  resources :events, only: [:index, :show] do
-    member do
-      get 'schedule'
-      resources :sessions, only: [:index, :show]
-      resources :metrics, only: [:index]
+  resources :speakers, only: nil do
+    collection do
+      get 'talks'
     end
   end
 
+  resources :events, only: [:index, :show] do
+    resources :sessions, only: [:index, :show]
+    resources :metrics, only: [:index]
+    member do
+      get 'schedule'
+    end
+  end
+
+  namespace "accounts" do
+    resources :sessions
+  end
+
   namespace "selection" do
-    resources :submissions, only: :index do
+    resources :sessions, only: :index do
       resources :votes, only: [:create, :destroy]
     end
   end
 
   namespace "admin" do
-    resources :submissions, only: :index do
-      collection do
-        post 'make_session'
-      end
-    end
     resources :sessions, only: :index do
       member do
         post 'schedule'
       end
+      collection do
+        post 'make_session'
+        get 'make_schedule'
+      end
     end
-    resources :speakers
+    resources :speakers do
+      collection do
+        get 'list_users'
+      end
+    end
     resources :events
     resources :scholarship_applications, only: :index
-    resources :users, only: :index do
+    resources :speakers, only: :index do
       member do
         post 'make_selector'
         post 'make_admin'

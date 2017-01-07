@@ -12,7 +12,7 @@
               %th Bio
               %th.actions
           %tbody
-            - @event.submissions.selected.with_speakers.map(&:users).each do |speaker|
+            - @event.sessions.selected.with_speakers.map(&:speakers).each do |speaker|
               %tr
                 %td= speaker.name
                 %td= speaker.twitter

@@ -1,34 +1,44 @@
 = render partial: "shared/header", event: @event
 
-#admin-schedule
-  .mid_block.schedule
-    .container
-      .row
-        .col-md-9
-          - @event.slots.group_by {|s| s.time.to_date}.keys.each do |day|
-            %h4
-              = day.strftime("%A, %b %d")
-            %table.table.table-striped.table-bordered
+#admin-sessions
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        - if @sessions.empty?
+          No sessions!
+        - else
+          .pull-left
+            %span.bold
+              Total
+            = ": #{@sessions.count}"
+            %span.bold
+              People
+            = ": #{@sessions.where(talktype: 'people').count}"
+            %span.bold
+              Tech
+            = ": #{@sessions.where(talktype: 'tech').count}"
+          .pull-right
+            %button.promote.button.purple-button Promote selected to sessions
+          %table.datatable.table.table-striped.table-bordered{data: { pagelength: 35, sortcolumn: 1, sortorder: 'desc' }}
+            %thead
               %tr
-                %td.col-md-1
-                  -@event.rooms.map(&:name).each do |room|
-                    %td.room-name
-                      %h5= room
-
-              - @event.slots.where("date(time) = ?", day).each do |slot|
+                %th= check_box_tag 'select-all', '0', false, class: 'select-all'
+                %th.col-md-1 Votes
+                %th.col-md-2 Name
+                %th.col-md-2 Email
+                %th.col-md-3 Talk Name
+                %th Type
+            %tbody
+              - @sessions.each do |session|
                 %tr
-                  %td.col-md-1
-                    %h5= slot.time_slot
-                  -@event.rooms.map(&:id).each do |room|
-                    %td.slot{ data: { slot: slot.id, room: room }}
-                      - if session = slot.submissions.selected.where(room: room).first
-                        - session = session.decorate
-                        .session{data: {id: session.id}}
-                          = "#{session.speaker_names} - #{session.name}"
-
-        .col-md-3
-          %h4 Sessions
-          .session-list
-            - @sessions.each do |session|
-              .session{data: {id: session.id}}
-                = "#{session.speaker_names} - #{session.name}"
+                  %td
+                    = check_box_tag 'selected', '0', false, class: 'selected', data: { id: session.id } unless session.selected
+                  %td
+                    .center-wrapper
+                      = session.votes.pluck(:value).reduce(:+)
+                  %td= session.speakers.map(&:name).join(", ")
+                  %td= session.speakers.map(&:email).join(", ")
+                  %td= session.name
+                  %td= session.talktype
