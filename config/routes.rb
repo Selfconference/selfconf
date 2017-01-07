@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'sponsor'  => 'events#sponsor'
   get 'admin'    => 'admin/admin#admin'
   get 'schedule' => 'events#schedule'
+  get 'submit'   => 'accounts/sessions#index'
 
   resources :metrics, only: [:index]
   resources :submissions
