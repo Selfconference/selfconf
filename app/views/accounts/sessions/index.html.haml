@@ -5,10 +5,10 @@
     .row
       .col-md-12
         %p
-          We're looking for 45 minute long talks on both technical and people topics. This means anything from web and mobile, to back end concurrent systems, to talks about team communication, inclusivity, diversity, or mental health. If you need inspiration, check out
+          We're looking for 45 minute long talks on both technical and people topics. This means anything from web, mobile, and back end concurrent systems to talks about accessibility, team communication, inclusivity, and diversity. If you need inspiration, check out
           = link_to "last year's", event_sessions_path(Event.find(2))
           talks!
-        %p Submissions close February 13th at 11:59:59 pm and submitters will be notified of the panel's decision on or before March 6th. :)
+        %p Submissions close February 13th at 11:59:59 pm and submitters will be notified of the panel's decision on or before March 6th.
         %p
           All speakers will receive a free ticket to the conference. We are happy to talk covering travel expenses with anyone interested. Please reach out to
           = link_to "Amber", "mailto:amber@selfconference.org"
@@ -64,7 +64,7 @@
                       %btn= link_to "View", session_path(session)
 
         - else
-          %p
+          %p.well
             You'll need to
             =link_to "login", new_speaker_session_path
             in order to see, edit, or submit talks. :)
