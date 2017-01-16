@@ -5,7 +5,22 @@
     .row
       .col-md-12
         %p
-          We're looking for 45 minute long talks on both technical and people topics. This means anything from web, mobile, and back end concurrent systems to talks about accessibility, team communication, inclusivity, and diversity. If you need inspiration, check out
+          We're looking for 45 minute long talks on both technical and people topics. This means anything from
+          = succeed "," do
+            %span.bold web
+          = succeed ", and" do
+            %span.bold mobile
+          %span.bold back end concurrent systems
+          to talks about
+          = succeed "," do
+            %span.bold accessibility
+          = succeed "," do
+            %span.bold team communication
+          = succeed ", and" do
+            %span.bold inclusivity
+          = succeed "." do
+            %span.bold diversity
+          If you need inspiration, check out
           = link_to "last year's", event_sessions_path(Event.find(2))
           talks!
         %p Submissions close February 13th at 11:59:59 pm and submitters will be notified of the panel's decision on or before March 6th.
