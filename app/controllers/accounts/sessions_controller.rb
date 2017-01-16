@@ -33,10 +33,10 @@ class Accounts::SessionsController < ApplicationController
   end
 
   def update
-    @sessions = Session.find(params[:id])
+    @session = Session.find(params[:id])
     authorize @session
     if @session.update_attributes(session_params)
-      @sessions.votes.destroy_all
+      @session.votes.destroy_all
       flash[:success] = "Talk updated!"
       redirect_to accounts_sessions_path
     else
