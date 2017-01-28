@@ -101,7 +101,7 @@
               =link_to "Book a room in our hotel block!", @event.venue.reservation
           %iframe{:frameborder => "0", :height => "450", :src => @event.venue.maps_link, :style => "border:0", :width => "100%"}
 
-- unless @event.tickets_link.blank?
+- if @event.tito_name
   %section#tickets
     = render partial: "shared/color_line"
     .blue_header
@@ -113,14 +113,7 @@
       .container
         .row
           .col-md-12
-            %p
-              Having trouble with the widget below? Just head over to
-              =link_to @event.tickets_link, @event.tickets_link
-              to get your tickets!
-            %div{style: "width:100%, text-align:left"}
-              %iframe{src: @event.tickets_iframe_link, frameborder: "0", height: "431", width: "100%", vspace: "0", hspace: "0", marginheight: "5", marginwidth: "5", scrolling: "auto", allowtransparency: "true"}
-              %div{style: "font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;"}
-                =link_to "Powered by Eventbrite", "http://www.eventbrite.com/r/etckt", class: "powered-by-eb", style: "color: #dddddd; text-decoration: none;", target: :blank
+            %tito-widget{event: @event.tito_name}
 
 - if @event.sponsors.any?
   %section#sponsors
@@ -170,6 +163,7 @@
               Not sure who to contact? Just reach out to us at
               %a{:href => "mailto:hello@selfconference.org"} hello@selfconference.org
 
+  %script{src: 'https://js.tito.io/v1', async: true, type: 'text/javascript'}
   %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
   :javascript
     (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
