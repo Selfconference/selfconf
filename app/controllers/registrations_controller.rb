@@ -11,10 +11,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    submissions_path
+    accounts_sessions_path
   end
 
   private
+
   def needs_password?(user, params)
     user.email != params[:email] ||
       params[:password].present?
