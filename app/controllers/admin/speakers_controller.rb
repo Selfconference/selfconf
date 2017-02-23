@@ -48,20 +48,27 @@ class Admin::SpeakersController < ApplicationController
   end
 
   def make_selector
-    speaker = Speaker.find(params[:id])
     role = Role.find_by(name: 'selector')
-    speaker.roles << role
-    redirect_to admin_user_path
+    toggle_role(role)
+    redirect_to list_users_admin_speakers_path
   end
 
   def make_admin
-    speaker = Speaker.find(params[:id])
     role = Role.find_by(name: 'admin')
-    speaker.roles << role
-    redirect_to admin_user_path
+    toggle_role(role)
+    redirect_to list_users_admin_speakers_path
   end
 
   private
+
+  def toggle_role(role)
+    speaker = Speaker.find(params[:id])
+    if speaker.roles.include? role
+      speaker.roles.delete(role)
+    else
+      speaker.roles << role
+    end
+  end
 
   def speaker_params
     params.require(:speaker).permit(:name,

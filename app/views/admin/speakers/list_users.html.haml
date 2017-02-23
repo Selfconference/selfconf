@@ -19,4 +19,6 @@
                 %td= speaker.email
                 %td.actions
                   %btn= link_to "Make Selector", make_selector_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" unless speaker.selector?
+                  %btn= link_to "Remove Selector", make_selector_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" if speaker.selector?
                   %btn= link_to "Make Admin", make_admin_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" unless speaker.admin?
+                  %btn= link_to "Remove Admin", make_admin_admin_speaker_path(speaker), method: :post, class: "btn small-button purple-button" if speaker.admin?
