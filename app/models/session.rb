@@ -10,7 +10,7 @@ class Session < ActiveRecord::Base
   validates :abstract, presence: true
   validates :talktype, presence: true
 
-  default_scope -> { order(keynote: :desc, name: :asc) }
+  default_scope -> { order(keynote: :asc, name: :asc) }
   scope :with_speakers, -> { joins(:speakers) }
   scope :selected, -> { where(selected: true) }
   scope :unselected, -> { where(selected: false) }

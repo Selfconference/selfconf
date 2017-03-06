@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       format.html { @sessions = @event.sessions.selected.uniq.with_speakers.map(&:decorate) }
       format.json do
-        sessions = @event.sessions
+        sessions = @event.sessions.selected
         sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]
         render json: sessions.to_json(:include => [:users, :room, :slot])
       end
