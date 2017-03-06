@@ -8,7 +8,7 @@ class Admin::SessionsController < ApplicationController
 
   def make_session
     @sessions = Session.where(id: params[:ids])
-    @sessions.each do |sessions|
+    @sessions.each do |session|
       session.update_attributes(selected: true)
     end
     redirect_to root_path
