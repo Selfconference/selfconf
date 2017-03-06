@@ -17,9 +17,9 @@
       = f.text_area :bio, class: 'form-control'
 
   .form-group
-    = f.label :photo, "Headshot URL", class: 'col-sm-2 control-label'
+    = f.label :headshot, "Headshot URL", class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.url_field :photo, class: 'form-control'
+      = f.url_field :headshot, class: 'form-control'
 
   .col-sm-offset-2.col-sm-10
     = f.fields_for :sessions do  |session|
