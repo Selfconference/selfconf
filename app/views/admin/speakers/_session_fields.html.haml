@@ -1,5 +1,10 @@
 .well.nested-fields
-  = f.hidden_field :event_id, value: @event.id
+
+  .form-group
+    =f.label :event_id, class: 'col-sm-2 control-label'
+    .col-sm-10
+      =f.select :event_id, Event.all.collect { |e| [ "#{e.name} #{e.start_date.strftime("%Y")}", e.id ] }, {class: 'form-control'}
+
   .form-group
     = f.label :name, class: 'col-sm-2 control-label'
     .col-sm-10
@@ -9,6 +14,11 @@
     = f.label :keynote, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.select(:keynote, options_for_select([["No", false], ["Yes", true]], f.object.keynote), {}, {class: 'form-control'})
+
+  .form-group
+    = f.label :selected, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select(:selected, options_for_select([["No", false], ["Yes", true]], f.object.selected), {}, {class: 'form-control'})
 
   .form-group
     = f.label :abstract, class: 'col-sm-2 control-label'
