@@ -75,12 +75,12 @@
               %h4= speaker.name
               %p= session.name
 
-          .row
-            .col-md-12
-              Check out
-              = succeed ' ' do
-                = link_to "all our speakers", @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
-              %span>="!"
+        .row
+          .col-md-12
+            Check out
+            = succeed ' ' do
+              = link_to "all our speakers", @event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions"
+            %span>="!"
 
 %section#location
   = render partial: "shared/color_line"
