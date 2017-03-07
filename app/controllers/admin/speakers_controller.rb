@@ -74,7 +74,7 @@ class Admin::SpeakersController < ApplicationController
     params.require(:speaker).permit(:name,
                                     :bio,
                                     :twitter,
-                                    :photo,
+                                    :headshot,
                                     sessions_attributes: [
                                       :id,
                                       :event_id,
