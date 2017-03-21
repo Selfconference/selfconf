@@ -66,7 +66,12 @@ class Admin::EventsController < ApplicationController
                                     :link,
                                     :photo,
                                     :_destroy,
-                                    sponsor_level_ids: []])
+                                    sponsor_level_ids: []],
+                                 slots_attributes: [
+                                    :id,
+                                    :time,
+                                    :end_time,
+                                    :_destroy])
   end
 
 end

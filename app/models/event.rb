@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   has_one :funding_meter, dependent: :destroy
   has_many :metrics, dependent: :destroy
   accepts_nested_attributes_for :sponsors, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :slots, reject_if: :all_blank, allow_destroy: true
 
   default_scope -> { order('start_date DESC') }
   scope :latest, -> { order('start_date DESC').first }

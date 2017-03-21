@@ -1,0 +1,14 @@
+.nested-fields.form-inline
+  .form-group
+    = f.label :time, 'Start', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field:time, class: 'form-control'
+
+  .form-group
+    = f.label :end_time, 'End', class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_local_field :end_time, class: 'form-control'
+
+  .form-group
+    .col-sm-12
+      = link_to_remove_association "remove slot", f, class: "pull-right btn small-button red-button"
