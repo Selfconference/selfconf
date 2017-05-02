@@ -50,9 +50,10 @@
                   = simple_format session.twitter_handles
                 %p= simple_format session.abstract
               .speaker
-                %h5.italic
-                  ="About #{session.speaker_names}"
-                %p= simple_format session.speakers.first.bio
+                - session.speakers.each do |speaker|
+                  %h5.italic
+                    ="About #{speaker.name}"
+                  %p= simple_format speaker.bio
 
 :javascript
   $(function() {
