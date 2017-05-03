@@ -4,7 +4,7 @@ class EventsController < ApplicationController
                       organizers: { only: [:id, :name, :bio, :email, :twitter, :photo] },
                       venue: {only: [:id, :name, :address, :about]}
                     },
-                    only: [:id, :name, :about, :twitter, :lanyard, :start_date, :end_date]}
+                    only: [:id, :name, :about, :twitter, :lanyard, :start_date, :end_date, :venue_id]}
   def latest
     render json: Event.latest.to_json(ALLOWED_IN_JSON)
   end

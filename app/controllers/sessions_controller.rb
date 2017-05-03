@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
                                                   {only: [:name, :twitter, :id, :bio, :headshot]},
                                                 room: {only: [:id, :name]},
                                                 slot: {only: [:id, :time, :end_time]}},
-                                      only: [:name, :abstract, :id])
+                                      only: [:name, :abstract, :id, :event_id, :room_id, :slot_id])
       end
     end
   end
@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
                                               {only: [:name, :twitter, :id, :bio, :headshot]},
                                             room: {only: [:id, :name]},
                                             slot: {only: [:id, :time, :end_time]}},
-                                  only: [:name, :abstract, :id])
+                                  only: [:name, :abstract, :id, :event_id, :room_id, :slot_id])
   end
 end

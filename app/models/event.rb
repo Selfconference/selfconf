@@ -27,6 +27,6 @@ class Event < ActiveRecord::Base
   end
 
   def speakers
-    sessions.map(&:speakers).uniq
+    sessions.map(&:speakers).flatten.uniq
   end
 end
