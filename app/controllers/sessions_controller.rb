@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         render json: sessions.to_json(include: {speakers:
                                                   {only: [:name, :twitter, :id, :bio, :headshot]},
                                                 room: {only: [:id, :name]},
-                                                slot: {only: [:id, :time, :endtime]}},
+                                                slot: {only: [:id, :time, :end_time]}},
                                       only: [:name, :abstract, :id])
       end
     end
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     render json: session.to_json(include: {speakers:
                                               {only: [:name, :twitter, :id, :bio, :headshot]},
                                             room: {only: [:id, :name]},
-                                            slot: {only: [:id, :time, :endtime]}},
+                                            slot: {only: [:id, :time, :end_time]}},
                                   only: [:name, :abstract, :id])
   end
 end
