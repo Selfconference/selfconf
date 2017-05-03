@@ -77,7 +77,7 @@ Rails.application.routes.draw do
       end
       member do
         resources :speakers, :sponsors, :sponsor_levels, :venues,
-                  :rooms, :organizers, :sessions, only: [:index, :show]
+                  :rooms, :organizers, :sessions, :slots, only: [:index, :show]
       end
     end
 
