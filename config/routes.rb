@@ -76,7 +76,7 @@ Rails.application.routes.draw do
         get 'latest'
       end
       member do
-        resources :speakers, :sponsors, :sponsor_levels, :venue,
+        resources :speakers, :sponsors, :sponsor_levels, :venues,
                   :rooms, :organizers, :sessions, only: [:index, :show]
       end
     end
