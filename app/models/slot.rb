@@ -5,7 +5,7 @@ class Slot < ActiveRecord::Base
   default_scope -> { order("#{table_name}.time ASC") }
 
   def time_slot
-    if slot.time.beginning_of_hour == slot.time
+    if time.beginning_of_hour == time
       "#{time.in_time_zone('EST').strftime('%l')} - #{slot_end}"
     else
       "#{time.in_time_zone('EST').strftime('%l:%M')} - #{slot_end}"
