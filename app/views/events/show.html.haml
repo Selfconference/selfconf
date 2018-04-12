@@ -146,7 +146,7 @@
     .container
       .row
         -@event.organizers.each do |organizer|
-          .col-md-4
+          %div{class: "col-md-#{12/@event.organizers.length}"}
             %img.img-responsive.img-rounded.speaker-img{:src => organizer.photo}/
             %h4= organizer.name
             %p= simple_format organizer.bio
