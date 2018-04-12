@@ -154,7 +154,7 @@
               ="Want to email #{organizer.name.split(" ").first}? Do it: "
               = succeed ". " do
                 %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
-              ="Or send her a tweet!"
+              ="Or send a tweet!"
               %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
       .row
         .col-md-12
