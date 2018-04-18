@@ -13,7 +13,23 @@ class MetricType < ActiveRecord::Base
     find_by_name('Attendee')
   end
 
+  def self.attendee_gender
+    find_by_name('Attendee - gender')
+  end
+
+  def self.attendee_race
+    find_by_name('Attendee - race')
+  end
+
   def self.speaker
     find_by_name('Speaker')
+  end
+
+  def self.speaker_gender
+    find_by_name('Speaker - gender')
+  end
+
+  def self.speaker_race
+    find_by_name('Speaker - race')
   end
 end

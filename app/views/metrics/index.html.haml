@@ -4,14 +4,13 @@
   .container
     .row
       .col-md-12
-        %h3= "Metrics for Self.conference #{@event.start_date.strftime('%Y')}"
         .row
           .col-md-6
             .well
-              %h4 Dollars
+              %h3 Dollars
               - unless @expenses.empty?
                 .conf-expenses
-                  %h5 Expenses
+                  %h4 Expenses
                   - @expenses.each do |expense|
                     .row
                       .col-md-5.right.bold
@@ -21,7 +20,7 @@
 
               - unless @revenues.empty?
                 .revenue
-                  %h5 Revenue
+                  %h4 Revenue
                   - @revenues.each do |revenue|
                     .row
                       .col-md-5.right.bold
@@ -30,7 +29,7 @@
                         = number_to_currency(revenue.amount)
 
               .totals
-                %h5 Totals
+                %h4 Totals
                 .row
                   .col-md-5.right.bold
                     Expenses:
@@ -52,10 +51,26 @@
           .col-md-6
             .well
               .humans
-                %h4 Humans
+                %h3 Humans
                 .attendees
-                  %h5 All Attendees
+                  %h4 All Attendees
                   - @attendees.each do |attendee|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{attendee.name}:"
+                      .col-md-7
+                        = number_to_human(attendee.amount)
+                .attendees
+                  %h5 Gender
+                  - @attendees_gender.each do |attendee|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{attendee.name}:"
+                      .col-md-7
+                        = number_to_human(attendee.amount)
+                .attendees
+                  %h5 Race
+                  - @attendees_race.each do |attendee|
                     .row
                       .col-md-5.right.bold
                         = "#{attendee.name}:"
@@ -63,8 +78,24 @@
                         = number_to_human(attendee.amount)
 
                 .speakers
-                  %h5 Speakers
+                  %h4 Speakers
                   - @speakers.each do |speaker|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{speaker.name}:"
+                      .col-md-7
+                        = number_to_human(speaker.amount)
+                .speakers
+                  %h5 Gender
+                  - @speakers_gender.each do |speaker|
+                    .row
+                      .col-md-5.right.bold
+                        = "#{speaker.name}:"
+                      .col-md-7
+                        = number_to_human(speaker.amount)
+                .speakers
+                  %h5 Race
+                  - @speakers_race.each do |speaker|
                     .row
                       .col-md-5.right.bold
                         = "#{speaker.name}:"
