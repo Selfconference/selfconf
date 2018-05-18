@@ -16,7 +16,6 @@
 //= require cocoon
 //= require dataTables/jquery.dataTables
 //= require twitter/bootstrap
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require underscore-min
