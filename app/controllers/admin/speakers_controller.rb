@@ -81,6 +81,7 @@ class Admin::SpeakersController < ApplicationController
                                       :name,
                                       :keynote,
                                       :abstract,
+                                      :talktype,
                                       :room_id,
                                       :slot_id,
                                       :_destroy])
