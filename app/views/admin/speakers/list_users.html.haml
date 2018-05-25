@@ -7,6 +7,7 @@
         %table.datatable.table.table-striped.table-bordered
           %thead
             %tr
+              %th ID
               %th Name
               %th Twitter
               %th Email
@@ -14,6 +15,7 @@
           %tbody
             - Speaker.all.each do |speaker|
               %tr
+                %td= speaker.id
                 %td= speaker.name
                 %td= speaker.twitter
                 %td= speaker.email
