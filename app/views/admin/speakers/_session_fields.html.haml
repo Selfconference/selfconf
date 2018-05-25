@@ -26,6 +26,11 @@
       = f.text_area :abstract, class: 'form-control'
 
   .form-group
+    = f.label :talktype, "Type of Talk", class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select(:talktype, options_for_select([["People Talk", "people"], ["Technical Talk", "tech"]], f.object.talktype))
+
+  .form-group
     = f.label :room_id, "Room", class: 'col-sm-2 control-label'
     .col-sm-10
       = f.select :room_id, @event.rooms.collect { |r| [ r.name, r.id ] }, {include_blank: "--"}, {class: 'form-control'}
