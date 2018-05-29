@@ -21,9 +21,9 @@
           = succeed "." do
             %span.bold mental health
           If you need inspiration, check out
-          = link_to "last year's", event_sessions_path(Event.find(3))
+          = link_to "last year's", event_sessions_path(Event.last_year)
           talks!
-        %p Submissions close May 18th at 11:59:59 pm and submitters will be notified of the panel's decision on or before June 1st.
+        %p= "Submissions close #{@event.submissions_end.strftime("%B %e at %l:%M:%S%P %Z")} and submitters will be notified of the panel's decision on or before #{@event.sessions_published.strftime("%B %e")}."
         %p
           All speakers will receive a free ticket to the conference. We are happy to talk about covering travel & accommodation expenses and can help up to $600. We are a small conference so this will be needs-based. Please reach out to
           = link_to "speakers@selfconference.org", "mailto:speakers@selfconference.org"

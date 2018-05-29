@@ -1,0 +1,14 @@
+.nested-fields.form-inline
+  .row
+    .form-group.col-sm-6
+      = f.label :timeline_type_id, 'What', class: 'col-sm-3 control-label'
+      .col-sm-9
+        = f.select :timeline_type_id, TimelineType.all.collect { |type| [ type.name, type.id ] }, {include_blank: false}, {class: 'form-control'}
+
+    .form-group.col-sm-4
+      = f.label :when, 'When', class: 'col-sm-3 control-label'
+      .col-sm-9
+        = f.datetime_local_field :when, class: 'form-control'
+
+    .form-group.col-sm-2
+      = link_to_remove_association "remove", f, class: "pull-right btn small-button red-button"

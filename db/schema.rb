@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128184343) do
+ActiveRecord::Schema.define(version: 20180529182522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,6 @@ ActiveRecord::Schema.define(version: 20170128184343) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "extra"
-    t.boolean  "sessions_published"
-    t.datetime "submissions_start"
-    t.datetime "submissions_end"
-    t.datetime "scholarships_start"
-    t.datetime "scholarships_end"
-    t.datetime "scholarships_announce"
     t.string   "url"
     t.string   "ga_tracking_id"
     t.string   "tito_name"
@@ -205,10 +199,16 @@ ActiveRecord::Schema.define(version: 20170128184343) do
     t.datetime "updated_at"
   end
 
+  create_table "timeline_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "timelines", force: :cascade do |t|
     t.datetime "when"
-    t.string   "what"
     t.integer  "event_id"
+    t.integer  "timeline_type_id", null: false
   end
 
   add_index "timelines", ["event_id"], name: "index_timelines_on_event_id", using: :btree

@@ -71,6 +71,11 @@ class Admin::EventsController < ApplicationController
                                     :id,
                                     :time,
                                     :end_time,
+                                    :_destroy],
+                                 timelines_attributes: [
+                                    :id,
+                                    :timeline_type_id,
+                                    :when,
                                     :_destroy])
   end
 

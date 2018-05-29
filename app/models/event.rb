@@ -12,9 +12,35 @@ class Event < ActiveRecord::Base
   has_many :metrics, dependent: :destroy
   accepts_nested_attributes_for :sponsors, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :slots, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :timelines, reject_if: :all_blank, allow_destroy: true
 
   default_scope -> { order('start_date DESC') }
   scope :latest, -> { order('start_date DESC').first }
+  scope :last_year, -> { order('start_date DESC').second }
+
+  def submissions_start
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SUBMISSIONS_START)).try(:when)
+  end
+
+  def submissions_end
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SUBMISSIONS_END)).try(:when)
+  end
+
+  def scholarships_start
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SCHOLARSHIPS_START)).try(:when)
+  end
+
+  def scholarships_end
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SCHOLARSHIPS_END)).try(:when)
+  end
+
+  def scholarships_announce
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SCHOLARSHIPS_ANNOUNCE)).try(:when)
+  end
+
+  def sessions_published
+    timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SESSIONS_PUBLISHED)).try(:when)
+  end
 
   def submissions_open?
     return false if submissions_start.nil? or submissions_end.nil?

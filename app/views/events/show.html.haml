@@ -50,7 +50,7 @@
               - @event.timelines.each do |timeline|
                 %li
                   %span.bold.purple-color= timeline.when.strftime("%B %e: ")
-                  = timeline.what
+                  = timeline.timeline_type.name
           - else
             (No timeline yet!)
 
