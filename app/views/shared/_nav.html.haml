@@ -24,7 +24,7 @@
                 %li= link_to "submit a talk", accounts_sessions_path if @event.submissions_open?
                 %li= link_to "speakers", (@event == Event.latest ? "#{root_path}#speakers" : "#{event_path(@event)}#speakers") unless @event.sessions.selected.with_speakers.empty?
                 %li= link_to "sessions", (@event == Event.latest ? sessions_path : "/events/#{@event.id}/sessions") unless @event.sessions.selected.with_speakers.empty?
-                %li= link_to "schedule", (@event == Event.latest ? schedule_path : schedule_event_path(@event)) if @event.sessions_published
+                %li= link_to "schedule", (@event == Event.latest ? schedule_path : schedule_event_path(@event)) if @event.sessions_published < Time.now
                 %li= link_to "sponsors", (@event == Event.latest ? "#{root_path}#sponsors" : "#{event_path(@event)}#sponsors") if @event.sponsors.any?
                 %li= link_to "code of conduct", coc_path
                 %li= link_to "organizers", (@event == Event.latest ? "#{root_path}#organizers" : "#{event_path(@event)}#organizers")
