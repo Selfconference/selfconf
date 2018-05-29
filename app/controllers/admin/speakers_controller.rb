@@ -80,6 +80,7 @@ class Admin::SpeakersController < ApplicationController
                                       :event_id,
                                       :name,
                                       :keynote,
+                                      :selected,
                                       :abstract,
                                       :talktype,
                                       :room_id,
