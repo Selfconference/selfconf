@@ -53,7 +53,7 @@
                     %td= session.name
                     %td= simple_format session.abstract
                     %td= session.talktype
-                    %td= session.notes
+                    %td= simple_format session.notes
                     %td.actions
                       %btn= link_to "Edit", edit_accounts_session_path(session) if @event.submissions_open?
                       %btn= link_to "Delete", accounts_session_path(session), method: :delete, data: { confirm: 'Are you sure?' }
@@ -74,7 +74,7 @@
                     %td= session.name
                     %td= simple_format session.abstract
                     %td= "#{session.event.name} #{session.event.start_date.strftime("%Y")}"
-                    %td= session.notes
+                    %td= simple_format session.notes
                     %td.actions
                       %btn= link_to "View", session_path(session)
 
