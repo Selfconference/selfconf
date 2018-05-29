@@ -10,14 +10,14 @@
               = day.strftime("%A, %b %d")
             %table.table.table-striped.table-bordered
               %tr
-                %td.col-md-1
+                %td
                   -@event.rooms.map(&:name).each do |room|
                     %td.room-name
                       %h5= room
 
               - @event.slots.where("date(time) = ?", day).each do |slot|
                 %tr
-                  %td.col-md-1
+                  %td
                     %h5= slot.time_slot
                   -@event.rooms.map(&:id).each do |room|
                     %td.slot{ data: { slot: slot.id, room: room }}
