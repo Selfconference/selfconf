@@ -16,10 +16,10 @@ class Speaker < ActiveRecord::Base
   default_scope -> { order("#{table_name}.name ASC") }
 
   def admin?
-    roles.include?(Role.find_by_name("admin"))
+    roles.include?(Role.admin)
   end
 
   def selector?
-    roles.include?(Role.find_by_name("selector"))
+    roles.include?(Role.selector)
   end
 end

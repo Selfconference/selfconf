@@ -13,7 +13,7 @@
               %th Email
               %th.actions
           %tbody
-            - Speaker.all.each do |speaker|
+            - Speaker.includes(:roles).all.each do |speaker|
               %tr
                 %td= speaker.id
                 %td= speaker.name
