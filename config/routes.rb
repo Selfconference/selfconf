@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :speakers do
       collection do
         get 'list_users'
+        get 'selectors'
       end
     end
     resources :events

@@ -1,0 +1,17 @@
+= render partial: "shared/header", event: @event
+
+.mid_block
+  .container
+    .row
+      .col-md-12
+        %table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Votes
+          %tbody
+            - session_ids = Session.where(event: Event.latest).collect(&:id)
+            - Role.find_by(name: "selector").speakers.each do |user|
+              %tr
+                %td= user.name
+                %td= user.votes.where(session: session_ids).count
