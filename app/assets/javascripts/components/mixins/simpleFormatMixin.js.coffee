@@ -1,5 +1,6 @@
 @SimpleFormatMixin =
   simpleFormat: (str) ->
+    str ||= ""
     str = str.replace(/\r\n?/, "\n")
     str = s.trim(str)
     unless s.isBlank?(str)
