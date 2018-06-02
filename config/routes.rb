@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get 'coc'      => 'events#coc'
   get 'sponsor'  => 'events#sponsor'
-  get 'admin'    => 'admin/admin#admin'
   get 'schedule' => 'events#schedule'
   get 'submit'   => 'accounts/sessions#index'
 

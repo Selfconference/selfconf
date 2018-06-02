@@ -41,4 +41,7 @@
               = link_to "http://twitter.com/#{@event.twitter}" do
                 =image_tag "twitter.png", {class: "social"}
 
-          = render partial: "shared/logged_in"
+          - if current_speaker.admin?
+            = render partial: "shared/logged_in"
+
+          = render partial: "shared/admin"
