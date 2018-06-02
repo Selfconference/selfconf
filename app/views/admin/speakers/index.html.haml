@@ -4,7 +4,7 @@
   .container
     .row
       .col-md-12
-        %table#submissions_table.table.table-striped.table-bordered
+        %table#submissions_table.datatable.table.table-striped.table-bordered
           %thead
             %tr
               %th Name
@@ -12,7 +12,7 @@
               %th Bio
               %th.actions
           %tbody
-            - @event.sessions.selected.with_speakers.map(&:speakers).uniq.flatten.each do |speaker|
+            - @event.sessions.selected.with_speakers.collect(&:speakers).uniq.flatten.each do |speaker|
               %tr
                 %td= speaker.name
                 %td= speaker.twitter
