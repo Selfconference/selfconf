@@ -11,10 +11,10 @@
           = simple_format @event.extra
 
         -if @event.submissions_open?
-          %p= "Our CFP is open! #{link_to 'Head on over', submit_path} and let us know what you want to talk about. We can't wait to hear!"
+          %p= simple_format "Our CFP is open! #{link_to 'Head on over', submit_path} and let us know what you want to talk about. We can't wait to hear!"
 
         -if @event.scholarships_open?
-          %p= "We are currently accepting applications for scholarships! #{link_to 'Head on over', scholarship_applications_path} to apply for a free ticket and help with travel expenses!"
+          %p= simple_format "We are currently accepting applications for scholarships! #{link_to 'Head on over', scholarship_applications_path} to apply for a free ticket and help with travel expenses!"
 
         .col-md-10
           .blue_block.sign-up-box
