@@ -30,8 +30,8 @@
                 %li= link_to "organizers", (@event == Event.latest ? "#{root_path}#organizers" : "#{event_path(@event)}#organizers")
                 %li= link_to "metrics", (@event == Event.latest ? metrics_path : "#{event_path(@event)}/metrics") unless @event.metrics.empty?
                 %li.divider{role: "separator"}
-                - Event.where.not(id: @event.id).each do |event|
-                  %li= link_to "#{event.name} #{event.start_date.strftime("%Y")}", (@event == Event.latest ? event_path(event) : root_path)
+                - Event.where.not(id: [@event.id, Event.latest.id]).each do |event|
+                  %li= link_to "#{event.name} #{event.start_date.strftime("%Y")}", event_path(event)
           %ul.navbar-nav.nav.navbar-link.navbar-right
             %li
               = link_to "http://lanyrd.com/#{@event.lanyard}" do
