@@ -32,10 +32,11 @@
                 %li.divider{role: "separator"}
                 - Event.where.not(id: [@event.id, Event.latest.id]).each do |event|
                   %li= link_to "#{event.name} #{event.start_date.strftime("%Y")}", event_path(event)
-          %ul.navbar-nav.nav.navbar-link.navbar-right
-            %li
-              = link_to "http://lanyrd.com/#{@event.lanyard}" do
-                =image_tag "lanyrd.png", {class: "social"}
+          - if @event.lanyard && !@event.lanyard.blank?
+            %ul.navbar-nav.nav.navbar-link.navbar-right
+              %li
+                = link_to "http://lanyrd.com/#{@event.lanyard}" do
+                  =image_tag "lanyrd.png", {class: "social"}
           %ul.navbar-nav.nav.navbar-link.navbar-right
             %li
               = link_to "http://twitter.com/#{@event.twitter}" do
