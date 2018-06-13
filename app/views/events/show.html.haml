@@ -131,7 +131,7 @@
             %h1 sponsors
     .mid_block
       .container
-        -@event.sponsor_levels.each_with_index do |sponsor_level, index|
+        -@event.sponsor_levels.where.not(name: "Supporter").each_with_index do |sponsor_level, index|
           - if sponsor_level.sponsors.any?
             .sponsor-section
               %h4.sponsor-name= "#{sponsor_level.name} Sponsors"
@@ -140,6 +140,15 @@
                   %div{class: "col-md-#{index < 3 ? 5 - index : 2 }"}
                     %a{:href => sponsor.link}
                       %img.img-responsive{:src => sponsor.photo}/
+        -@event.sponsor_levels.where(name: "Supporter").each do |supporter_level|
+          - if supporter_level.sponsors.any?
+            .sponsor-section
+              %h4.sponsor-name= "Supporters"
+              .supporters
+                -supporter_level.sponsors.each do |supporter|
+                  %span= supporter.name
+
+
 
 %section#organizers
   = render partial: "shared/color_line"
