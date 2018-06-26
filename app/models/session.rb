@@ -11,13 +11,13 @@ class Session < ActiveRecord::Base
   validates :talktype, presence: true
 
   default_scope -> { order(keynote: :desc, name: :asc) }
-  scope :with_speakers, -> { joins(:speakers) }
+  scope :with_speakers, -> { includes(:speakers) }
   scope :selected, -> { where(selected: true) }
   scope :unselected, -> { where(selected: false) }
 
   def self.not_voted_on_by(speaker, event)
-    includes(:votes).where(event_id: event).reject { |s|
-      s.votes.map(&:speaker).include?(speaker)
+    where(event_id: event).reject { |s|
+      s.votes.includes(:speaker).map(&:speaker).include?(speaker)
     }
   end
 end

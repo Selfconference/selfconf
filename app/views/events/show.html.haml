@@ -53,7 +53,7 @@
           %p Interested in when things will get going with our call for speakers or ticket sales? Here's the plan:
           - if @event.timelines.any?
             %ul
-              - @event.timelines.each do |timeline|
+              - @event.timelines.includes(:timeline_type).each do |timeline|
                 %li
                   %span.bold.purple-color= timeline.when.strftime("%B %e: ")
                   = timeline.timeline_type.name
@@ -131,7 +131,7 @@
             %h1 sponsors
     .mid_block
       .container
-        -@event.sponsor_levels.where.not(name: "Supporter").each_with_index do |sponsor_level, index|
+        -@event.sponsor_levels.includes(:sponsors).where.not(name: "Supporter").each_with_index do |sponsor_level, index|
           - if sponsor_level.sponsors.any?
             .sponsor-section
               %h4.sponsor-name= "#{sponsor_level.name} Sponsors"
