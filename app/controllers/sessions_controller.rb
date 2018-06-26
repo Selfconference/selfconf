@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @sessions = @event.sessions.includes(:room).includes(:slot).selected.uniq.with_speakers.map(&:decorate) }
+      format.html { @sessions = @event.sessions.includes(:room).includes(:slot).selected.with_speakers.uniq.map(&:decorate) }
       format.json do
         sessions = @event.sessions.selected
         sessions = sessions.where('updated_at > ?', params[:from_date]) if params[:from_date]

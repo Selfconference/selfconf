@@ -1,5 +1,5 @@
 class Accounts::SessionsController < ApplicationController
-  before_filter :authenticate_speaker!, except: :index
+  before_action :authenticate_speaker!, except: :index
 
   def index
     if speaker_signed_in?

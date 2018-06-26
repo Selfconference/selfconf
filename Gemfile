@@ -1,36 +1,35 @@
-ruby "2.2.4"
+ruby "2.5.0"
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1.rc2'
+gem 'rails'
 gem 'devise'
-gem 'pundit', '~> 1.1'
-gem 'sendgrid', '~> 1.2', '>= 1.2.4'
-gem 'bcrypt', '3.1.7'
+gem 'pundit'
+gem 'sendgrid'
+gem 'bcrypt'
 gem 'pg'
 
-gem 'draper', '~> 1.4.0'
+gem 'draper'
 
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem "jquery-datatables-rails"
-gem 'react-rails', '~> 1.5.0'
-gem 'sprockets-coffee-react'
-gem 'cocoon', '~> 1.2', '>= 1.2.7'
-gem 'momentjs-rails', '>= 2.9.0'
+gem 'react-rails'
+gem 'cocoon'
+gem 'momentjs-rails'
 
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'jbuilder'
+gem 'sdoc', group: :doc
 gem 'rails_12factor', group: :production
 
 gem 'pry-rails'
 
 group :development, :test do
   gem 'bullet'
-  gem 'pry-byebug', '~> 3.0.1'
+  gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'

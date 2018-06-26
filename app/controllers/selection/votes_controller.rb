@@ -1,5 +1,5 @@
 class Selection::VotesController < ApplicationController
-  before_filter :authenticate_speaker!
+  before_action :authenticate_speaker!
 
   def create
     speaker_id = current_speaker.id

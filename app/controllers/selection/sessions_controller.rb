@@ -1,5 +1,5 @@
 class Selection::SessionsController < ApplicationController
-  before_filter :authenticate_speaker!
+  before_action :authenticate_speaker!
   before_action :authorize_selector!
 
   def index
