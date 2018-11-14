@@ -1,4 +1,4 @@
-class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
+class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration[5.2]
   class MigrationSubmissionUser < ActiveRecord::Base
     self.table_name = :submissions_users
   end
@@ -16,13 +16,13 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
   class MigrationFeedback < ActiveRecord::Base
     self.table_name = :feedbacks
 
-    belongs_to :submission, class: MigrationSubmission, foreign_key: :submission_id
+    belongs_to :submission, class_name: "MigrationSubmission", foreign_key: :submission_id
   end
 
   class MigrationSession < ActiveRecord::Base
     self.table_name = :sessions
 
-    has_many :feedbacks, class: MigrationFeedback, foreign_key: :session_id
+    has_many :feedbacks, class_name: "MigrationFeedback", foreign_key: :session_id
   end
 
   class MigrationSpeaker < ActiveRecord::Base
@@ -32,7 +32,7 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
   class MigrationSessionSpeaker < ActiveRecord::Base
     self.table_name = :sessions_speakers
 
-    belongs_to :speaker, class: MigrationSpeaker
+    belongs_to :speaker, class_name: "MigrationSpeaker"
   end
 
   def up

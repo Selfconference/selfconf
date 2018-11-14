@@ -1,4 +1,4 @@
-class MigrateUserFromSubmissions < ActiveRecord::Migration
+class MigrateUserFromSubmissions < ActiveRecord::Migration[5.2]
   class MigrationSubmissionUser < ActiveRecord::Base
     self.table_name = :submissions_users
   end

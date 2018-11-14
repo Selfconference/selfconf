@@ -1,4 +1,4 @@
-class RenameRolesUsersToRolesSpeakers < ActiveRecord::Migration
+class RenameRolesUsersToRolesSpeakers < ActiveRecord::Migration[5.2]
   def change
     rename_table :roles_users, :roles_speakers
 

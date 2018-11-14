@@ -1,4 +1,4 @@
-class CreateSubmissionsUsersJoinTable < ActiveRecord::Migration
+class CreateSubmissionsUsersJoinTable < ActiveRecord::Migration[5.2]
   def change
     create_table :submissions_users, id: false do |t|
       t.belongs_to :submission, index: true

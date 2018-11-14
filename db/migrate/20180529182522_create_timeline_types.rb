@@ -1,4 +1,4 @@
-class CreateTimelineTypes < ActiveRecord::Migration
+class CreateTimelineTypes < ActiveRecord::Migration[5.2]
   def up
     create_table :timeline_types do |t|
       t.string :name, null: false

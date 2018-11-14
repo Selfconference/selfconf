@@ -1,4 +1,4 @@
-class MigrateRoles < ActiveRecord::Migration
+class MigrateRoles < ActiveRecord::Migration[5.2]
   class MigrationUser < ActiveRecord::Base
     self.table_name = :users
     has_many :roles

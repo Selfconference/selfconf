@@ -1,4 +1,4 @@
-class CreateSessionsSpeakersJoinTable < ActiveRecord::Migration
+class CreateSessionsSpeakersJoinTable < ActiveRecord::Migration[5.2]
   def change
     create_table :sessions_speakers, id: false do |t|
       t.belongs_to :session, index: true

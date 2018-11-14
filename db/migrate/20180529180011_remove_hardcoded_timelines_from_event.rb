@@ -1,4 +1,4 @@
-class RemoveHardcodedTimelinesFromEvent < ActiveRecord::Migration
+class RemoveHardcodedTimelinesFromEvent < ActiveRecord::Migration[5.2]
   def change
     remove_column(:events, :sessions_published, :boolean)
     remove_column(:events, :submissions_start, :datetime)

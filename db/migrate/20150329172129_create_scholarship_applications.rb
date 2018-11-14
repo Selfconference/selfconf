@@ -1,4 +1,4 @@
-class CreateScholarshipApplications < ActiveRecord::Migration
+class CreateScholarshipApplications < ActiveRecord::Migration[5.2]
   def change
     create_table :scholarship_applications do |t|
       t.belongs_to :event

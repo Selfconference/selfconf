@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,224 +10,203 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602013124) do
+ActiveRecord::Schema.define(version: 2016_01_19_165206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.integer  "venue_id"
-    t.string   "name"
-    t.text     "about"
-    t.string   "twitter"
-    t.string   "lanyard"
-    t.string   "tickets_link"
-    t.string   "tickets_iframe_link"
+    t.bigint "venue_id"
+    t.string "name"
+    t.text "about"
+    t.string "twitter"
+    t.string "lanyard"
+    t.string "tickets_link"
+    t.string "tickets_iframe_link"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "extra"
-    t.string   "url"
-    t.string   "ga_tracking_id"
-    t.string   "tito_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "extra"
+    t.boolean "sessions_published"
+    t.datetime "submissions_start"
+    t.datetime "submissions_end"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "events_organizers", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "organizer_id"
+    t.bigint "event_id"
+    t.bigint "organizer_id"
+    t.index ["event_id"], name: "index_events_organizers_on_event_id"
+    t.index ["organizer_id"], name: "index_events_organizers_on_organizer_id"
   end
 
-  add_index "events_organizers", ["event_id"], name: "index_events_organizers_on_event_id", using: :btree
-  add_index "events_organizers", ["organizer_id"], name: "index_events_organizers_on_organizer_id", using: :btree
-
   create_table "feedbacks", force: :cascade do |t|
-    t.integer  "vote"
-    t.text     "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "session_id"
+    t.bigint "session_id"
+    t.integer "vote"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_feedbacks_on_session_id"
   end
 
   create_table "funding_meters", force: :cascade do |t|
-    t.integer  "event_id"
-    t.float    "current"
-    t.float    "goal"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "metric_types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "metrics", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "metric_type_id"
-    t.string   "name"
-    t.float    "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "event_id"
+    t.float "current"
+    t.float "goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_funding_meters_on_event_id"
   end
 
   create_table "organizers", force: :cascade do |t|
-    t.string   "name"
-    t.text     "bio"
-    t.string   "email"
-    t.string   "twitter"
-    t.string   "photo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles_speakers", force: :cascade do |t|
-    t.integer  "speaker_id"
-    t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.text "bio"
+    t.string "email"
+    t.string "twitter"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "event_id"
-    t.integer  "venue_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "order"
+    t.string "name"
+    t.bigint "event_id"
+    t.bigint "venue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_rooms_on_event_id"
+    t.index ["venue_id"], name: "index_rooms_on_venue_id"
   end
 
   create_table "scholarship_applications", force: :cascade do |t|
-    t.integer  "event_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "location"
-    t.string   "groups"
-    t.boolean  "needs_help_with_tickets"
-    t.boolean  "needs_help_with_travel"
-    t.boolean  "needs_help_with_other"
-    t.text     "financial_need_explanation"
-    t.text     "why_attend"
-    t.text     "special_accomodations"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "event_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "location"
+    t.string "groups"
+    t.boolean "needs_help_with_tickets"
+    t.boolean "needs_help_with_travel"
+    t.boolean "needs_help_with_other"
+    t.text "financial_need_explanation"
+    t.text "why_attend"
+    t.text "special_accomodations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_scholarship_applications_on_event_id"
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "abstract"
-    t.string   "talktype",                   null: false
-    t.string   "notes"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "selected",   default: false, null: false
-    t.integer  "room_id"
-    t.integer  "slot_id"
-    t.boolean  "keynote",    default: false, null: false
+    t.string "name"
+    t.text "abstract"
+    t.boolean "keynote"
+    t.bigint "event_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "slot"
+    t.index ["event_id"], name: "index_sessions_on_event_id"
+    t.index ["room_id"], name: "index_sessions_on_room_id"
   end
 
   create_table "sessions_speakers", id: false, force: :cascade do |t|
-    t.integer "session_id"
-    t.integer "speaker_id"
-  end
-
-  add_index "sessions_speakers", ["session_id"], name: "index_sessions_speakers_on_session_id", using: :btree
-  add_index "sessions_speakers", ["speaker_id"], name: "index_sessions_speakers_on_speaker_id", using: :btree
-
-  create_table "slots", force: :cascade do |t|
-    t.integer  "event_id"
-    t.datetime "time",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "end_time"
+    t.bigint "session_id"
+    t.bigint "speaker_id"
+    t.index ["session_id"], name: "index_sessions_speakers_on_session_id"
+    t.index ["speaker_id"], name: "index_sessions_speakers_on_speaker_id"
   end
 
   create_table "speakers", force: :cascade do |t|
-    t.string   "name",                               null: false
-    t.string   "email",                              null: false
-    t.string   "twitter"
-    t.text     "bio",                                null: false
-    t.string   "headshot",                           null: false
-    t.string   "encrypted_password",                 null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string "name"
+    t.string "twitter"
+    t.text "bio"
+    t.string "photo"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_speakers_on_event_id"
   end
 
-  add_index "speakers", ["email"], name: "index_speakers_on_email", unique: true, using: :btree
-  add_index "speakers", ["reset_password_token"], name: "index_speakers_on_reset_password_token", unique: true, using: :btree
-
   create_table "sponsor_levels", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "order"
+    t.string "name"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order"
+    t.index ["event_id"], name: "index_sponsor_levels_on_event_id"
   end
 
   create_table "sponsor_levels_sponsors", id: false, force: :cascade do |t|
-    t.integer "sponsor_id"
-    t.integer "sponsor_level_id"
+    t.bigint "sponsor_id"
+    t.bigint "sponsor_level_id"
+    t.index ["sponsor_id"], name: "index_sponsor_levels_sponsors_on_sponsor_id"
+    t.index ["sponsor_level_id"], name: "index_sponsor_levels_sponsors_on_sponsor_level_id"
   end
-
-  add_index "sponsor_levels_sponsors", ["sponsor_id"], name: "index_sponsor_levels_sponsors_on_sponsor_id", using: :btree
-  add_index "sponsor_levels_sponsors", ["sponsor_level_id"], name: "index_sponsor_levels_sponsors_on_sponsor_level_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "link"
-    t.string   "photo"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "link"
+    t.string "photo"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_sponsors_on_event_id"
   end
 
-  create_table "timeline_types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "submissions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "abstract"
+    t.string "talktype", null: false
+    t.string "notes"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["event_id"], name: "index_submissions_on_event_id"
   end
 
-  create_table "timelines", force: :cascade do |t|
-    t.datetime "when"
-    t.integer  "event_id"
-    t.integer  "timeline_type_id", null: false
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "twitter"
+    t.text "bio", null: false
+    t.string "headshot", null: false
+    t.string "encrypted_password", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.boolean "admin"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "timelines", ["event_id"], name: "index_timelines_on_event_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name"
-    t.text     "about"
-    t.string   "maps_link"
-    t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "reservation"
+    t.string "name"
+    t.text "about"
+    t.string "maps_link"
+    t.string "address"
+    t.bigint "events_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["events_id"], name: "index_venues_on_events_id"
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "value"
-    t.integer  "speaker_id"
-    t.integer  "session_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "value"
+    t.bigint "user_id"
+    t.bigint "submission_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["submission_id"], name: "index_votes_on_submission_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
 end
