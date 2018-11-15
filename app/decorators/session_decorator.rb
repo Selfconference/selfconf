@@ -6,24 +6,23 @@ class SessionDecorator < Draper::Decorator
   end
 
   def twitter_handles
-    speakers.pluck(:twitter).reject {|twitter| twitter.blank?}.map do |twitter|
+    speakers.pluck(:twitter).reject(&:blank?).map { |twitter|
       "<a href=\"http://twitter.com/#{twitter}\">@#{twitter}</a>"
-    end.join(", ")
+    }.join(", ")
   end
 
   def slot
-    "#{object.slot.time.strftime("%A")}, #{object.slot.time.in_time_zone("EST").strftime('%l:%M %p')}"
+    "#{object.slot.time.strftime("%A")}, #{object.slot.time.in_time_zone("EST").strftime("%l:%M %p")}"
   end
 
   def nav_speaker_display
     {
       id: speakers.first.id,
-      name: speaker_names
+      name: speaker_names,
     }
   end
 
   def name
     "#{if keynote then "Keynote - " end}#{object.name}"
   end
-
 end

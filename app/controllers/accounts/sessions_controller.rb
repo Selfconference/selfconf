@@ -28,7 +28,7 @@ class Accounts::SessionsController < ApplicationController
       flash[:success] = "Talk submitted!"
       redirect_to accounts_sessions_path
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -40,7 +40,7 @@ class Accounts::SessionsController < ApplicationController
       flash[:success] = "Talk updated!"
       redirect_to accounts_sessions_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 

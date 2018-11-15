@@ -1,5 +1,4 @@
 class ScholarshipApplicationsController < ApplicationController
-
   def index
   end
 
@@ -31,7 +30,7 @@ class ScholarshipApplicationsController < ApplicationController
       :needs_help_with_other,
       :financial_need_explanation,
       :why_attend,
-      :special_accomodations
+      :special_accomodations,
     ]
     params.require(:scholarship_application).permit(*permitted)
   end

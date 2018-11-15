@@ -1,5 +1,4 @@
 class VotePolicy < ApplicationPolicy
-
   def create?
     user.selector?
   end

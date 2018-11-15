@@ -16,7 +16,7 @@ class Admin::SessionsController < ApplicationController
 
   def make_schedule
     @schedule = @event.slots.includes(sessions: [:room, :speakers]).where(sessions: {selected: true}).group_by {|s| s.time.to_date}
-    @sessions = @event.sessions.includes(:speakers).selected.where('slot_id IS NULL').decorate
+    @sessions = @event.sessions.includes(:speakers).selected.where("slot_id IS NULL").decorate
     @rooms = @event.rooms
   end
 
@@ -25,5 +25,4 @@ class Admin::SessionsController < ApplicationController
     session.update_attributes(room_id: params[:room], slot_id: params[:slot])
     head :accepted
   end
-
 end

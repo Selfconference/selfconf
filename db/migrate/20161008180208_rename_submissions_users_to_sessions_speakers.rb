@@ -1,4 +1,4 @@
-class RenameSubmissionsUsersToSessionsSpeakers < ActiveRecord::Migration
+class RenameSubmissionsUsersToSessionsSpeakers < ActiveRecord::Migration[5.2]
   def change
     rename_table :submissions_users, :sessions_speakers
 

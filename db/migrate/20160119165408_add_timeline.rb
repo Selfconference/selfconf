@@ -1,4 +1,4 @@
-class AddTimeline < ActiveRecord::Migration
+class AddTimeline < ActiveRecord::Migration[5.2]
   def change
     create_table :timelines do |t|
       t.datetime :when

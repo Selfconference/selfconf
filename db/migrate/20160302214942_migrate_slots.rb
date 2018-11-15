@@ -1,4 +1,4 @@
-class MigrateSlots < ActiveRecord::Migration
+class MigrateSlots < ActiveRecord::Migration[5.2]
   class MigrationSlot < ActiveRecord::Base
     self.table_name = :slots
 
@@ -8,7 +8,7 @@ class MigrateSlots < ActiveRecord::Migration
   class MigrationSession < ActiveRecord::Base
     self.table_name = :sessions
 
-    belongs_to :slot, class_name: MigrationSlot
+    belongs_to :slot, class_name: "MigrationSlot"
     belongs_to :event
   end
 

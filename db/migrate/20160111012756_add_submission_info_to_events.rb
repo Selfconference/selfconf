@@ -1,4 +1,4 @@
-class AddSubmissionInfoToEvents < ActiveRecord::Migration
+class AddSubmissionInfoToEvents < ActiveRecord::Migration[5.2]
   def change
     add_column :events, :sessions_published, :boolean
     add_column :events, :submissions_start, :datetime

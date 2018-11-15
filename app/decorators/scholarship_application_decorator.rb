@@ -3,18 +3,17 @@ class ScholarshipApplicationDecorator < Draper::Decorator
 
   def help_needed
     [
-      [ "Ticket", needs_help_with_tickets ],
-      [ "Travel", needs_help_with_travel ],
-      [ "Other", needs_help_with_other ]
-    ].map do |type, value|
+      ["Ticket", needs_help_with_tickets],
+      ["Travel", needs_help_with_travel],
+      ["Other", needs_help_with_other],
+    ].map { |type, value|
       if value
         type
       end
-    end.compact.join(", ")
+    }.compact.join(", ")
   end
 
   def name
     "#{first_name} #{last_name}"
   end
-
 end

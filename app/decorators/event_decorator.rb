@@ -9,5 +9,4 @@ class EventDecorator < Draper::Decorator
 
     "#{month} #{start_day}-#{end_day}, #{year}"
   end
-
 end

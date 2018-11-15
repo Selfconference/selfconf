@@ -1,5 +1,4 @@
 class MetricsController < ApplicationController
-
   def index
     @expenses = MetricType.expense.metrics.where(event_id: @event)
     @revenues = MetricType.revenue.metrics.where(event_id: @event)
@@ -10,10 +9,8 @@ class MetricsController < ApplicationController
     @speakers_gender = MetricType.speaker_gender.metrics.where(event_id: @event)
     @speakers_race = MetricType.speaker_race.metrics.where(event_id: @event)
 
-
     @expense_total = @expenses.map(&:amount).reduce(:+) || 0
     @revenue_total = @revenues.map(&:amount).reduce(:+) || 0
     @total = @revenue_total - @expense_total
   end
-
 end

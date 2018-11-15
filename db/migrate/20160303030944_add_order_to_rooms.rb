@@ -1,4 +1,4 @@
-class AddOrderToRooms < ActiveRecord::Migration
+class AddOrderToRooms < ActiveRecord::Migration[5.2]
   def change
     add_column :rooms, :order, :integer
   end

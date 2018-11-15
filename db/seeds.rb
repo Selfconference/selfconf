@@ -14,20 +14,20 @@ event = Event.create! venue: venue,
               end_date: "2016-05-21 23:00:00"
 
 event.slots.create! [
-  { time: Date.parse("Fri, 20 May 2016 14:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 15:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 16:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 18:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 19:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 20:00:00 UTC +00:00") },
-  { time: Date.parse("Fri, 20 May 2016 21:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 14:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 15:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 16:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 18:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 19:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 20:00:00 UTC +00:00") },
-  { time: Date.parse("Sat, 21 May 2016 21:00:00 UTC +00:00") }
+  {time: Date.parse("Fri, 20 May 2016 14:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 15:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 16:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 18:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 19:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 20:00:00 UTC +00:00")},
+  {time: Date.parse("Fri, 20 May 2016 21:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 14:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 15:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 16:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 18:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 19:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 20:00:00 UTC +00:00")},
+  {time: Date.parse("Sat, 21 May 2016 21:00:00 UTC +00:00")},
 ]
 
 event.organizers.create! name: "your name",
@@ -40,12 +40,12 @@ venue.rooms.create! [
   {name: "Big Room", event_id: event.id, order: 0},
   {name: "Breakout 1", event_id: event.id, order: 1},
   {name: "Breakout 2", event_id: event.id, order: 2},
-  {name: "Breakout 3", event_id: event.id, order: 3}
+  {name: "Breakout 3", event_id: event.id, order: 3},
 ]
 
 event.sponsor_levels.create! [
   {name: "Platinum", order: 1},
   {name: "Gold", order: 2},
   {name: "Silver", order: 3},
-  {name: "Bronze", order: 4}
+  {name: "Bronze", order: 4},
 ]

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SessionTest < ActiveSupport::TestCase
   def test_not_voted_on_by_with_zero_votes

@@ -14,9 +14,9 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :slots, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :timelines, reject_if: :all_blank, allow_destroy: true
 
-  default_scope -> { order('start_date DESC') }
-  scope :latest, -> { order('start_date DESC').first }
-  scope :last_year, -> { order('start_date DESC').second }
+  default_scope -> { order("start_date DESC") }
+  scope :latest, -> { order("start_date DESC").first }
+  scope :last_year, -> { order("start_date DESC").second }
 
   def submissions_start
     timelines.find_by(timeline_type: TimelineType.find_by(name: TimelineType::SUBMISSIONS_START)).try(:when)
@@ -43,12 +43,12 @@ class Event < ActiveRecord::Base
   end
 
   def submissions_open?
-    return false if submissions_start.nil? or submissions_end.nil?
+    return false if submissions_start.nil? || submissions_end.nil?
     Time.now > submissions_start && Time.now < submissions_end
   end
 
   def scholarships_open?
-    return false if scholarships_start.nil? or scholarships_end.nil?
+    return false if scholarships_start.nil? || scholarships_end.nil?
     Time.now > scholarships_start && Time.now < scholarships_end
   end
 

@@ -5,5 +5,4 @@ class Selection::SessionsController < ApplicationController
   def index
     @sessions = Session.not_voted_on_by(current_speaker, @event)
   end
-
 end

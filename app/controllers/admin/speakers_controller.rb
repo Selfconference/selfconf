@@ -16,7 +16,7 @@ class Admin::SpeakersController < ApplicationController
       flash[:success] = "Speaker updated"
       redirect_to admin_speakers_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::SpeakersController < ApplicationController
       flash[:success] = "Speaker created"
       redirect_to admin_speakers_path
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -48,13 +48,13 @@ class Admin::SpeakersController < ApplicationController
   end
 
   def make_selector
-    role = Role.find_by(name: 'selector')
+    role = Role.find_by(name: "selector")
     toggle_role(role)
     redirect_to list_users_admin_speakers_path
   end
 
   def make_admin
-    role = Role.find_by(name: 'admin')
+    role = Role.find_by(name: "admin")
     toggle_role(role)
     redirect_to list_users_admin_speakers_path
   end
@@ -72,20 +72,20 @@ class Admin::SpeakersController < ApplicationController
 
   def speaker_params
     params.require(:speaker).permit(:name,
-                                    :bio,
-                                    :twitter,
-                                    :headshot,
-                                    sessions_attributes: [
-                                      :id,
-                                      :event_id,
-                                      :name,
-                                      :keynote,
-                                      :selected,
-                                      :abstract,
-                                      :talktype,
-                                      :room_id,
-                                      :slot_id,
-                                      :_destroy])
+      :bio,
+      :twitter,
+      :headshot,
+      sessions_attributes: [
+        :id,
+        :event_id,
+        :name,
+        :keynote,
+        :selected,
+        :abstract,
+        :talktype,
+        :room_id,
+        :slot_id,
+        :_destroy,
+      ])
   end
-
 end

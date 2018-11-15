@@ -5,5 +5,4 @@ class Admin::ScholarshipApplicationsController < ApplicationController
   def index
     @applications = @event.scholarship_applications.decorate
   end
-
 end

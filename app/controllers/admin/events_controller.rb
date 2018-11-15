@@ -7,7 +7,7 @@ class Admin::EventsController < ApplicationController
       flash[:success] = "Event updated"
       redirect_to admin_events_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -21,7 +21,7 @@ class Admin::EventsController < ApplicationController
       flash[:success] = "Event created"
       redirect_to admin_events_path
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -29,54 +29,57 @@ class Admin::EventsController < ApplicationController
 
   def speaker_params
     params.require(:speaker).permit(:name,
-                                    :bio,
-                                    :twitter,
-                                    :photo,
-                                    sessions_attributes: [
-                                      :id,
-                                      :event_id,
-                                      :name,
-                                      :keynote,
-                                      :abstract,
-                                      :room_id,
-                                      :slot,
-                                      :_destroy])
+      :bio,
+      :twitter,
+      :photo,
+      sessions_attributes: [
+        :id,
+        :event_id,
+        :name,
+        :keynote,
+        :abstract,
+        :room_id,
+        :slot,
+        :_destroy,
+      ])
   end
 
   def event_params
     params.require(:event).permit(:venue_id,
-                                  :name,
-                                  :about,
-                                  :twitter,
-                                  :lanyard,
-                                  :tickets_link,
-                                  :tickets_iframe_link,
-                                  :start_date,
-                                  :end_date,
-                                  :extra,
-                                  :sessions_published,
-                                  :submissions_start,
-                                  :submissions_end,
-                                  :scholarships_start,
-                                  :scholarships_end,
-                                  :scholarships_announce,
-                                  sponsors_attributes: [
-                                    :id,
-                                    :name,
-                                    :link,
-                                    :photo,
-                                    :_destroy,
-                                    sponsor_level_ids: []],
-                                 slots_attributes: [
-                                    :id,
-                                    :time,
-                                    :end_time,
-                                    :_destroy],
-                                 timelines_attributes: [
-                                    :id,
-                                    :timeline_type_id,
-                                    :when,
-                                    :_destroy])
+      :name,
+      :about,
+      :twitter,
+      :lanyard,
+      :tickets_link,
+      :tickets_iframe_link,
+      :start_date,
+      :end_date,
+      :extra,
+      :sessions_published,
+      :submissions_start,
+      :submissions_end,
+      :scholarships_start,
+      :scholarships_end,
+      :scholarships_announce,
+      sponsors_attributes: [
+        :id,
+        :name,
+        :link,
+        :photo,
+        :_destroy,
+        sponsor_level_ids: [],
+      ],
+     slots_attributes: [
+       :id,
+       :time,
+       :end_time,
+       :_destroy,
+     ],
+     timelines_attributes: [
+       :id,
+       :timeline_type_id,
+       :when,
+       :_destroy,
+     ])
   end
-
 end

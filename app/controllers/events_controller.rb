@@ -1,17 +1,16 @@
 class EventsController < ApplicationController
-
   ALLOWED_IN_JSON = {include: {
-                      organizers: { only: [:id, :name, :bio, :email, :twitter, :photo] },
-                      venue: {only: [:id, :name, :address, :about]}
-                    },
-                    only: [:id, :name, :about, :twitter, :lanyard, :start_date, :end_date, :venue_id]}
+    organizers: {only: [:id, :name, :bio, :email, :twitter, :photo]},
+    venue: {only: [:id, :name, :address, :about]},
+  },
+                     only: [:id, :name, :about, :twitter, :lanyard, :start_date, :end_date, :venue_id],}
   def latest
     render json: Event.latest.to_json(ALLOWED_IN_JSON)
   end
 
   def index
-    events = Event.order('start_date DESC')
-    events = events.where('updated_at > ?', params[:from_date]) if params[:from_date]
+    events = Event.order("start_date DESC")
+    events = events.where("updated_at > ?", params[:from_date]) if params[:from_date]
     render json: events.to_json(ALLOWED_IN_JSON)
   end
 

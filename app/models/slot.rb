@@ -6,17 +6,17 @@ class Slot < ActiveRecord::Base
 
   def time_slot
     if time.beginning_of_hour == time
-      "#{time.in_time_zone('EST').strftime('%l')} - #{slot_end}"
+      "#{time.in_time_zone("EST").strftime("%l")} - #{slot_end}"
     else
-      "#{time.in_time_zone('EST').strftime('%l:%M')} - #{slot_end}"
+      "#{time.in_time_zone("EST").strftime("%l:%M")} - #{slot_end}"
     end
   end
 
   def slot_end
     if end_time
-      end_time.in_time_zone('EST').strftime('%l:%M %p')
+      end_time.in_time_zone("EST").strftime("%l:%M %p")
     else
-      (time + 45.minutes).in_time_zone('EST').strftime('%l:%M %p')
+      (time + 45.minutes).in_time_zone("EST").strftime("%l:%M %p")
     end
   end
 end

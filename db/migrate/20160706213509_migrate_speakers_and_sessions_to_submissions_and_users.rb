@@ -1,4 +1,4 @@
-class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
+class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration[5.2]
   class MigrationSubmissionUser < ActiveRecord::Base
     self.table_name = :submissions_users
   end
@@ -16,13 +16,13 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
   class MigrationFeedback < ActiveRecord::Base
     self.table_name = :feedbacks
 
-    belongs_to :submission, class: MigrationSubmission, foreign_key: :submission_id
+    belongs_to :submission, class_name: "MigrationSubmission", foreign_key: :submission_id
   end
 
   class MigrationSession < ActiveRecord::Base
     self.table_name = :sessions
 
-    has_many :feedbacks, class: MigrationFeedback, foreign_key: :session_id
+    has_many :feedbacks, class_name: "MigrationFeedback", foreign_key: :session_id
   end
 
   class MigrationSpeaker < ActiveRecord::Base
@@ -32,27 +32,25 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
   class MigrationSessionSpeaker < ActiveRecord::Base
     self.table_name = :sessions_speakers
 
-    belongs_to :speaker, class: MigrationSpeaker
+    belongs_to :speaker, class_name: "MigrationSpeaker"
   end
 
   def up
     MigrationSession.find_each do |session|
-      begin
-        sub = MigrationSubmission.where(event_id: session.event_id, talkname: session.name)
-        if sub.count > 0
-          sub = sub.first
-          sub.update_attributes(selected: true,
-                                room_id: session.room_id,
-                                slot_id: session.slot_id,
-                                keynote: session.keynote)
-          associate_speakers(session, sub)
-          associate_feedback(session, sub)
-        else
-          migrate_new(session)
-        end
-      rescue
+      sub = MigrationSubmission.where(event_id: session.event_id, talkname: session.name)
+      if sub.count > 0
+        sub = sub.first
+        sub.update_attributes(selected: true,
+                              room_id: session.room_id,
+                              slot_id: session.slot_id,
+                              keynote: session.keynote)
+        associate_speakers(session, sub)
+        associate_feedback(session, sub)
+      else
         migrate_new(session)
       end
+    rescue
+      migrate_new(session)
     end
   end
 
@@ -68,7 +66,7 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
   def create_submission(session)
     MigrationSubmission.create!(talkname: session.name,
                                 abstract: session.abstract,
-                                talktype: 'unknown',
+                                talktype: "unknown",
                                 event_id: session.event_id,
                                 selected: true,
                                 room_id: session.room_id,
@@ -99,12 +97,12 @@ class MigrateSpeakersAndSessionsToSubmissionsAndUsers < ActiveRecord::Migration
         end
       end
     end
+  end
 
-    def associate_feedback(session, sub)
-      session.feedbacks.each do |feedback|
-        feedback.submission = sub
-        feedback.save!
-      end
+  def associate_feedback(session, sub)
+    session.feedbacks.each do |feedback|
+      feedback.submission = sub
+      feedback.save!
     end
   end
 end

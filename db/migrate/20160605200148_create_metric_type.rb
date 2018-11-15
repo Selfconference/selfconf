@@ -1,4 +1,4 @@
-class CreateMetricType < ActiveRecord::Migration
+class CreateMetricType < ActiveRecord::Migration[5.2]
   class MigrationMetricType < ActiveRecord::Base
     self.table_name = :metric_types
   end
@@ -10,9 +10,9 @@ class CreateMetricType < ActiveRecord::Migration
       t.timestamps
     end
 
-    MigrationMetricType.create(name: 'Expense')
-    MigrationMetricType.create(name: 'Revenue')
-    MigrationMetricType.create(name: 'Attendee')
-    MigrationMetricType.create(name: 'Speaker')
+    MigrationMetricType.create(name: "Expense")
+    MigrationMetricType.create(name: "Revenue")
+    MigrationMetricType.create(name: "Attendee")
+    MigrationMetricType.create(name: "Speaker")
   end
 end

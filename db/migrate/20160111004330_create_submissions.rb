@@ -1,4 +1,4 @@
-class CreateSubmissions < ActiveRecord::Migration
+class CreateSubmissions < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       t.string :name, null: false
@@ -13,7 +13,7 @@ class CreateSubmissions < ActiveRecord::Migration
     end
 
     create_table :submissions do |t|
-      t.string :name, null: false
+      t.string :talkname, null: false
       t.text :abstract, null: false
       t.string :talktype, null: false
       t.string :notes

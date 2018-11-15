@@ -1,5 +1,4 @@
 class SessionPolicy < ApplicationPolicy
-
   def index?
     speaker.selector?
   end

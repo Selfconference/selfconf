@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   protected
 
   def update_resource(resource, params)
@@ -10,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     accounts_sessions_path
   end
 

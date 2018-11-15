@@ -1,16 +1,16 @@
-class MigrateRoles < ActiveRecord::Migration
+class MigrateRoles < ActiveRecord::Migration[5.2]
   class MigrationUser < ActiveRecord::Base
     self.table_name = :users
     has_many :roles
   end
 
   def up
-    adminRole = Role.find_by_name("admin")
-    selectorRole = Role.find_by_name("selector")
+    admin_role = Role.find_by_name("admin")
+    selector_role = Role.find_by_name("selector")
     MigrationUser.find_each do |user|
       if user.admin == true
-        user.roles << adminRole
-        user.roles << selectorRole
+        user.roles << admin_role
+        user.roles << selector_role
       end
     end
   end
