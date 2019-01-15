@@ -77,6 +77,7 @@ class Admin::EventsController < ApplicationController
     params.require(:event).permit(:venue_id,
       :name,
       :about,
+      :venue_id,
       :twitter,
       :lanyard,
       :tickets_link,

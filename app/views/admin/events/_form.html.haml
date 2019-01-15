@@ -12,9 +12,9 @@
       = f.text_area :about, class: 'form-control', rows: 5
 
   .form-group
-    = f.label :venue, class: 'col-sm-2 control-label'
+    = f.label :venue_id, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :venue, Venue.all.collect {|v| [v.name, v.id]}, {include_blank: false}, {class: 'form-control'}
+      = f.select :venue_id, Venue.all.collect {|v| [v.name, v.id]}, {include_blank: false}, {class: 'form-control'}
 
   .form-group
     = f.label :twitter, class: 'col-sm-2 control-label'
