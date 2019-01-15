@@ -20,3 +20,4 @@
                 %td.actions
                   %btn= link_to "Edit", edit_admin_event_path(event), class: "btn small-button purple-button"
                   %btn= link_to "Delete", admin_event_path(event), method: :delete, class: "btn small-button red-button"
+                  %btn= link_to "Duplicate", duplicate_admin_event_path(event), class: "btn small-button orange-button"

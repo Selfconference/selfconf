@@ -25,6 +25,35 @@ class Admin::EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event.destroy!
+    render "index"
+  end
+
+  def duplicate
+    last_year = Event.latest
+    this_year = Event.create(
+      name: last_year.name,
+      about: last_year.about,
+      venue_id: last_year.venue_id,
+      twitter: last_year.twitter,
+      lanyard: last_year.lanyard,
+      start_date: last_year.start_date + 1.year,
+      end_date: last_year.end_date + 1.year)
+    last_year.timelines.each do |timeline|
+      this_year.timelines.create(timeline_type_id: timeline.timeline_type_id, when: timeline.when + 1.year)
+    end
+    last_year.slots.each do |slot|
+      this_year.slots.create(time: slot.time + 1.year, end_time: slot.end_time + 1.year)
+    end
+    last_year.organizers.each do |organizer|
+      this_year.organizers.push(organizer)
+    end
+    this_year.save!
+    @event = this_year
+    render "edit"
+  end
+
   private
 
   def speaker_params

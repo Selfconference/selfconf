@@ -58,7 +58,11 @@ Rails.application.routes.draw do
         get "selectors"
       end
     end
-    resources :events
+    resources :events do
+      member do
+        get "duplicate"
+      end
+    end
     resources :scholarship_applications, only: :index
     resources :speakers, only: :index do
       member do
