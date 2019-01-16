@@ -26,10 +26,8 @@
               %tr
                 %th= check_box_tag 'select-all', '0', false, class: 'select-all'
                 %th.col-md-1 Votes
-                %th.col-md-2 Name
-                %th.col-md-2 Email
-                %th.col-md-3 Talk Name
-                %th Type
+                %th.col-md-9 Talk Name
+                %th.col-md-2 Type
             %tbody
               - @sessions.each do |session|
                 %tr
@@ -38,7 +36,5 @@
                   %td
                     .center-wrapper
                       = session.votes.pluck(:value).reduce(:+)
-                  %td= session.speakers.map(&:name).join(", ")
-                  %td= session.speakers.map(&:email).join(", ")
                   %td= session.name
                   %td= session.talktype
