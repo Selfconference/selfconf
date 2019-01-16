@@ -159,18 +159,20 @@
           %h1 ORGANIZERS
   .blue_block
     .container
-      .row
-        -@event.organizers.each do |organizer|
-          %div{class: "col-md-#{12/@event.organizers.length}"}
-            %img.img-responsive.img-rounded.speaker-img{:src => organizer.photo}/
-            %h4= organizer.name
-            %p= simple_format organizer.bio
-            %p
-              ="Want to email #{organizer.name.split(" ").first}? Do it: "
-              = succeed ". " do
-                %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
-              ="Or send a tweet!"
-              %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
+      -@event.organizers.each_slice(3) do |organizers|
+        .row
+          -organizers.each do |organizer|
+            -col_class = organizers.length > 1 ? "col-md-#{12/organizers.length}" : "col-md-4 col-md-offset-4"
+            %div{class: col_class}
+              %img.img-responsive.img-rounded.speaker-img{:src => organizer.photo}/
+              %h4= organizer.name
+              %p= simple_format organizer.bio
+              %p
+                ="Want to email #{organizer.name.split(" ").first}? Do it: "
+                = succeed ". " do
+                  %a{:href => "mailto:#{organizer.email}"}= "#{organizer.email}"
+                ="Or send a tweet!"
+                %a{:href => "http://twitter.com/#{organizer.twitter}"}= "@#{organizer.twitter}"
       .row
         .col-md-12
           .center-wrapper
