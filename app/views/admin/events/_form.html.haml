@@ -46,35 +46,60 @@
     .col-md-10
       = f.text_area :extra, class: 'form-control'
 
-  .col-md-offset-2.col-md-10.well
-    %h4 Timelines
-    = f.fields_for :timelines do  |slot|
-      = render 'timeline_fields', f: slot
-    .links
-      = link_to_add_association 'add timeline', f, :timelines, class: "btn small-button purple-button"
+  .panel-group.col-md-12#accordion{role: "tablist", "aria-multiselectable" => "true"}
+    .panel-heading#headingOne{role: "tab"}
+      %h4
+        %a.collapsed{href: "#collapseOne", role: "button", "data-toggle" => "collapse", "data-parent" => "#accordion", "aria-expanded" => "false", "aria-controls" => "collapseOne"}
+          Timelines
+          %span.glyphicon.glyphicon-chevron-down{"aria-hidden" => "true"}
 
-  .col-md-offset-2.col-md-10.well
-    %h4 Slots
-    = f.fields_for :slots do  |slot|
-      = render 'slot_fields', f: slot
-    .links
-      = link_to_add_association 'add slot', f, :slots, class: "btn small-button purple-button"
+    #collapseOne.col-md-offset-2.col-md-10.panel-collapse.collapse{role: "tabpanel", "aria-labelledby" => "headingOne"}
+      .well
+        = f.fields_for :timelines do  |slot|
+          = render 'timeline_fields', f: slot
+        .links
+          = link_to_add_association 'add timeline', f, :timelines, class: "btn small-button purple-button"
 
-  .col-md-offset-2.col-md-10.well
-    %h4 Sponsors
-    = f.fields_for :sponsors do  |sponsor|
-      = render 'sponsor_fields', f: sponsor
-    .links
-      = link_to_add_association 'add sponsor', f, :sponsors, class: "btn small-button purple-button"
+    .panel-heading#headingTwo{role: "tab"}
+      %h4
+        %a.collapsed{href: "#collapseTwo", role: "button", "data-toggle" => "collapse", "data-parent" => "#accordion", "aria-expanded" => "false", "aria-controls" => "collapseTwo"}
+          Slots
+          %span.glyphicon.glyphicon-chevron-down{"aria-hidden" => "true"}
 
-  .col-md-offset-2.col-md-10.well
-    %h4 Metrics
-    = f.fields_for :metrics do  |metric|
-      = render 'metric_fields', f: metric
-    .links
-      = link_to_add_association 'add metric', f, :metrics, class: "btn small-button purple-button"
+    #collapseTwo.col-md-offset-2.col-md-10.panel-collapse.collapse{role: "tabpanel", "aria-labelledby" => "headingTwo"}
+      .well
+        = f.fields_for :slots do  |slot|
+          = render 'slot_fields', f: slot
+        .links
+          = link_to_add_association 'add slot', f, :slots, class: "btn small-button purple-button"
 
-  .form-group
-    .col-md-offset-2.col-md-10
-      = f.submit "Submit", class: "btn button orange-button"
-      = link_to "Cancel", admin_events_path, class: "btn button orange-button"
+    .panel-heading#headingThree{role: "tab"}
+      %h4
+        %a.collapsed{href: "#collapseThree", role: "button", "data-toggle" => "collapse", "data-parent" => "#accordion", "aria-expanded" => "false", "aria-controls" => "collapseThree"}
+          Sponsors
+          %span.glyphicon.glyphicon-chevron-down{"aria-hidden" => "true"}
+
+    #collapseThree.col-md-offset-2.col-md-10.panel-collapse.collapse{role: "tabpanel", "aria-labelledby" => "headingThree"}
+      .well
+        = f.fields_for :sponsors do  |sponsor|
+          = render 'sponsor_fields', f: sponsor
+        .links
+          = link_to_add_association 'add sponsor', f, :sponsors, class: "btn small-button purple-button"
+
+    .panel-heading#headingFour{role: "tab"}
+      %h4
+        %a.collapsed{href: "#collapseFour", role: "button", "data-toggle" => "collapse", "data-parent" => "#accordion", "aria-expanded" => "false", "aria-controls" => "collapseFour"}
+          Metrics
+          %span.glyphicon.glyphicon-chevron-down{"aria-hidden" => "true"}
+
+    #collapseFour.col-md-offset-2.col-md-10.panel-collapse.collapse{role: "tabpanel", "aria-labelledby" => "headingFour"}
+      .well
+        = f.fields_for :metrics do  |metric|
+          = render 'metric_fields', f: metric
+        .links
+          = link_to_add_association 'add metric', f, :metrics, class: "btn small-button purple-button"
+
+    .form-group
+      .col-md-offset-2.col-md-10
+        = f.submit "Submit", class: "btn button orange-button"
+        = link_to "Cancel", admin_events_path, class: "btn button orange-button"
