@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :sponsors, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :slots, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :timelines, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :metrics, reject_if: :all_blank, allow_destroy: true
 
   default_scope -> { order("start_date DESC") }
   scope :latest, -> { order("start_date DESC").first }

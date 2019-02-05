@@ -72,6 +72,13 @@
     .links
       = link_to_add_association 'add sponsor', f, :sponsors, class: "btn small-button purple-button"
 
+  .col-md-offset-2.col-md-10.well
+    %h4 Metrics
+    = f.fields_for :metrics do  |metric|
+      = render 'metric_fields', f: metric
+    .links
+      = link_to_add_association 'add metric', f, :metrics, class: "btn small-button purple-button"
+
   .form-group
     .col-md-offset-2.col-md-10
       = f.submit "Submit", class: "btn button orange-button"

@@ -99,17 +99,24 @@ class Admin::EventsController < ApplicationController
         :_destroy,
         sponsor_level_ids: [],
       ],
-     slots_attributes: [
-       :id,
-       :time,
-       :end_time,
-       :_destroy,
-     ],
-     timelines_attributes: [
-       :id,
-       :timeline_type_id,
-       :when,
-       :_destroy,
-     ])
+      slots_attributes: [
+        :id,
+        :time,
+        :end_time,
+        :_destroy,
+      ],
+      timelines_attributes: [
+        :id,
+        :timeline_type_id,
+        :when,
+        :_destroy,
+      ],
+      metrics_attributes: [
+        :id,
+        :metric_type_id,
+        :name,
+        :amount,
+        :_destroy,
+      ])
   end
 end
