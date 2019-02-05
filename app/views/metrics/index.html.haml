@@ -7,97 +7,105 @@
         .row
           .col-md-6
             .well
-              %h3 Dollars
+              %h3.center Dollars
               - unless @expenses.empty?
                 .conf-expenses
-                  %h4 Expenses
+                  %h4.center Expenses
                   - @expenses.each do |expense|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{expense.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_currency(expense.amount)
 
               - unless @revenues.empty?
                 .revenue
-                  %h4 Revenue
+                  %h4.center Revenue
                   - @revenues.each do |revenue|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{revenue.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_currency(revenue.amount)
 
               .totals
-                %h4 Totals
+                %h4.center Totals
                 .row
-                  .col-md-5.right.bold
+                  .col-md-6.right.bold
                     Expenses:
-                  .col-md-7
+                  .col-md-6
                     = number_to_currency(@expense_total)
 
                 .row
-                  .col-md-5.right.bold
+                  .col-md-6.right.bold
                     Revenue:
-                  .col-md-7
+                  .col-md-6
                     = number_to_currency(@revenue_total)
 
                 .row
-                  .col-md-5.right.bold
+                  .col-md-6.right.bold
                     Total:
-                  .col-md-7.bold
+                  .col-md-6.bold
                     = number_to_currency(@total)
 
           .col-md-6
             .well
               .humans
-                %h3 Humans
+                %h3.center Humans
                 .attendees
-                  %h4 All Attendees
+                  %h4.center All Attendees
                   - @attendees.each do |attendee|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{attendee.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(attendee.amount)
                 .attendees
-                  %h5 Gender
+                  .row
+                    .col-md-6
+                      %h5.right Gender
                   - @attendees_gender.each do |attendee|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{attendee.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(attendee.amount)
                 .attendees
-                  %h5 Race
+                  .row
+                    .col-md-6
+                      %h5.right Race
                   - @attendees_race.each do |attendee|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{attendee.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(attendee.amount)
 
                 .speakers
-                  %h4 Speakers
+                  %h4.center Speakers
                   - @speakers.each do |speaker|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{speaker.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(speaker.amount)
                 .speakers
-                  %h5 Gender
+                  .row
+                    .col-md-6
+                      %h5.right Gender
                   - @speakers_gender.each do |speaker|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{speaker.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(speaker.amount)
                 .speakers
-                  %h5 Race
+                  .row
+                    .col-md-6
+                      %h5.right Race
                   - @speakers_race.each do |speaker|
                     .row
-                      .col-md-5.right.bold
+                      .col-md-6.right.bold
                         = "#{speaker.name}:"
-                      .col-md-7
+                      .col-md-6
                         = number_to_human(speaker.amount)

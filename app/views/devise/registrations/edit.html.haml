@@ -10,57 +10,57 @@
           = devise_error_messages!
 
           .form-group
-            = f.label :name, class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :name, class: 'col-md-2 control-label'
+            .col-md-10
               = f.text_field :name, class: 'form-control'
 
           .form-group
-            = f.label :twitter, class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :twitter, class: 'col-md-2 control-label'
+            .col-md-10
               = f.text_field :twitter, class: 'form-control'
 
           .form-group
-            = f.label :bio, class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :bio, class: 'col-md-2 control-label'
+            .col-md-10
               = f.text_area :bio, class: 'form-control', rows: 7
 
           .form-group
-            = f.label :headshot, "Headshot URL", class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :headshot, "Headshot URL", class: 'col-md-2 control-label'
+            .col-md-10
               = f.url_field :headshot, class: 'form-control'
 
           .form-group
-            = f.label :email, class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :email, class: 'col-md-2 control-label'
+            .col-md-10
               = f.email_field :email, autofocus: true, class: 'form-control'
 
           .form-group
-            .col-sm-offset-2.col-sm-10
+            .col-md-offset-2.col-md-10
               - if devise_mapping.confirmable? && resource.pending_reconfirmation?
                 %div= "Currently waiting confirmation for: #{resource.unconfirmed_email}"
 
           .form-group
-            = f.label :password, class: 'col-sm-2 control-label' do
+            = f.label :password, class: 'col-md-2 control-label' do
               Password
               %em (leave blank if you don't want to change it)
               - if @minimum_password_length
                 %em= "(#{@minimum_password_length} characters minimum)"
-            .col-sm-10
+            .col-md-10
               = f.password_field :password, autocomplete: "off", class: 'form-control'
 
           .form-group
-            = f.label :password_confirmation, class: 'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :password_confirmation, class: 'col-md-2 control-label'
+            .col-md-10
               = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
           .form-group
-            = f.label :current_password, class: 'col-sm-2 control-label' do
+            = f.label :current_password, class: 'col-md-2 control-label' do
               Current password
               %em (we need your current password to confirm your changes)
-            .col-sm-10
+            .col-md-10
               = f.password_field :current_password, autocomplete: "off", class: 'form-control'
 
           .form-group
-            .col-sm-offset-2.col-sm-10
+            .col-md-offset-2.col-md-10
               = f.submit "Update profile", class: "btn button orange-button"
               = link_to "Cancel", :back, class: "btn button orange-button"

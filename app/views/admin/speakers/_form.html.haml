@@ -3,32 +3,32 @@
 
 
   .form-group
-    = f.label :name, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :name, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :twitter, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :twitter, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :twitter, class: 'form-control'
 
   .form-group
-    = f.label :bio, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :bio, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_area :bio, class: 'form-control'
 
   .form-group
-    = f.label :headshot, "Headshot URL", class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :headshot, "Headshot URL", class: 'col-md-2 control-label'
+    .col-md-10
       = f.url_field :headshot, class: 'form-control'
 
-  .col-sm-offset-2.col-sm-10
+  .col-md-offset-2.col-md-10
     = f.fields_for :sessions do  |session|
       = render 'session_fields', f: session
     .links
       = link_to_add_association 'add session', f, :sessions, class: "btn small-button purple-button"
 
   .form-group
-    .col-sm-offset-2.col-sm-10
+    .col-md-offset-2.col-md-10
       = f.submit "Submit", class: "btn button orange-button"
       = link_to "Cancel", admin_speakers_path, class: "btn button orange-button"

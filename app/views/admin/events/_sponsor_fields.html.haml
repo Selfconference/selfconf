@@ -1,24 +1,24 @@
 .well.nested-fields
   .form-group
-    = f.label :name, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :name, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :link, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :link, class: 'col-md-2 control-label'
+    .col-md-10
       = f.url_field :link, class: 'form-control'
 
   .form-group
-    = f.label :photo, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :photo, class: 'col-md-2 control-label'
+    .col-md-10
       = f.url_field :photo, class: 'form-control'
 
   .form-group
-    = f.label :sponsor_level_ids, "Sponsor Levels", class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :sponsor_level_ids, "Sponsor Levels", class: 'col-md-2 control-label'
+    .col-md-10
       = f.select :sponsor_level_ids, @event.sponsor_levels.collect { |l| [ l.name, l.id ] }, {include_blank: false}, {class: 'form-control', multiple: true}
 
   .form-group
-    .col-sm-12
+    .col-md-12
       = link_to_remove_association "remove sponsor", f, class: "pull-right btn small-button red-button"

@@ -2,26 +2,26 @@
   = render 'shared/error_messages', object: f.object
 
   .form-group
-    = f.label :name, "Title", class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :name, "Title", class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :abstract, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :abstract, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_area :abstract, class: 'form-control', rows: 10
 
   .form-group
-    = f.label :talktype, "Type of Talk", class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :talktype, "Type of Talk", class: 'col-md-2 control-label'
+    .col-md-10
       = f.select(:talktype, options_for_select([["People Talk", "people"], ["Technical Talk", "tech"]], f.object.talktype))
 
   .form-group
-    = f.label :notes, "Notes to the panel", class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :notes, "Notes to the panel", class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_area :notes, class: 'form-control', rows: 10
 
   .form-group
-    .col-sm-offset-2.col-sm-10
+    .col-md-offset-2.col-md-10
       = f.submit "Submit", class: "btn button orange-button"
       = link_to "Cancel", accounts_sessions_path, class: "btn button orange-button"

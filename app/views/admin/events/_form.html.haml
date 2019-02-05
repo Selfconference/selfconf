@@ -2,76 +2,77 @@
   = render 'shared/error_messages', object: f.object
 
   .form-group
-    = f.label :name, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :name, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :about, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :about, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_area :about, class: 'form-control', rows: 5
 
   .form-group
-    = f.label :venue_id, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :venue_id, class: 'col-md-2 control-label'
+    .col-md-10
       = f.select :venue_id, Venue.all.collect {|v| [v.name, v.id]}, {include_blank: false}, {class: 'form-control'}
 
   .form-group
-    = f.label :twitter, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :twitter, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :twitter, class: 'form-control'
 
   .form-group
-    = f.label :lanyard, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :lanyard, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_field :lanyard, class: 'form-control'
 
   .form-group
-    = f.label :tickets_link, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :tickets_link, class: 'col-md-2 control-label'
+    .col-md-10
       = f.url_field :tickets_link, class: 'form-control'
 
   .form-group
-    = f.label :tickets_iframe_link, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :tickets_iframe_link, class: 'col-md-2 control-label'
+    .col-md-10
       = f.url_field :tickets_iframe_link, class: 'form-control'
 
   .form-group
-    = f.label :start_date, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :start_date, class: 'col-md-2 control-label'
+    .col-md-10
       = f.datetime_local_field :start_date, class: 'form-control'
 
   .form-group
-    = f.label :end_date, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :end_date, class: 'col-md-2 control-label'
+    .col-md-10
       = f.datetime_local_field :end_date, class: 'form-control'
 
   .form-group
-    = f.label :extra, class: 'col-sm-2 control-label'
-    .col-sm-10
+    = f.label :extra, class: 'col-md-2 control-label'
+    .col-md-10
       = f.text_area :extra, class: 'form-control'
 
-  .col-sm-offset-2.col-sm-10.well
+  .col-md-offset-2.col-md-10.well
     %h4 Timelines
     = f.fields_for :timelines do  |slot|
       = render 'timeline_fields', f: slot
     .links
       = link_to_add_association 'add timeline', f, :timelines, class: "btn small-button purple-button"
 
-  .col-sm-offset-2.col-sm-10.well
+  .col-md-offset-2.col-md-10.well
     %h4 Slots
     = f.fields_for :slots do  |slot|
       = render 'slot_fields', f: slot
     .links
       = link_to_add_association 'add slot', f, :slots, class: "btn small-button purple-button"
 
-  .col-sm-offset-2.col-sm-10
+  .col-md-offset-2.col-md-10.well
+    %h4 Sponsors
     = f.fields_for :sponsors do  |sponsor|
       = render 'sponsor_fields', f: sponsor
     .links
       = link_to_add_association 'add sponsor', f, :sponsors, class: "btn small-button purple-button"
 
   .form-group
-    .col-sm-offset-2.col-sm-10
+    .col-md-offset-2.col-md-10
       = f.submit "Submit", class: "btn button orange-button"
       = link_to "Cancel", admin_events_path, class: "btn button orange-button"
