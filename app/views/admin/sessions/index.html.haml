@@ -11,7 +11,10 @@
         - else
           .pull-left
             %span.bold
-              Total
+              Total Submitters
+            = ": #{@sessions.collect(&:speakers).flatten.collect(&:id).uniq.count}"
+            %span.bold
+              Total Sessions
             = ": #{@sessions.count}"
             %span.bold
               People
