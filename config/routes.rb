@@ -48,7 +48,7 @@ Rails.application.routes.draw do
         post "schedule"
       end
       collection do
-        post "make_session"
+        get "export"
         get "make_schedule"
       end
     end

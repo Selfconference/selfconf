@@ -1,9 +1,10 @@
 class Admin::SessionsController < ApplicationController
   before_action :authenticate_speaker!
   before_action :authorize_admin!
+  before_action :sessions
 
-  def index
-    @sessions = Session.includes(:speakers).where(event_id: @event)
+  def export
+    send_data @sessions.to_csv, filename: "speakers-#{Date.today}.csv"
   end
 
   def make_session
@@ -24,5 +25,11 @@ class Admin::SessionsController < ApplicationController
     session = Session.find(params[:id])
     session.update_attributes(room_id: params[:room], slot_id: params[:slot])
     head :accepted
+  end
+
+  private
+
+  def sessions
+    @sessions ||= Session.includes(:speakers).includes(:votes).where(event_id: @event)
   end
 end

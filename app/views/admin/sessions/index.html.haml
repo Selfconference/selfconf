@@ -23,6 +23,7 @@
               Tech
             = ": #{@sessions.where(talktype: 'tech').count}"
           .pull-right
+            = link_to "Export Sessions", export_admin_sessions_path, class: "button export orange-button"
             %button.promote.button.purple-button Promote selected to sessions
           %table.datatable.table.table-striped.table-bordered{data: { pagelength: 35, sortcolumn: 1, sortorder: 'desc' }}
             %thead
@@ -38,6 +39,6 @@
                     = check_box_tag 'selected', '0', false, class: 'selected', data: { id: session.id } unless session.selected
                   %td
                     .center-wrapper
-                      = session.votes.pluck(:value).reduce(:+)
+                      = session.total_votes
                   %td= session.name
                   %td= session.talktype
