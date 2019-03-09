@@ -7,12 +7,16 @@ class Admin::SessionsController < ApplicationController
     send_data @sessions.to_csv, filename: "speakers-#{Date.today}.csv"
   end
 
-  def make_session
-    @sessions = Session.where(id: params[:ids])
+  def promote_session
     @sessions.each do |session|
+      session.update_attributes(selected: false)
+    end
+    sessions_to_promote = @sessions.where(id: params[:ids])
+    sessions_to_promote.each do |session|
       session.update_attributes(selected: true)
     end
-    redirect_to root_path
+    flash[:success] = "Session Selections Updated"
+    head :accepted
   end
 
   def make_schedule

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       end
       collection do
         get "export"
+        post "promote_session"
         get "make_schedule"
       end
     end

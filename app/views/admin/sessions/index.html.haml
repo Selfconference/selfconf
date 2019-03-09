@@ -24,7 +24,7 @@
             = ": #{@sessions.where(talktype: 'tech').count}"
           .pull-right
             = link_to "Export Sessions", export_admin_sessions_path, class: "button export orange-button"
-            %button.promote.button.purple-button Promote selected to sessions
+            %button.promote.button.purple-button Update Selected Sessions
           %table.datatable.table.table-striped.table-bordered{data: { pagelength: 35, sortcolumn: 1, sortorder: 'desc' }}
             %thead
               %tr
@@ -36,7 +36,7 @@
               - @sessions.each do |session|
                 %tr
                   %td
-                    = check_box_tag 'selected', '0', false, class: 'selected', data: { id: session.id } unless session.selected
+                    = check_box_tag 'selected', session.id, session.selected, class: 'selected'
                   %td
                     .center-wrapper
                       = session.total_votes
