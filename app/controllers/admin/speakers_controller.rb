@@ -1,13 +1,10 @@
 class Admin::SpeakersController < ApplicationController
   before_action :authenticate_speaker!
   before_action :authorize_admin!
+  before_action :speaker
 
   def list_users
-    @speakers = Speaker.all
-  end
-
-  def edit
-    @speaker = Speaker.find(params[:id])
+    @speakers = Speaker.includes(:roles).all
   end
 
   def update
@@ -50,23 +47,28 @@ class Admin::SpeakersController < ApplicationController
   def make_selector
     role = Role.find_by(name: "selector")
     toggle_role(role)
-    redirect_to list_users_admin_speakers_path
+    render json: @speaker.to_json(methods: [:selector?, :admin?])
   end
 
   def make_admin
     role = Role.find_by(name: "admin")
     toggle_role(role)
-    redirect_to list_users_admin_speakers_path
+    render json: @speaker.to_json(methods: [:selector?, :admin?])
   end
 
   private
 
   def toggle_role(role)
-    speaker = Speaker.find(params[:id])
-    if speaker.roles.include? role
-      speaker.roles.delete(role)
+    if @speaker.roles.include? role
+      @speaker.roles.delete(role)
     else
-      speaker.roles << role
+      @speaker.roles << role
+    end
+  end
+
+  def speaker
+    if params[:id]
+      @speaker = Speaker.find(params[:id])
     end
   end
 

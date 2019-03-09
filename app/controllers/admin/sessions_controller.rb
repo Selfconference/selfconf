@@ -34,6 +34,6 @@ class Admin::SessionsController < ApplicationController
   private
 
   def sessions
-    @sessions ||= Session.includes(:speakers).includes(:votes).where(event_id: @event)
+    @sessions = Session.includes(:speakers).includes(:votes).where(event_id: @event)
   end
 end
