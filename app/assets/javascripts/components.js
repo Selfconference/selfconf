@@ -1,3 +1,3 @@
 //= require components/mixins/simpleFormatMixin
-//= require components/sessions
-//= require components/session
+//= require components/selection/sessions
+//= require components/selection/session
