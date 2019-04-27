@@ -8,6 +8,12 @@
     @setState(users: users)
 
   componentDidMount: () ->
+    @initializeDataTables()
+
+  componentDidUpdate: () ->
+    @initializeDataTables()
+
+  initializeDataTables: () ->
     table = $('.datatable')
     datatable = table.dataTable
       pageLength: table.data('pagelength') || 10
