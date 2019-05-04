@@ -11,7 +11,7 @@
             %table.table.table-striped.table-bordered
               %tr
                 %td
-                  -@event.rooms.map(&:name).each do |room|
+                  -@event.venue.rooms.map(&:name).each do |room|
                     %td.room-name
                       %h5= room
 
@@ -19,7 +19,7 @@
                 %tr
                   %td
                     %h5= slot.time_slot
-                  -@event.rooms.map(&:id).each do |room|
+                  -@event.venue.rooms.map(&:id).each do |room|
                     %td.slot{ data: { slot: slot.id, room: room }}
                       - if session = slot.sessions.selected.where(room: room).first
                         - session = session.decorate
