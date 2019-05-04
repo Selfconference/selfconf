@@ -33,7 +33,7 @@
   .form-group
     = f.label :room_id, "Room", class: 'col-md-2 control-label'
     .col-md-10
-      = f.select :room_id, @event.rooms.collect { |r| [ r.name, r.id ] }, {include_blank: "--"}, {class: 'form-control'}
+      = f.select :room_id, @event.venue.rooms.collect { |r| [ r.name, r.id ] }, {include_blank: "--"}, {class: 'form-control'}
 
   .form-group
     = f.label :slot, class: 'col-md-2 control-label'

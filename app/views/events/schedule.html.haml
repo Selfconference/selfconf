@@ -9,14 +9,14 @@
           %table.table.table-striped.table-bordered
             %tr
               %td.col-md-1
-                - @event.rooms.pluck(:name).each do |room|
+                - @event.venue.rooms.pluck(:name).each do |room|
                   %td.col-md-2
                     %h5= room
             - slots.each do |slot|
               %tr
                 %td.col-md-1
                   %h5= slot.time_slot
-                - @event.rooms.each do |room|
+                - @event.venue.rooms.each do |room|
                   %td.col-md-2
                     - if session = slot.sessions.selected.where(room: room).first
                       - session = session.decorate
@@ -32,7 +32,7 @@
             - slots.each do |slot|
               %ul
                 %h5= slot.time_slot
-                - @event.rooms.each do |room|
+                - @event.venue.rooms.each do |room|
                   - if session = slot.sessions.selected.where(room: room).first
                     - session = session.decorate
                     %li

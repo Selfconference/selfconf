@@ -22,7 +22,7 @@ class Admin::SessionsController < ApplicationController
   def make_schedule
     @schedule = @event.slots.includes(sessions: [:room, :speakers]).where(sessions: {selected: true}).group_by {|s| s.time.to_date}
     @sessions = @event.sessions.includes(:speakers).selected.where("slot_id IS NULL").decorate
-    @rooms = @event.rooms
+    @rooms = @event.venue.rooms
   end
 
   def schedule
