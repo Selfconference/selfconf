@@ -21,8 +21,8 @@
                   - session = slot.sessions.selected.where(room: room).first
                   - if session && session.talktype.eql?("ops")
                     - ops = false
-                    %td{colspan: 4}
-                      = session.name
+                    %td{colspan: 4, class: session.id}
+                      = simple_format session.name
                   - elsif session
                     %td
                       - session = session.decorate
@@ -43,6 +43,6 @@
                     - session = session.decorate
                     %li
                       - if session.talktype.eql?("ops")
-                        = session.name
+                        = simple_format session.name
                       - else
                         = link_to "#{room.name}: #{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
