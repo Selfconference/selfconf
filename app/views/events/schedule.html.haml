@@ -13,18 +13,23 @@
                   %td.col-md-2
                     %h5= room
             - slots.each do |slot|
+              - ops = true
               %tr
                 %td.col-md-1
                   %h5= slot.time_slot
                 - @event.venue.rooms.each do |room|
-                - if session = slot.sessions.selected.where(room: room).first
-                  - session = session.decorate
-                  - if session.speakers.count > 0
-                    %td.col-md-2
-                        =link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
-                  - else
-                    %td.col-md-6
-                        = session.name
+                  - session = slot.sessions.selected.where(room: room).first
+                  - if session && session.talktype.eql?("ops")
+                    - ops = false
+                    %td{colspan: 4}
+                      = session.name
+                  - elsif session
+                    %td
+                      - session = session.decorate
+                      = link_to "#{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                  - elsif ops
+                    %td
+
 
       .col-md-12.visible-xs-block.visible-sm-block.phone-schedule
         - @schedule.each do |day, slots|
@@ -37,7 +42,7 @@
                   - if session = slot.sessions.selected.where(room: room).first
                     - session = session.decorate
                     %li
-                      - if session.speakers.count > 0
+                      - if session.talktype.eql?("ops")
                         = session.name
                       - else
-                        =link_to "#{room.name}: #{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
+                        = link_to "#{room.name}: #{session.speaker_names}: #{session.name}", "sessions#session_#{session.id}"
