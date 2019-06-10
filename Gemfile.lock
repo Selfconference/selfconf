@@ -192,6 +192,10 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_real_favicon (0.0.12)
+      json (>= 1.7, < 3)
+      rails (>= 3.1)
+      rubyzip (~> 1)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.2.0)
@@ -228,6 +232,7 @@ GEM
     ruby-progressbar (1.10.0)
     ruby_parser (3.11.0)
       sexp_processor (~> 4.9)
+    rubyzip (1.2.3)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -303,6 +308,7 @@ DEPENDENCIES
   pundit
   rails
   rails_12factor
+  rails_real_favicon
   react-rails
   sass-rails
   sdoc
@@ -317,4 +323,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.17.3

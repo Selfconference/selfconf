@@ -36,4 +36,5 @@ group :development, :test do
   gem "awesome_print"
   gem "spring"
   gem "seed_dump"
+  gem 'rails_real_favicon'
 end

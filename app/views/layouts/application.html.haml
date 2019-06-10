@@ -10,11 +10,12 @@
     %meta{:content => @event.name, :property => "og:site_name"}/
     %meta{:content => @event.about, :property => "og:description"}/
     %meta{:content => @event.about, :name => "description"}/
-    %title= @title
+    %title= @event.name
     = csrf_meta_tags
     = javascript_include_tag "application"
     = stylesheet_link_tag "application", :media => "all"
   %body{"data-spy" => "scroll", "data-target" => ".navbar"}
+    = render 'application/favicon'
     = yield :nav
     .top_block
       .container
