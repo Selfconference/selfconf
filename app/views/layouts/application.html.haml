@@ -32,11 +32,14 @@
     = render partial: "shared/flashes"
     = yield
 
-    .container
-      .row
-        .col-md-12
-          %a{:href => "http://twitter.com/#{@event.twitter}"}
-            =image_tag "twitter.png", {class: "footer-twitter"}
+    .footer
+      .container
+        .row
+          .col-md-12
+            .italic.center
+              a
+              = link_to "selfdot", "https://selfdot.org"
+              event
 
 
     :javascript
