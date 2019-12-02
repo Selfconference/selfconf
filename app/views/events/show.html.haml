@@ -56,7 +56,7 @@
               - @event.timelines.includes(:timeline_type).each do |timeline|
                 %li
                   %span.bold.purple-color= timeline.when.strftime("%B %e: ")
-                  = timeline.timeline_type.name
+                  = simple_format timeline.timeline_type.name
           - else
             (No timeline yet!)
 
@@ -100,7 +100,7 @@
       .row
         .col-md-12
           %h4= @event.venue.name
-          %p= @event.venue.about
+          %p= simple_format @event.venue.about
           -if @event.venue.reservation
             %p
               Need a place to stay?
