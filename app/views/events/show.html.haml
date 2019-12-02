@@ -56,7 +56,7 @@
               - @event.timelines.includes(:timeline_type).each do |timeline|
                 %li
                   %span.bold.purple-color= timeline.when.strftime("%B %e: ")
-                  = simple_format timeline.timeline_type.name
+                  = simple_format timeline.timeline_type.name, {}, wrapper_tag: 'span'
           - else
             (No timeline yet!)
 
